@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>案例分享 | 大璽國際顧問股份有限公司</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#191b27",
+              "on-surface-variant": "#454652",
+              "on-tertiary-container": "#889bff",
+              "surface-container": "#ececfe",
+              "outline-variant": "#c6c5d4",
+              "inverse-on-surface": "#f0efff",
+              "on-error": "#ffffff",
+              "on-secondary-container": "#1c2e8c",
+              "on-primary-container": "#ff7681",
+              "secondary-fixed": "#dee0ff",
+              "surface-tint": "#be0036",
+              "inverse-primary": "#ffb3b5",
+              "tertiary-fixed": "#dee1ff",
+              "on-secondary-fixed": "#000f5c",
+              "secondary-fixed-dim": "#bbc3ff",
+              "secondary": "#4656b3",
+              "surface-container-low": "#f3f2ff",
+              "surface-variant": "#e1e1f2",
+              "on-tertiary-fixed-variant": "#283d9c",
+              "secondary-container": "#8c9cfe",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed-dim": "#b9c3ff",
+              "primary-fixed-dim": "#ffb3b5",
+              "on-secondary": "#ffffff",
+              "error-container": "#ffdad6",
+              "surface-container-high": "#e7e7f8",
+              "tertiary-container": "#152d8d",
+              "on-primary-fixed-variant": "#920027",
+              "on-primary-fixed": "#40000c",
+              "on-secondary-fixed-variant": "#2c3d9a",
+              "on-surface": "#191b27",
+              "surface-container-highest": "#e1e1f2",
+              "primary-container": "#76001e",
+              "error": "#ba1a1a",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#fbf8ff",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#2e303c",
+              "on-primary": "#ffffff",
+              "primary": "#4e0010",
+              "outline": "#767683",
+              "surface-dim": "#d8d9e9",
+              "tertiary": "#00176a",
+              "on-tertiary-fixed": "#001258",
+              "background": "#fbf8ff",
+              "primary-fixed": "#ffdada",
+              "surface-bright": "#fbf8ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "Noto Sans TC"],
+              "body": ["Inter", "Noto Sans TC"],
+              "label": ["Inter", "Noto Sans TC"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body { font-family: 'Inter', 'Noto Sans TC', sans-serif; }
+      .headline-font { font-family: 'Manrope', 'Noto Sans TC', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full h-[72px] z-50 bg-[#00176A] flex justify-between items-center px-8 md:px-16 shadow-[0_24px_24px_-4px_rgba(27,45,139,0.08)]">
+<div class="text-2xl font-bold text-white uppercase tracking-tight headline-font">
+            大璽國際顧問 DASI
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="font-['Manrope'] font-semibold text-sm tracking-wider text-white/90 hover:text-[#FFB3B5] transition-colors duration-300" href="index.html">首頁</a>
+<a class="font-['Manrope'] font-semibold text-sm tracking-wider text-white/90 hover:text-[#FFB3B5] transition-colors duration-300" href="about.html">關於我們</a>
+<a class="font-['Manrope'] font-semibold text-sm tracking-wider text-white/90 hover:text-[#FFB3B5] transition-colors duration-300" href="services.html">專業服務</a>
+<a class="font-['Manrope'] font-semibold text-sm tracking-wider text-[#FFB3B5] border-b-2 border-[#BE0036] pb-1 transition-colors duration-300" href="insights.html">案例分享</a>
+<a class="font-['Manrope'] font-semibold text-sm tracking-wider text-white/90 hover:text-[#FFB3B5] transition-colors duration-300" href="contact.html">聯繫我們</a>
+</div>
+<a href="contact.html" class="bg-[#BE0036] text-white px-6 py-2 rounded-lg font-semibold text-sm hover:opacity-90 transition-all active:scale-95 shadow-lg">
+            預約諮詢
+        </a>
+</nav>
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="bg-tertiary py-20 px-8 md:px-16 flex items-center justify-center text-center">
+<div class="max-w-4xl">
+<h1 class="text-4xl md:text-6xl font-extrabold text-white headline-font tracking-tight mb-4">案例分享</h1>
+<div class="h-1 w-24 bg-surface-tint mx-auto"></div>
+<p class="mt-6 text-white/80 text-lg max-w-2xl mx-auto font-body">
+                    深入探討我們如何協助各產業領導者實現卓越財稅轉型與持續增長。
+                </p>
+</div>
+</section>
+<!-- Filter Bar -->
+<section class="bg-surface-container-low py-6 px-8 md:px-16 sticky top-[72px] z-40">
+<div class="max-w-7xl mx-auto flex flex-wrap items-center gap-4">
+<span class="text-on-surface-variant font-bold text-sm uppercase tracking-widest mr-4">篩選類別</span>
+<button class="px-6 py-2 rounded-full bg-tertiary text-white text-sm font-semibold transition-all">全部案例</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium hover:bg-secondary-container hover:text-on-secondary-container transition-all">IPO 上市輔導</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium hover:bg-secondary-container hover:text-on-secondary-container transition-all">稅務規劃</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium hover:bg-secondary-container hover:text-on-secondary-container transition-all">高資產節稅</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium hover:bg-secondary-container hover:text-on-secondary-container transition-all">政府補助</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-lowest text-on-surface-variant text-sm font-medium hover:bg-secondary-container hover:text-on-secondary-container transition-all">行政救濟</button>
+</div>
+</section>
+<!-- Featured Article -->
+<section class="py-16 px-8 md:px-16 max-w-7xl mx-auto">
+<div class="bg-tertiary rounded-xl overflow-hidden flex flex-col lg:flex-row shadow-2xl">
+<div class="lg:w-3/5 relative min-h-[400px]">
+<img alt="IPO輔導精選案例：製造業轉型上市歷程" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi7nfPuYTnzzAikjd5yiGhsDBXh4oHt5vnJf7d5wSS1y5-n1LHJoLDuOK1ZZtTowfseN3UTn3ZXxrc4K5ahqsrgP4hL8EMCNwKRzbvp1HU4t_uPY0ypbn09kEp_U905NuTTIRe1c_I2S-MYfXvTHMeD5i-mqbmk3J2bdRp52hnWJ7aMxIcuYssuNbIPOrWQGqgtcACtgGJgNzGXkeguFERtCQym1yzcLTYyvvfbNzA2ZVzfje9QAdOtLYrZUgwGHz96SCV35JEMVk"/>
+<div class="absolute inset-0 bg-tertiary/20"></div>
+</div>
+<div class="lg:w-2/5 p-12 flex flex-col justify-center text-white">
+<div class="mb-4 inline-block px-3 py-1 rounded bg-surface-tint text-white text-[10px] font-bold tracking-[0.2em] uppercase">
+                        精選案例 · IPO 上市輔導
+                    </div>
+<h2 class="text-3xl md:text-4xl font-bold mb-6 headline-font leading-tight">
+                        IPO 前財務整理：一家精密製造業的轉型歷程
+                    </h2>
+<p class="text-white/80 mb-8 font-body leading-relaxed text-lg">
+                        一家本土精密製造業者在尋求資本市場對接前，面臨財務架構不透明、內控制度薄弱等挑戰。大璽顧問系統性介入，歷時十八個月完成上市前整備，成功取得主辦券商承銷資格。
+                    </p>
+<div>
+<a href="contact.html" class="bg-surface-tint hover:bg-primary-container text-white px-8 py-3 rounded font-bold transition-all inline-flex items-center gap-2 group">
+                            聯繫諮詢
+                            <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Article Grid -->
+<section class="pb-24 px-8 md:px-16 max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+<!-- Card 1 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-xl mb-6 bg-surface-container-high aspect-video">
+<img alt="跨境電商稅務架構優化案例" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTILjI-qZ7ghIEPuV4k00uftKEVIsz8Az4xrNwROT347OXeQlK-rvH2dvYEf8eq_JciRS_X1A4A1cZ6GyztT6WBF6p3hc7_kjzGwv5wtKz7xZc4IN-eI11dgEkKqNtmtcSrTt7h6iesprrLRZx3wUay2ytHupsZKXAAAazKp2t8sxk-Xyf-HObUczaqznc39D1XK5YmVl6ZLTtEYdArQiWfrQ8rJJpsl3_OgjL_wtnbeNXPyRPnji_wRsuAPX2B2PVaJ6TA6qSuKo"/>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-surface-container-low text-tertiary text-xs font-bold rounded-full">稅務規劃</span>
+<span class="text-on-surface-variant text-xs font-medium">2025.02</span>
+</div>
+<h3 class="text-xl font-bold mb-4 headline-font text-on-surface group-hover:text-tertiary transition-colors">
+                        跨境電商稅務架構優化：移轉訂價與 CRS 合規
+                    </h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-3 font-body">
+                        解析跨國電商企業如何透過移轉訂價規劃與租稅協定應用，在合規前提下實現全球稅務效益最大化，並符合 CRS 資訊揭露要求。
+                    </p>
+<a class="text-surface-tint font-bold text-sm inline-flex items-center group/link" href="contact.html">
+                        了解更多
+                        <span class="material-symbols-outlined ml-1 text-base group-hover/link:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-xl mb-6 bg-surface-container-high aspect-video">
+<img alt="餐飲業集團股權重整與高資產節稅規劃" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCezxg7GsU6z-VkKLaQnxsDg3yMMWncQm9jKCB2VUoUTe9vO5yohPIVq1Amz3EmLUEzNiwSGA78ZV7nxhcx2fhAkaRwtc26-RuX_xZH1OqCMmxOXNpDJxX-tlge-Oeg6IDvXCyqTKNCOVmA2U8JS6bW6qpFP9eVjswgJXRDZOxHTEa7C0fSukdbR_F27bFy88VtmkQL_J3xT1kqvccyvX_KH_b2u9EUiQdvIE0cOlLVetiiGzky7ePkKQVLcHTCKd-zybtpAQ04J-I"/>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-surface-container-low text-tertiary text-xs font-bold rounded-full">高資產節稅</span>
+<span class="text-on-surface-variant text-xs font-medium">2025.01</span>
+</div>
+<h3 class="text-xl font-bold mb-4 headline-font text-on-surface group-hover:text-tertiary transition-colors">
+                        餐飲業集團股權重整與高資產節稅規劃
+                    </h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-3 font-body">
+                        一家連鎖餐飲集團在拓展海外市場前，如何系統性重整控股架構，結合信託工具降低整體稅務成本並強化資產保護。
+                    </p>
+<a class="text-surface-tint font-bold text-sm inline-flex items-center group/link" href="contact.html">
+                        了解更多
+                        <span class="material-symbols-outlined ml-1 text-base group-hover/link:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-xl mb-6 bg-surface-container-high aspect-video">
+<img alt="科技業補稅爭議行政救濟全流程解析" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqXMIy_ZWi8e6KUi-KJmR9CMe_5kYbj67SQlb9tEebvF2d2m4RIuslpQAZPE9K3-5L5mBy-69Dj-7x1ouGSsT-6AGvrAySbxpXvnwYqz3c6iIZc1SzghR4N285js1qc1hrP5HQHyVDcpa9gR0hxxqRkegtoBlPRYWVADLTnpDrpWqo9ACi_xR2g8uc70XdyGSedcNdw5xVG0qFx30-jbPBOJ5XeOdtfUFKDmHB0W2R9g7YY2BWbOy89qluLM-ciEOPH5OE3pVATms"/>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-surface-container-low text-tertiary text-xs font-bold rounded-full">行政救濟</span>
+<span class="text-on-surface-variant text-xs font-medium">2024.12</span>
+</div>
+<h3 class="text-xl font-bold mb-4 headline-font text-on-surface group-hover:text-tertiary transition-colors">
+                        科技業補稅爭議：覆核申請至訴願全流程解析
+                    </h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-3 font-body">
+                        詳述大璽顧問如何協助一家科技公司應對稅局補稅處分，從覆核申請到訴願的完整救濟歷程與關鍵策略抉擇。
+                    </p>
+<a class="text-surface-tint font-bold text-sm inline-flex items-center group/link" href="contact.html">
+                        了解更多
+                        <span class="material-symbols-outlined ml-1 text-base group-hover/link:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+<!-- Card 4 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-xl mb-6 bg-surface-container-high aspect-video">
+<img alt="食品業研發投資抵減政府補助申請案例" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmqhYu-LB9cVQsuc0Aftt0vVWhXDX-_Usoc6kU3pgiIuGU5kGoWTMbp3JvqxIxuGTlyHZvoiiqzRD5czcpzOkR3dC9IDZskxGL9jsMuXvwWXBp90qHMx6PIotiWPMTM0ArAdp3kZpIOWpeK4UBHeGC_tFsuyRj0bLeEftVmyAu02HeCxXL3KKtoJKyINZ1aQa2WHxbToklYS0zqNXlkAcqXnjBRKn7XjvH0hpKrPk-0ynXAPnrtJBPjyxjgUhjDhoHpG_YiZT8SMQ"/>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-surface-container-low text-tertiary text-xs font-bold rounded-full">政府補助</span>
+<span class="text-on-surface-variant text-xs font-medium">2024.11</span>
+</div>
+<h3 class="text-xl font-bold mb-4 headline-font text-on-surface group-hover:text-tertiary transition-colors">
+                        食品業研發投資抵減申請實戰案例
+                    </h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-3 font-body">
+                        食品業者如何透過大璽顧問協助，完整申請研究發展費用抵減，成功取得可觀的稅負減免，強化研發投入的財務效益。
+                    </p>
+<a class="text-surface-tint font-bold text-sm inline-flex items-center group/link" href="contact.html">
+                        了解更多
+                        <span class="material-symbols-outlined ml-1 text-base group-hover/link:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+<!-- Card 5 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-xl mb-6 bg-surface-container-high aspect-video">
+<img alt="企業家族辦公室傳承策略資產保護" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1K695s321NyqYy0vrM5k62YyKIRSk-FFwBmJRpasHstbQqW8upwETJjvMbP6N7mMpWvHqbHVTvW71KZQfQzk4-7EivMHKmXux6UOmcX3HY7U3t7TdSxxIqaumIZ0tbsmIOH0_Ve75lyzPhLTBiW5oDVWJRaidDaWLmalqeO3imYlQEl4GO0zPzLjp-Q_clC_wRys_PoVfgvbK9kvlExXfMQQ4-GIcYFlFVa34RkDQ58Rib5WtfbSmWxx57naYJNLPLjmvMVo37P0"/>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-surface-container-low text-tertiary text-xs font-bold rounded-full">高資產節稅</span>
+<span class="text-on-surface-variant text-xs font-medium">2024.10</span>
+</div>
+<h3 class="text-xl font-bold mb-4 headline-font text-on-surface group-hover:text-tertiary transition-colors">
+                        企業家族辦公室：傳承策略與資產保護深度解析
+                    </h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-3 font-body">
+                        透過專業的信託與法律架構，確保企業家族資產在世代更迭中保持穩健增值，並兼顧家族治理的長期和諧。
+                    </p>
+<a class="text-surface-tint font-bold text-sm inline-flex items-center group/link" href="contact.html">
+                        了解更多
+                        <span class="material-symbols-outlined ml-1 text-base group-hover/link:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+<!-- Card 6 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-xl mb-6 bg-surface-container-high aspect-video">
+<img alt="零售業南向投資東南亞市場進入策略" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRSJzA6WFkAXoC27YMIlj_yYBK4TOJEjfGxGN0UPNTRSA03_TDtnxQxr_rSzgAoQV7Xqg1YQEGXJWnTvX9NAs6V8MXT3IG_-WZNQwHiXlWbAcLIwEKDXnU4N_l8bfX-9xyzidiwrD_G4r16fH1eiI0HWvJ2hVK3uWIcR4WE34Is9vNuS32FW3atv099p8aPs0rA8naMQ8TrIHG7mG6cdkGYOIGFdatg_oe_Aq2Zc2tYRIf7tFfhHOqQgZRsv2JuyRF7JfdZwtdW0Y"/>
+</div>
+<div class="flex items-center gap-4 mb-4">
+<span class="px-3 py-1 bg-surface-container-low text-tertiary text-xs font-bold rounded-full">稅務規劃</span>
+<span class="text-on-surface-variant text-xs font-medium">2024.09</span>
+</div>
+<h3 class="text-xl font-bold mb-4 headline-font text-on-surface group-hover:text-tertiary transition-colors">
+                        製造業南向布局：越南投資稅務架構規劃
+                    </h3>
+<p class="text-on-surface-variant text-sm mb-6 line-clamp-3 font-body">
+                        詳細解析製造業赴越南設廠所涉及的租稅協定應用、移轉訂價規範及當地投資優惠申請流程，提供實質參考依據。
+                    </p>
+<a class="text-surface-tint font-bold text-sm inline-flex items-center group/link" href="contact.html">
+                        了解更多
+                        <span class="material-symbols-outlined ml-1 text-base group-hover/link:translate-x-1 transition-transform">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg bg-tertiary text-white font-bold">1</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-all">2</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-all">3</button>
+<button class="w-10 h-10 flex items-center justify-center rounded-lg border border-outline-variant text-on-surface-variant hover:bg-surface-container-low transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="bg-surface-container-high py-20 px-8 md:px-16">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-3xl font-bold mb-6 headline-font text-on-surface">訂閱專業洞察</h2>
+<p class="text-on-surface-variant mb-10 font-body">第一時間獲取大璽國際顧問的最新案例、市場趨勢與專業分析報告。</p>
+<div class="flex flex-col md:flex-row gap-4">
+<input class="flex-grow bg-surface-container-lowest border-none rounded-lg px-6 py-4 text-on-surface focus:ring-2 focus:ring-secondary transition-all" placeholder="您的電子郵件地址" type="email"/>
+<button class="bg-tertiary text-white px-10 py-4 rounded-lg font-bold hover:opacity-90 transition-all">立即訂閱</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#00176A] w-full pt-16 pb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 md:px-24 max-w-7xl mx-auto">
+<div>
+<div class="text-xl font-bold text-white mb-2 headline-font">大璽國際顧問 DASI</div>
+<p class="font-['Inter'] text-sm leading-relaxed text-slate-300 mt-4">
+                    大璽國際顧問提供卓越的整合性顧問服務，協助企業在變動的環境中掌握商機，達成長期策略目標。
+                </p>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">快速連結</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-[#BE0036] transition-all text-sm" href="index.html">首頁</a></li>
+<li><a class="text-slate-400 hover:text-[#BE0036] transition-all text-sm" href="about.html">關於我們</a></li>
+<li><a class="text-slate-400 hover:text-[#BE0036] transition-all text-sm" href="services.html">專業服務</a></li>
+<li><a class="text-white font-medium text-sm" href="insights.html">案例分享</a></li>
+<li><a class="text-slate-400 hover:text-[#BE0036] transition-all text-sm" href="contact.html">聯繫我們</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold mb-6">聯絡資訊</h4>
+<ul class="space-y-4 text-sm text-slate-300">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-surface-tint">location_on</span>
+                        台北市中正區羅斯福路三段 158 號 4 樓
+                    </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-surface-tint">call</span>
+                        02-2366-0277 分機 20
+                    </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-surface-tint">fax</span>
+                        02-2366-0365
+                    </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-surface-tint">mail</span>
+                        pamela@dasi-int.com.tw
+                    </li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 md:px-24 mt-16 pt-8 border-t border-white/10 text-center">
+<p class="font-['Inter'] text-sm leading-relaxed text-slate-400">
+                © 2025 大璽國際顧問股份有限公司. All Rights Reserved.
+            </p>
+</div>
+</footer>
+</body></html>
