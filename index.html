@@ -3,88 +3,319 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>大璽國際顧問股份有限公司 — 網站風格選擇</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=Noto+Serif+TC:wght@300;400;500&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet"/>
+<title>大璽國際顧問 — 網站風格提案</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Noto+Serif+TC:wght@200;300;400&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet"/>
 <style>
-  body { background-color: #0d1a4a; color: #f0efff; font-family: 'Inter', 'Noto Sans TC', sans-serif; min-height: 100vh; }
-  .card { transition: transform 0.25s ease, box-shadow 0.25s ease; }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 24px 48px -8px rgba(0,0,0,0.5); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --indigo: #1B2D8B;
+    --crimson: #E31445;
+    --bg: #0B1640;
+    --bg2: #0f1d52;
+    --border: rgba(255,255,255,0.08);
+  }
+
+  body {
+    background-color: var(--bg);
+    color: #e8e6ff;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Hero */
+  .hero {
+    width: 100%;
+    text-align: center;
+    padding: 80px 24px 64px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 20px;
+  }
+  .hero-title {
+    font-family: 'Newsreader', 'Noto Serif TC', serif;
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+  }
+
+  /* Grid */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 64px 40px;
+  }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; padding: 40px 24px; gap: 24px; }
+  }
+
+  /* Card */
+  .card {
+    display: flex;
+    flex-direction: column;
+    padding: 0 32px;
+    border-right: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.2s;
+  }
+  .card:last-child { border-right: none; }
+  @media (max-width: 900px) {
+    .card { border-right: none; border-bottom: 1px solid var(--border); padding: 0 0 40px; }
+    .card:last-child { border-bottom: none; }
+  }
+
+  /* Preview */
+  .preview {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    position: relative;
+  }
+  .preview-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .preview-glyph {
+    font-family: 'Newsreader', 'Noto Serif TC', serif;
+    font-size: 52px;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .preview-tag {
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    opacity: 0.5;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Style previews */
+  .preview-1 { background: linear-gradient(160deg, #120820 0%, #1a0d30 40%, #0d1640 100%); }
+  .preview-1 .preview-glyph { color: #D4AF6A; }
+  .preview-1 .preview-tag { color: #D4AF6A; }
+  .preview-1::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 80%, rgba(212,175,106,0.08) 0%, transparent 70%);
+  }
+
+  .preview-2 { background: #F5F2ED; }
+  .preview-2 .preview-glyph { color: #1B2D8B; font-size: 64px; font-weight: 200; }
+  .preview-2 .preview-tag { color: #1B2D8B; }
+
+  .preview-3 { background: #1B2D8B; }
+  .preview-3 .preview-glyph {
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+  }
+  .preview-3 .preview-tag { color: rgba(255,255,255,0.5); }
+
+  /* Card body */
+  .card-num {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+  }
+  .card-title {
+    font-family: 'Newsreader', 'Noto Serif TC', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  .card-desc {
+    font-size: 13px;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+    flex-grow: 1;
+    margin-bottom: 24px;
+  }
+
+  /* Actions */
+  .card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+  }
+  .btn-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .btn-main:hover { opacity: 0.85; transform: translateX(3px); }
+  .btn-main .arrow { font-size: 16px; }
+
+  .btn-main-1 { background: rgba(212,175,106,0.12); color: #D4AF6A; border: 1px solid rgba(212,175,106,0.2); }
+  .btn-main-2 { background: rgba(227,20,69,0.1); color: #E31445; border: 1px solid rgba(227,20,69,0.2); }
+  .btn-main-3 { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
+
+  .btn-ci {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+    letter-spacing: 0.05em;
+  }
+  .btn-ci:hover { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.2); }
+  .btn-ci svg { width: 13px; height: 13px; opacity: 0.6; }
+
+  /* Divider */
+  .divider {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+    margin-bottom: 40px;
+  }
+  .divider hr { border: none; border-top: 1px solid var(--border); }
+
+  /* Footer */
+  footer {
+    width: 100%;
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.05em;
+    line-height: 2;
+    border-top: 1px solid var(--border);
+  }
 </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen px-6 py-16">
-<div class="text-center mb-16">
-  <p class="text-sm tracking-[0.25em] uppercase text-slate-400 mb-4">大璽國際顧問股份有限公司</p>
-  <h1 class="text-4xl md:text-5xl font-light tracking-tight" style="font-family:'Newsreader','Noto Serif TC',serif;">
-    選擇網站風格
-  </h1>
-  <p class="mt-4 text-slate-400 text-lg">三套完整設計方案，請選擇您偏好的視覺風格。</p>
+<body>
+
+<div class="hero">
+  <p class="hero-label">大璽國際顧問股份有限公司　網站風格提案</p>
+  <h1 class="hero-title">三套視覺方向，<br>請選擇您偏好的風格。</h1>
+  <p class="hero-sub">點擊卡片進入完整示意頁面，或查看 CI 色彩規範。</p>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl">
+
+<div class="grid">
+
   <!-- Style 1 -->
-  <a href="style1/index.html" class="card block rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
-    <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #1a0a1e 0%, #2d1040 50%, #1e0a30 100%);">
-      <div class="text-center px-6">
-        <div class="text-3xl font-bold text-amber-300 mb-2" style="font-family:'Newsreader','Noto Serif TC',serif;">璽</div>
-        <div class="text-xs tracking-[0.2em] text-amber-200/60 uppercase">Dark Indigo &amp; Gold</div>
+  <div class="card">
+    <div class="preview preview-1">
+      <div class="preview-inner">
+        <div class="preview-glyph">璽</div>
+        <div class="preview-tag">Dark Indigo &amp; Gold</div>
       </div>
     </div>
-    <div class="p-6">
-      <h2 class="text-xl font-semibold mb-2" style="font-family:'Newsreader','Noto Serif TC',serif;">風格一：靛藍金韻</h2>
-      <p class="text-slate-400 text-sm leading-relaxed">深邃的靛藍底色搭配金色點綴，呈現高端精英的顧問質感，暗色系沉穩大氣。</p>
-      <div class="mt-4 flex items-center justify-between">
-        <div class="flex items-center gap-2 text-amber-300 text-sm font-medium">
-          <span>進入風格一</span>
-          <span>&#8594;</span>
-        </div>
-        <a href="style1/ci.html" onclick="event.stopPropagation();" class="text-xs text-slate-500 hover:text-slate-300 border border-white/10 rounded px-2 py-1 transition-colors">CI 規範</a>
-      </div>
+    <div class="card-num">Style 01</div>
+    <div class="card-title">靛藍金韻</div>
+    <p class="card-desc">以深邃暗色為底，靛藍與金色交織，呈現高端精英的顧問質感。沉穩大氣，適合強調品牌厚度與專業信賴感。</p>
+    <div class="card-actions">
+      <a href="style1/index.html" class="btn-main btn-main-1">
+        <span>進入風格一</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style1/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
     </div>
-  </a>
+  </div>
+
   <!-- Style 2 -->
-  <a href="style2/index.html" class="card block rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
-    <div class="h-48 flex items-center justify-center" style="background: #F5F2ED;">
-      <div class="text-center px-6">
-        <div class="text-5xl font-light text-[#1B2D8B] mb-2" style="font-family:'Newsreader','Noto Serif TC',serif;">璽</div>
-        <div class="text-xs tracking-[0.2em] text-[#1B2D8B]/50 uppercase">Editorial Light</div>
+  <div class="card">
+    <div class="preview preview-2">
+      <div class="preview-inner">
+        <div class="preview-glyph">璽</div>
+        <div class="preview-tag">Editorial Light</div>
       </div>
     </div>
-    <div class="p-6">
-      <h2 class="text-xl font-semibold mb-2" style="font-family:'Newsreader','Noto Serif TC',serif;">風格二：留白書卷</h2>
-      <p class="text-slate-400 text-sm leading-relaxed">溫暖紙白底色搭配靛藍與緋紅，呈現雜誌式的編輯美學，清雅知性。</p>
-      <div class="mt-4 flex items-center justify-between">
-        <div class="flex items-center gap-2 text-[#E31445] text-sm font-medium">
-          <span>進入風格二</span>
-          <span>&#8594;</span>
-        </div>
-        <a href="style2/ci.html" onclick="event.stopPropagation();" class="text-xs text-slate-500 hover:text-slate-300 border border-white/10 rounded px-2 py-1 transition-colors">CI 規範</a>
-      </div>
+    <div class="card-num">Style 02</div>
+    <div class="card-title">留白書卷</div>
+    <p class="card-desc">溫暖紙白底色搭配靛藍與緋紅，呈現雜誌式的編輯美學。清雅知性，適合強調專業內涵與品牌溫度。</p>
+    <div class="card-actions">
+      <a href="style2/index.html" class="btn-main btn-main-2">
+        <span>進入風格二</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style2/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
     </div>
-  </a>
+  </div>
+
   <!-- Style 3 -->
-  <a href="style3/index.html" class="card block rounded-xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm">
-    <div class="h-48 flex items-center justify-center" style="background: linear-gradient(135deg, #00176A 0%, #152d8d 60%, #4656b3 100%);">
-      <div class="text-center px-6">
-        <div class="text-2xl font-extrabold text-white tracking-tight mb-2" style="font-family:'Inter','Noto Sans TC',sans-serif;">DASI</div>
-        <div class="text-xs tracking-[0.2em] text-white/50 uppercase">Corporate Authority</div>
+  <div class="card">
+    <div class="preview preview-3">
+      <div class="preview-inner">
+        <div class="preview-glyph">DASI</div>
+        <div class="preview-tag">Corporate Authority</div>
       </div>
     </div>
-    <div class="p-6">
-      <h2 class="text-xl font-semibold mb-2" style="font-family:'Newsreader','Noto Serif TC',serif;">風格三：靛藍權威</h2>
-      <p class="text-slate-400 text-sm leading-relaxed">深藍主色搭配現代圓角卡片佈局，呈現企業級的權威感與數位化的精準質感。</p>
-      <div class="mt-4 flex items-center justify-between">
-        <div class="flex items-center gap-2 text-[#FFB3B5] text-sm font-medium">
-          <span>進入風格三</span>
-          <span>&#8594;</span>
-        </div>
-        <a href="style3/ci.html" onclick="event.stopPropagation();" class="text-xs text-slate-500 hover:text-slate-300 border border-white/10 rounded px-2 py-1 transition-colors">CI 規範</a>
-      </div>
+    <div class="card-num">Style 03</div>
+    <div class="card-title">靛藍權威</div>
+    <p class="card-desc">深藍主色搭配現代版型，呈現企業級的權威感與數位化精準質感。清晰有力，適合強調國際視野與專業規模。</p>
+    <div class="card-actions">
+      <a href="style3/index.html" class="btn-main btn-main-3">
+        <span>進入風格三</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style3/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
     </div>
-  </a>
+  </div>
+
 </div>
-<div class="mt-16 text-center text-slate-500 text-sm">
-  <p>台北市中正區羅斯福路三段 158 號 4 樓　|　02-2366-0277 #20　|　pamela@dasi-int.com.tw</p>
-  <p class="mt-2">© 2025 大璽國際顧問股份有限公司</p>
-</div>
+
+<footer>
+  台北市中正區羅斯福路三段 158 號 4 樓　|　02-2366-0277 #20　|　pamela@dasi-int.com.tw<br>
+  © 2026 大璽國際顧問股份有限公司
+</footer>
+
 </body>
 </html>
