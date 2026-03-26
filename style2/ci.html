@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASI CI — Style 2: 留白書卷 Minimal Editorial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Noto+Serif+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — DASI Style 2: 留白書卷
+    ============================================================ */
+    :root {
+      --brand-indigo:   #1B2D8B;
+      --brand-crimson:  #E31445;
+      --paper-white:    #F5F2ED;
+      --cream:          #EBE7E0;
+      --warm-gray:      #C8C3BA;
+      --charcoal:       #2C2C2C;
+      --dark:           #1A1A1A;
+      --light:          #FAF8F5;
+
+      --font-heading-en:  'Newsreader', 'Noto Serif TC', Georgia, serif;
+      --font-heading-zh:  'Noto Serif TC', 'Newsreader', serif;
+      --font-body:        'Inter', 'Noto Sans TC', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper-white);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .page-wrap {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar TOC */
+    .sidebar {
+      width: 200px;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background: var(--paper-white);
+      border-right: 1px solid var(--warm-gray);
+      overflow-y: auto;
+      z-index: 100;
+      padding: 40px 0 40px;
+    }
+
+    .sidebar-brand {
+      padding: 0 24px 28px;
+      border-bottom: 1px solid var(--warm-gray);
+      margin-bottom: 24px;
+    }
+
+    .sidebar-brand .brand-name {
+      font-family: var(--font-heading-en);
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      color: var(--brand-indigo);
+    }
+
+    .sidebar-brand .brand-style {
+      font-size: 11px;
+      color: var(--warm-gray);
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    .toc-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      padding: 0 24px;
+      margin-bottom: 8px;
+    }
+
+    .toc-nav a {
+      display: block;
+      padding: 7px 24px;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.3s;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-nav a:hover {
+      color: var(--brand-indigo);
+      border-left-color: var(--brand-crimson);
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 200px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Sections */
+    .ci-section {
+      padding: 128px 80px;
+      border-bottom: 1px solid var(--warm-gray);
+      max-width: 1080px;
+    }
+
+    .ci-section:last-child {
+      border-bottom: none;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .ci-header {
+      padding: 100px 80px 128px;
+      background: var(--paper-white);
+      border-bottom: 1px solid var(--warm-gray);
+    }
+
+    .ci-header .style-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 32px;
+    }
+
+    .ci-header h1 {
+      font-family: var(--font-heading-en);
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .ci-header .subtitle {
+      font-family: var(--font-heading-zh);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--brand-indigo);
+      margin-bottom: 28px;
+    }
+
+    .ci-header .description {
+      font-size: 17px;
+      color: var(--charcoal);
+      max-width: 560px;
+      line-height: 1.9;
+      font-weight: 300;
+      margin-bottom: 56px;
+    }
+
+    .header-color-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .color-chip {
+      width: 40px;
+      height: 40px;
+    }
+
+    /* ============================================================
+       SECTION LABELS
+    ============================================================ */
+    .overline {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--warm-gray);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    /* ============================================================
+       SECTION HEADINGS
+    ============================================================ */
+    .section-heading {
+      font-family: var(--font-heading-en);
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--brand-indigo);
+      margin-bottom: 6px;
+    }
+
+    .section-heading-zh {
+      font-family: var(--font-heading-zh);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      margin-bottom: 56px;
+    }
+
+    hr.section-rule {
+      border: none;
+      border-top: 1px solid var(--warm-gray);
+      margin-bottom: 56px;
+    }
+
+    /* ============================================================
+       COLOR PALETTE
+    ============================================================ */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 32px;
+    }
+
+    .swatch-box {
+      height: 80px;
+      margin-bottom: 14px;
+    }
+
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--dark);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-size: 12px;
+      font-family: 'Courier New', monospace;
+      color: var(--warm-gray);
+      margin-bottom: 4px;
+    }
+
+    .swatch-usage {
+      font-size: 11px;
+      color: var(--warm-gray);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY SCALE
+    ============================================================ */
+    .type-row {
+      padding: 40px 0;
+      border-bottom: 1px solid var(--warm-gray);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .type-row:last-child {
+      border-bottom: none;
+    }
+
+    .type-meta {
+      font-size: 11px;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      padding-top: 6px;
+      font-weight: 400;
+    }
+
+    .type-meta strong {
+      display: block;
+      color: var(--charcoal);
+      font-size: 12px;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .t-h1 {
+      font-family: var(--font-heading-en);
+      font-size: 64px;
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--dark);
+    }
+
+    .t-h2 {
+      font-family: var(--font-heading-en);
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--brand-indigo);
+    }
+
+    .t-h3 {
+      font-family: var(--font-heading-en);
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--dark);
+    }
+
+    .t-h4 {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.5;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--dark);
+    }
+
+    .t-body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--charcoal);
+      max-width: 680px;
+    }
+
+    .t-caption {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    .t-pullquote {
+      font-family: var(--font-heading-en);
+      font-size: 28px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: var(--brand-indigo);
+      border-left: 3px solid var(--brand-indigo);
+      padding-left: 32px;
+      max-width: 640px;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border-radius: 0;
+    }
+
+    .btn-primary {
+      padding: 0 36px;
+      background: var(--brand-crimson);
+      color: #fff;
+      border: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: #C91038;
+    }
+
+    .btn-secondary {
+      padding: 0 4px;
+      background: transparent;
+      color: var(--brand-indigo);
+      border: none;
+      border-bottom: 1px solid var(--brand-indigo);
+      letter-spacing: 0.02em;
+      height: auto;
+      padding-bottom: 2px;
+    }
+
+    .btn-secondary:hover {
+      border-bottom-width: 2px;
+    }
+
+    .btn-text {
+      padding: 0;
+      background: transparent;
+      color: var(--brand-indigo);
+      border: none;
+      height: auto;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .btn-text:hover {
+      color: var(--brand-crimson);
+    }
+
+    .btn-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 48px;
+      align-items: flex-start;
+    }
+
+    .btn-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .btn-label {
+      font-size: 11px;
+      color: var(--warm-gray);
+      line-height: 1.5;
+      max-width: 200px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+    }
+
+    /* ============================================================
+       CARDS
+    ============================================================ */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--cream);
+      padding: 40px;
+      border: none;
+    }
+
+    .card-overline {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading-en);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .card-body {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .card-link {
+      font-size: 13px;
+      color: var(--brand-indigo);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      cursor: pointer;
+      transition: color 0.25s;
+    }
+
+    .card-link:hover {
+      color: var(--brand-crimson);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav-demo {
+      background: rgba(245, 242, 237, 0.9);
+      height: 72px;
+      border-bottom: 1px solid var(--warm-gray);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading-en);
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--dark);
+      margin-right: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      margin-right: 36px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.25s;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-indigo);
+    }
+
+    .nav-links a.active {
+      color: var(--charcoal);
+    }
+
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--brand-crimson);
+    }
+
+    .nav-cta {
+      background: var(--brand-crimson);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: background 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: #C91038;
+    }
+
+    /* ============================================================
+       INPUTS
+    ============================================================ */
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 0.02em;
+    }
+
+    .form-input {
+      height: 48px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--warm-gray);
+      color: var(--dark);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      padding: 0;
+      outline: none;
+      transition: border-color 0.25s;
+      border-radius: 0;
+    }
+
+    .form-input::placeholder {
+      color: var(--warm-gray);
+    }
+
+    .form-input:focus {
+      border-bottom: 2px solid var(--brand-indigo);
+    }
+
+    .form-textarea {
+      height: 100px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--warm-gray);
+      color: var(--dark);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      padding: 8px 0;
+      outline: none;
+      resize: none;
+      transition: border-color 0.25s;
+      border-radius: 0;
+    }
+
+    .form-textarea::placeholder {
+      color: var(--warm-gray);
+    }
+
+    .form-textarea:focus {
+      border-bottom: 2px solid var(--brand-indigo);
+    }
+
+    .form-select {
+      height: 48px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--warm-gray);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 300;
+      padding: 0;
+      outline: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23C8C3BA' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      transition: border-color 0.25s;
+      border-radius: 0;
+    }
+
+    .form-select:focus {
+      border-bottom: 2px solid var(--brand-indigo);
+    }
+
+    .form-hint {
+      font-size: 12px;
+      color: var(--warm-gray);
+      font-weight: 300;
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: var(--brand-crimson);
+    }
+
+    /* ============================================================
+       DIVIDERS
+    ============================================================ */
+    .divider-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .divider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .divider-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--warm-gray);
+      font-weight: 500;
+    }
+
+    hr.div-standard {
+      border: none;
+      border-top: 1px solid var(--warm-gray);
+    }
+
+    .div-whitespace-demo {
+      height: 80px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--warm-gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ============================================================
+       MOTION SPECS
+    ============================================================ */
+    .motion-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .motion-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--warm-gray);
+      align-items: start;
+    }
+
+    .motion-row:last-child {
+      border-bottom: none;
+    }
+
+    .motion-name {
+      font-family: var(--font-heading-en);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--brand-indigo);
+    }
+
+    .motion-spec {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--charcoal);
+      background: var(--cream);
+      padding: 6px 12px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .motion-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       PHOTOGRAPHY
+    ============================================================ */
+    .photo-callout {
+      border-left: 3px solid var(--brand-indigo);
+      padding: 0 0 0 40px;
+      margin-bottom: 64px;
+    }
+
+    .photo-callout-title {
+      font-family: var(--font-heading-en);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--brand-indigo);
+      margin-bottom: 20px;
+    }
+
+    .photo-rules {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .photo-rules li {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.8;
+    }
+
+    .photo-rules li strong {
+      font-weight: 500;
+      color: var(--dark);
+    }
+
+    .photo-grid-demo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+    }
+
+    .photo-box {
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .photo-box-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+
+    .photo-box-bg1 { background: linear-gradient(135deg, var(--cream) 0%, #DDD8D0 100%); }
+    .photo-box-bg2 { background: linear-gradient(135deg, #E0DDD8 0%, var(--cream) 100%); }
+    .photo-box-bg3 { background: linear-gradient(135deg, var(--cream) 0%, #E8E5DF 100%); }
+
+    /* ============================================================
+       LOGO USAGE
+    ============================================================ */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1px;
+      background: var(--warm-gray);
+    }
+
+    .logo-box {
+      overflow: hidden;
+      background: var(--paper-white);
+    }
+
+    .logo-canvas {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-canvas-paper { background: var(--paper-white); }
+    .logo-canvas-cream { background: var(--cream); }
+    .logo-canvas-indigo { background: var(--brand-indigo); }
+    .logo-canvas-white { background: #fff; }
+
+    .logo-mark {
+      font-family: var(--font-heading-en);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark.indigo { color: var(--brand-indigo); }
+    .logo-mark.light { color: #fff; }
+    .logo-mark.charcoal { color: var(--charcoal); }
+
+    .logo-rule-text {
+      padding: 16px 20px;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--warm-gray);
+      border-top: 1px solid var(--warm-gray);
+      line-height: 1.5;
+    }
+
+    .logo-forbidden {
+      padding: 32px;
+      background: var(--cream);
+    }
+
+    .forbidden-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-crimson);
+      margin-bottom: 20px;
+    }
+
+    .forbidden-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .forbidden-list li {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    .forbidden-list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: var(--brand-crimson);
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       ANIMATIONS — fade only, no movement
+    ============================================================ */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.8s ease both;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--paper-white); }
+    ::-webkit-scrollbar-thumb { background: var(--warm-gray); border-radius: 2px; }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ======================== SIDEBAR ======================== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">DASI International</div>
+      <div class="brand-style">Style 2 — Minimal Editorial</div>
+    </div>
+    <div class="toc-label">Contents</div>
+    <nav class="toc-nav">
+      <a href="#header">Overview</a>
+      <a href="#colors">Color Palette</a>
+      <a href="#typography">Typography</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#cards">Cards</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#inputs">Form Inputs</a>
+      <a href="#dividers">Dividers</a>
+      <a href="#motion">Motion</a>
+      <a href="#photography">Photography</a>
+      <a href="#logo">Logo Usage</a>
+    </nav>
+  </aside>
+
+  <!-- ======================== MAIN ======================== -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <section id="header" class="ci-header">
+      <div class="style-tag">大璽國際顧問股份有限公司 — Corporate Identity System</div>
+      <h1>留白書卷</h1>
+      <div class="subtitle">Minimal Editorial — Style 2 of 3</div>
+      <p class="description">
+        Warm paper tones, serif editorial typography, radical whitespace.
+        Designed for institutional reports, thought leadership content, and long-form communications requiring authoritative restraint.
+      </p>
+      <div class="header-color-chips">
+        <div class="color-chip" style="background:#1B2D8B" title="Brand Indigo"></div>
+        <div class="color-chip" style="background:#E31445" title="Brand Crimson"></div>
+        <div class="color-chip" style="background:#F5F2ED;border:1px solid #C8C3BA" title="Paper White"></div>
+        <div class="color-chip" style="background:#EBE7E0" title="Cream"></div>
+        <div class="color-chip" style="background:#C8C3BA" title="Warm Gray"></div>
+        <div class="color-chip" style="background:#2C2C2C" title="Charcoal"></div>
+        <div class="color-chip" style="background:#1A1A1A" title="Dark"></div>
+        <div class="color-chip" style="background:#FAF8F5;border:1px solid #C8C3BA" title="Light"></div>
+      </div>
+    </section>
+
+    <!-- COLOR PALETTE -->
+    <section id="colors" class="ci-section">
+      <span class="overline">01 — Design Tokens</span>
+      <h2 class="section-heading">Color Palette</h2>
+      <p class="section-heading-zh">色彩系統</p>
+      <hr class="section-rule" />
+      <div class="swatch-grid">
+        <div>
+          <div class="swatch-box" style="background:#1B2D8B"></div>
+          <div class="swatch-name">Brand Indigo</div>
+          <div class="swatch-hex">#1B2D8B</div>
+          <div class="swatch-usage">H2 headings, links, pull quotes, secondary buttons, nav active.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#E31445"></div>
+          <div class="swatch-name">Brand Crimson</div>
+          <div class="swatch-hex">#E31445</div>
+          <div class="swatch-usage">Primary CTA button only. The single colored bg element on page.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#F5F2ED;border:1px solid #C8C3BA"></div>
+          <div class="swatch-name">Paper White</div>
+          <div class="swatch-hex">#F5F2ED</div>
+          <div class="swatch-usage">Page background. Warm, off-white. Never pure white.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#EBE7E0"></div>
+          <div class="swatch-name">Cream</div>
+          <div class="swatch-hex">#EBE7E0</div>
+          <div class="swatch-usage">Card backgrounds, blockquote backgrounds, subtle panels.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#C8C3BA"></div>
+          <div class="swatch-name">Warm Gray</div>
+          <div class="swatch-hex">#C8C3BA</div>
+          <div class="swatch-usage">Captions, borders, dividers, placeholder text, metadata.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#2C2C2C"></div>
+          <div class="swatch-name">Charcoal</div>
+          <div class="swatch-hex">#2C2C2C</div>
+          <div class="swatch-usage">Primary body text. The dominant text color.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#1A1A1A"></div>
+          <div class="swatch-name">Dark</div>
+          <div class="swatch-hex">#1A1A1A</div>
+          <div class="swatch-usage">H1, H3 headings. Highest contrast on paper.</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#FAF8F5;border:1px solid #C8C3BA"></div>
+          <div class="swatch-name">Light</div>
+          <div class="swatch-hex">#FAF8F5</div>
+          <div class="swatch-usage">Reversed text on indigo. Lightest available surface.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:56px; padding:32px 40px; background:var(--cream);">
+        <div class="overline">Color Philosophy</div>
+        <p style="font-size:15px; font-weight:300; color:var(--charcoal); line-height:1.8; max-width:580px;">
+          No gradients. No shadows. No colored backgrounds beyond this palette. The constraint is the principle.
+          Whitespace is the dominant design element. Color is reserved for hierarchy and action, never decoration.
+        </p>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section id="typography" class="ci-section">
+      <span class="overline">02 — Typography Scale</span>
+      <h2 class="section-heading">Type System</h2>
+      <p class="section-heading-zh">字體規範</p>
+      <hr class="section-rule" />
+
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H1</strong>
+          Newsreader<br>64px · 300<br>1.1lh · -0.01em
+        </div>
+        <div class="t-h1">Strategic Counsel</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H2</strong>
+          Newsreader<br>36px · 400<br>1.25lh · Brand Indigo
+        </div>
+        <div class="t-h2">Advisory Excellence</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H3</strong>
+          Newsreader<br>24px · 500<br>1.4lh
+        </div>
+        <div class="t-h3">Cross-Border Transaction Strategy</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H4</strong>
+          Inter<br>18px · 500<br>uppercase · 0.08em
+        </div>
+        <div class="t-h4">Capital Markets</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Body</strong>
+          Inter / Noto Sans TC<br>17px · 400<br>1.9lh · max 680px
+        </div>
+        <div class="t-body">DASI International Consultants provides bespoke advisory services to institutional investors, family offices, and sovereign entities. Our practitioners bring deep transactional experience and cross-cultural intelligence to every engagement.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Caption</strong>
+          Inter<br>13px · 400<br>Warm Gray
+        </div>
+        <div class="t-caption">All data as of December 2025. This document is for informational purposes only. DASI International Consultants Ltd. All rights reserved.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Pull Quote</strong>
+          Newsreader italic<br>28px · 300<br>Brand Indigo border
+        </div>
+        <div class="t-pullquote">"The measure of advisory excellence is not the breadth of our counsel, but the precision with which we apply it."</div>
+      </div>
+
+      <div style="margin-top:64px; padding:48px 0; border-top:1px solid var(--warm-gray);">
+        <div class="overline" style="margin-bottom:32px">Bilingual Typography</div>
+        <div class="t-h2" style="font-family:var(--font-heading-zh); margin-bottom:8px;">跨境顧問策略</div>
+        <div class="t-h3" style="font-family:var(--font-heading-zh); color:var(--warm-gray); margin-bottom:24px; font-weight:400;">大璽國際顧問股份有限公司</div>
+        <div class="t-body" style="font-family:'Noto Sans TC',sans-serif; font-weight:300;">大璽國際顧問以卓越的跨境交易顧問服務，協助機構投資人、家族辦公室及主權基金在複雜的跨境交易與戰略轉型中取得優勢，提供精準而深刻的策略指引。</div>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section id="buttons" class="ci-section">
+      <span class="overline">03 — Interactive Elements</span>
+      <h2 class="section-heading">Button System</h2>
+      <p class="section-heading-zh">按鈕元件</p>
+      <hr class="section-rule" />
+
+      <div class="btn-showcase">
+        <div class="btn-item">
+          <button class="btn btn-primary">Engage Advisory</button>
+          <div class="btn-label">Primary CTA<br>bg #E31445 · white · uppercase<br>Hover: #C91038<br>The only colored-bg button.</div>
+        </div>
+        <div class="btn-item">
+          <a href="#" class="btn btn-secondary">View All Insights</a>
+          <div class="btn-label">Secondary<br>Transparent · bottom border Brand Indigo<br>Hover: border-width 1px → 2px</div>
+        </div>
+        <div class="btn-item">
+          <a href="#" class="btn btn-text">Learn more about our approach →</a>
+          <div class="btn-label">Text Link<br>Brand Indigo · underline-offset 3px<br>Hover: Brand Crimson</div>
+        </div>
+      </div>
+
+      <div style="margin-top:56px; padding:48px; background:var(--cream);">
+        <div class="overline" style="margin-bottom:24px">On Cream Background</div>
+        <div class="button-row">
+          <button class="btn btn-primary">Primary Action</button>
+          <a href="#" class="btn btn-secondary">Secondary Link</a>
+          <a href="#" class="btn btn-text">Text Link →</a>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; padding:48px; background:var(--brand-indigo);">
+        <div class="overline" style="color:#fff; opacity:0.5; margin-bottom:24px;">On Brand Indigo</div>
+        <div class="button-row">
+          <button class="btn btn-primary">Primary Action</button>
+          <a href="#" style="color:#FAF8F5; font-size:13px; font-weight:400; text-decoration:underline; text-underline-offset:3px; transition:color 0.25s;" onmouseover="this.style.color='#E31445'" onmouseout="this.style.color='#FAF8F5'">Learn more →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section id="cards" class="ci-section">
+      <span class="overline">04 — Components</span>
+      <h2 class="section-heading">Card System</h2>
+      <p class="section-heading-zh">卡片元件</p>
+      <hr class="section-rule" />
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-overline">M&amp;A Advisory</div>
+          <div class="card-title">Cross-Border Transaction Strategy</div>
+          <div class="card-body">Expert guidance on complex mergers and acquisitions, from preliminary due diligence through post-merger integration.</div>
+          <div class="card-link">Read more →</div>
+        </div>
+        <div class="card">
+          <div class="card-overline">Capital Markets</div>
+          <div class="card-title">Equity &amp; Debt Structuring</div>
+          <div class="card-body">Sophisticated capital structure advisory for institutional clients seeking optimal financing across global markets.</div>
+          <div class="card-link">Read more →</div>
+        </div>
+        <div class="card">
+          <div class="card-overline">Strategic Counsel</div>
+          <div class="card-title">Governance &amp; Board Advisory</div>
+          <div class="card-body">Independent advice to boards and senior leadership on corporate governance, stakeholder management, and strategic direction.</div>
+          <div class="card-link">Read more →</div>
+        </div>
+      </div>
+      <div style="margin-top:24px; font-size:12px; color:var(--warm-gray); font-weight:300;">bg Cream #EBE7E0 · no border · no shadow · padding 40px · no radius</div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <section id="navigation" class="ci-section">
+      <span class="overline">05 — Navigation</span>
+      <h2 class="section-heading">Navigation Bar</h2>
+      <p class="section-heading-zh">導覽列</p>
+      <hr class="section-rule" />
+      <div style="border:1px solid var(--warm-gray); overflow:hidden;">
+        <nav class="nav-demo">
+          <div class="nav-logo">DASI International</div>
+          <ul class="nav-links">
+            <li><a href="#" class="active">Advisory</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+          <a href="#" class="nav-cta">Contact</a>
+        </nav>
+      </div>
+      <div style="margin-top:24px; padding:24px 28px; background:var(--cream); font-size:13px; color:var(--charcoal); font-weight:300; line-height:1.8;">
+        <strong style="font-weight:500; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-gray); display:block; margin-bottom:8px;">Specs</strong>
+        Height: 72px · bg rgba(#F5F2ED, 0.9) — no blur filter<br>
+        Links: Charcoal → hover Brand Indigo · Active: 2px Brand Crimson underline below<br>
+        No drop shadows. Bottom border: 1px Warm Gray.
+      </div>
+    </section>
+
+    <!-- INPUTS -->
+    <section id="inputs" class="ci-section">
+      <span class="overline">06 — Form Elements</span>
+      <h2 class="section-heading">Input Fields</h2>
+      <p class="section-heading-zh">表單元件</p>
+      <hr class="section-rule" />
+      <div class="input-grid">
+        <div class="form-field">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Enter your full name" />
+          <span class="form-hint">transparent · bottom border 1px Warm Gray only · no box</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="advisory@dasi.com" />
+          <span class="form-hint">Focus: 2px Brand Indigo bottom border</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Service Type</label>
+          <select class="form-select">
+            <option value="">Select advisory service</option>
+            <option>M&amp;A Advisory</option>
+            <option>Capital Markets</option>
+            <option>Strategic Consulting</option>
+          </select>
+          <span class="form-hint">Custom arrow · no box · bottom border only</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Error State</label>
+          <input type="text" class="form-input" value="Required field" style="border-bottom-color:#E31445; border-bottom-width:2px;" />
+          <span class="form-error">This field is required</span>
+        </div>
+      </div>
+      <div style="margin-top:40px; max-width:480px;">
+        <div class="form-field">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Describe your advisory needs..."></textarea>
+          <span class="form-hint">No box, no radius — bottom border treatment only throughout</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDERS -->
+    <section id="dividers" class="ci-section">
+      <span class="overline">07 — Spacing &amp; Structure</span>
+      <h2 class="section-heading">Dividers &amp; Whitespace</h2>
+      <p class="section-heading-zh">分隔線與空白規範</p>
+      <hr class="section-rule" />
+      <div class="divider-showcase">
+        <div class="divider-item">
+          <div class="divider-label">Standard rule — 1px Warm Gray. Used rarely.</div>
+          <hr class="div-standard" />
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Section padding — 128px vertical (desktop)</div>
+          <div class="div-whitespace-demo">128px section breathing room</div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Max body text width — 680px (readability constraint)</div>
+          <div style="max-width:680px; padding:24px 0; border-left:3px solid var(--brand-indigo); padding-left:24px;">
+            <div style="font-size:14px; font-weight:300; color:var(--charcoal);">Body text is constrained to 680px maximum width for optimal reading comfort. This is a hard rule applied to all paragraph content.</div>
+          </div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Grid — 12 col · max-width 1080px · 24px gutter</div>
+          <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:24px; max-width:100%;">
+            <div style="height:32px; background:rgba(27,45,139,0.06); grid-column:span 3; display:flex;align-items:center;justify-content:center; font-size:10px; color:var(--warm-gray);">3 col</div>
+            <div style="height:32px; background:rgba(27,45,139,0.06); grid-column:span 3; display:flex;align-items:center;justify-content:center; font-size:10px; color:var(--warm-gray);">3 col</div>
+            <div style="height:32px; background:rgba(27,45,139,0.06); grid-column:span 6; display:flex;align-items:center;justify-content:center; font-size:10px; color:var(--warm-gray);">6 col</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section id="motion" class="ci-section">
+      <span class="overline">08 — Animation</span>
+      <h2 class="section-heading">Motion Specs</h2>
+      <p class="section-heading-zh">動態規範</p>
+      <hr class="section-rule" />
+      <div class="motion-list">
+        <div class="motion-row">
+          <div>
+            <div class="motion-name">Page Entrance</div>
+          </div>
+          <div>
+            <div class="motion-spec">opacity: 0 → 1 · 0.8s · ease · no movement</div>
+            <div class="motion-desc">All content enters via opacity fade only. No translateY. No slide. Barely perceptible — the goal is that it feels like the page is simply being revealed.</div>
+          </div>
+        </div>
+        <div class="motion-row">
+          <div>
+            <div class="motion-name">Interactive Color</div>
+          </div>
+          <div>
+            <div class="motion-spec">color / border-color · 0.25s · ease</div>
+            <div class="motion-desc">Standard transition for all hover color changes. Link colors, button backgrounds, border weights. Applied on base state, never on :hover selector.</div>
+          </div>
+        </div>
+        <div class="motion-row">
+          <div>
+            <div class="motion-name">Border Weight</div>
+          </div>
+          <div>
+            <div class="motion-spec">border-bottom-width: 1px → 2px · 0.25s</div>
+            <div class="motion-desc">Secondary button hover state. Subtle weight change communicates interaction without visual noise.</div>
+          </div>
+        </div>
+        <div class="motion-row">
+          <div>
+            <div class="motion-name">Guiding Principle</div>
+          </div>
+          <div>
+            <div class="motion-spec">Stillness · Precision · Invisibility</div>
+            <div class="motion-desc">Motion should never be noticed as motion. If a user comments on the animation, it is too much. The design philosophy is editorial stillness — content moves ideas, not pixels.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="ci-section">
+      <span class="overline">09 — Visual Direction</span>
+      <h2 class="section-heading">Photography &amp; Imagery</h2>
+      <p class="section-heading-zh">影像使用規範</p>
+      <hr class="section-rule" />
+      <div class="photo-callout">
+        <div class="photo-callout-title">Editorial Image Direction</div>
+        <ul class="photo-rules">
+          <li><strong>Tone:</strong> Restrained, high-contrast, desaturated. Print-quality aesthetic. Images should feel like editorial photography from a serious financial publication.</li>
+          <li><strong>Subject Matter:</strong> Architectural exteriors, empty boardrooms, hands on paper/documents, city skylines from above. Economic geography: ports, infrastructure, cityscapes.</li>
+          <li><strong>Color Treatment:</strong> Convert to warm monochrome or near-monochrome. No vibrant colors. Images should look like they belong in a cream-toned layout without fighting it.</li>
+          <li><strong>Composition:</strong> Generous negative space on at least two sides. Allow text to breathe alongside or over image. Never fill entire width with image without text breathing room.</li>
+          <li><strong>People:</strong> Executive-only. Shot from distance or cropped at shoulder. Thoughtful pose — reading, writing, conversing. No forced smiles or staged diversity photography.</li>
+          <li><strong>Scale:</strong> Prefer large single images to grids of small images. One exceptional photograph over four mediocre ones.</li>
+          <li><strong>Prohibited:</strong> Gradients over images, colorful filters, stock pose photography, icons overlaid on images, text directly on unobscured imagery.</li>
+        </ul>
+      </div>
+      <div class="photo-grid-demo">
+        <div class="photo-box photo-box-bg1"><span class="photo-box-label">Architecture</span></div>
+        <div class="photo-box photo-box-bg2"><span class="photo-box-label">Documentary</span></div>
+        <div class="photo-box photo-box-bg3"><span class="photo-box-label">Landscape</span></div>
+      </div>
+    </section>
+
+    <!-- LOGO -->
+    <section id="logo" class="ci-section">
+      <span class="overline">10 — Brand Identity</span>
+      <h2 class="section-heading">Logo Usage Rules</h2>
+      <p class="section-heading-zh">標誌使用規範</p>
+      <hr class="section-rule" />
+      <div class="logo-grid">
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-paper">
+            <div class="logo-mark indigo">DASI</div>
+          </div>
+          <div class="logo-rule-text">Primary: Brand Indigo on Paper White. Default for all editorial and print materials.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-cream">
+            <div class="logo-mark indigo">DASI</div>
+          </div>
+          <div class="logo-rule-text">On Cream: Brand Indigo on Cream. Cards, panel headers, callout boxes.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-indigo">
+            <div class="logo-mark light">DASI</div>
+          </div>
+          <div class="logo-rule-text">Reversed: White on Brand Indigo. Report covers, presentation headers.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-white">
+            <div class="logo-mark charcoal">DASI</div>
+          </div>
+          <div class="logo-rule-text">On White: Charcoal on pure white. Digital environments, web interfaces.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px; display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--warm-gray);">
+        <div style="padding:40px; background:var(--paper-white);">
+          <div style="font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--warm-gray); margin-bottom:20px;">Clearspace Rule</div>
+          <div style="display:flex; justify-content:center; padding:32px; border:1px solid var(--warm-gray);">
+            <div style="position:relative; display:inline-block;">
+              <div style="padding:16px;">
+                <div class="logo-mark indigo">DASI</div>
+              </div>
+              <div style="position:absolute;inset:0;border:1px dashed var(--warm-gray);pointer-events:none;"></div>
+            </div>
+          </div>
+          <div style="font-size:12px; font-weight:300; color:var(--warm-gray); margin-top:16px; line-height:1.6;">Minimum clear space equals one x-height of the logotype on all four sides.</div>
+        </div>
+        <div class="logo-forbidden">
+          <div class="forbidden-title">Never Do This</div>
+          <ul class="forbidden-list">
+            <li>Distort or stretch proportions</li>
+            <li>Apply shadows or texture effects</li>
+            <li>Use unauthorized typefaces to recreate</li>
+            <li>Place on pattern or photographic backgrounds</li>
+            <li>Change approved color combinations</li>
+            <li>Reduce below 56px in digital contexts</li>
+            <li>Outline or stroke the letterforms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

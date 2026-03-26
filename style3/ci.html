@@ -1,0 +1,1720 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASI CI — Style 3: 靛藍權威 Corporate Authority</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — DASI Style 3: 靛藍權威
+    ============================================================ */
+    :root {
+      --brand-indigo:     #1B2D8B;
+      --brand-crimson:    #E31445;
+      --indigo-light:     #2A3F9E;
+      --indigo-dark:      #11205E;
+      --indigo-tint:      #E8EAF6;
+      --crimson-light:    #F04668;
+      --white:            #FFFFFF;
+      --off-white:        #F7F8FA;
+      --light-gray:       #E8EAED;
+      --medium-gray:      #9AA0B0;
+      --dark-text:        #1C1E2A;
+
+      --font-heading-en:  'Manrope', 'Noto Sans TC', sans-serif;
+      --font-heading-zh:  'Noto Sans TC', 'Manrope', sans-serif;
+      --font-body:        'Inter', 'Noto Sans TC', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--white);
+      color: var(--dark-text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .page-wrap {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar TOC */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background: var(--brand-indigo);
+      overflow-y: auto;
+      z-index: 100;
+      padding: 0 0 32px;
+    }
+
+    .sidebar-brand {
+      padding: 28px 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 8px;
+    }
+
+    .sidebar-brand .brand-name {
+      font-family: var(--font-heading-en);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      color: #fff;
+    }
+
+    .sidebar-brand .brand-style {
+      font-size: 11px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+    }
+
+    .toc-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      padding: 16px 24px 8px;
+    }
+
+    .toc-nav a {
+      display: block;
+      padding: 8px 24px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, color 0.2s;
+      border-left: 3px solid transparent;
+    }
+
+    .toc-nav a:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.08);
+      border-left-color: var(--brand-crimson);
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 220px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Sections */
+    .ci-section {
+      padding: 80px 72px;
+      max-width: 1240px;
+    }
+
+    .ci-section-alt {
+      background: var(--brand-indigo);
+      padding: 80px 72px;
+    }
+
+    .ci-section-offwhite {
+      background: var(--off-white);
+      padding: 80px 72px;
+    }
+
+    .ci-section + .ci-section,
+    .ci-section + .ci-section-alt,
+    .ci-section-alt + .ci-section,
+    .ci-section-alt + .ci-section-offwhite,
+    .ci-section-offwhite + .ci-section {
+      border-top: 1px solid var(--light-gray);
+    }
+
+    /* ============================================================
+       OVERLINE / BADGES
+    ============================================================ */
+    .overline {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--brand-crimson);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .overline-light {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 4px 12px;
+    }
+
+    .badge-indigo {
+      background: var(--indigo-tint);
+      color: var(--brand-indigo);
+    }
+
+    .badge-crimson {
+      background: var(--brand-crimson);
+      color: var(--white);
+    }
+
+    .badge-outline {
+      background: transparent;
+      color: var(--brand-indigo);
+      border: 1.5px solid var(--brand-indigo);
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .ci-header {
+      background: var(--brand-indigo);
+      padding: 72px 72px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ci-header::after {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 400px;
+      height: 400px;
+      background: var(--indigo-light);
+      border-radius: 50%;
+      opacity: 0.4;
+    }
+
+    .ci-header::before {
+      content: '';
+      position: absolute;
+      right: 80px;
+      bottom: -100px;
+      width: 200px;
+      height: 200px;
+      background: var(--brand-crimson);
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+
+    .ci-header .style-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ci-header h1 {
+      font-family: var(--font-heading-en);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #fff;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ci-header .subtitle {
+      font-family: var(--font-heading-zh);
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ci-header .description {
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      max-width: 560px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header-color-chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .color-chip {
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ============================================================
+       SECTION HEADINGS
+    ============================================================ */
+    .section-heading {
+      font-family: var(--font-heading-en);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--brand-indigo);
+      margin-bottom: 6px;
+    }
+
+    .section-heading-light {
+      font-family: var(--font-heading-en);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--medium-gray);
+      margin-bottom: 48px;
+    }
+
+    .section-sub-light {
+      font-size: 16px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 48px;
+    }
+
+    /* ============================================================
+       COLOR PALETTE
+    ============================================================ */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+    }
+
+    .swatch-item {}
+
+    .swatch-box {
+      height: 80px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark-text);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-size: 11px;
+      font-family: 'Courier New', monospace;
+      color: var(--medium-gray);
+      margin-bottom: 4px;
+    }
+
+    .swatch-usage {
+      font-size: 11px;
+      color: var(--medium-gray);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY SCALE
+    ============================================================ */
+    .type-row {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--light-gray);
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      font-size: 11px;
+      color: var(--medium-gray);
+      line-height: 1.6;
+      padding-top: 4px;
+    }
+
+    .type-meta strong {
+      display: block;
+      color: var(--dark-text);
+      font-size: 12px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .t-h1 {
+      font-family: var(--font-heading-en);
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--brand-indigo);
+    }
+
+    .t-h2 {
+      font-family: var(--font-heading-en);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--brand-indigo);
+    }
+
+    .t-h3 {
+      font-family: var(--font-heading-en);
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--dark-text);
+    }
+
+    .t-h4 {
+      font-family: var(--font-heading-en);
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--dark-text);
+    }
+
+    .t-body-large {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--dark-text);
+    }
+
+    .t-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--dark-text);
+    }
+
+    .t-caption {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--medium-gray);
+    }
+
+    .t-badge {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--brand-indigo);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      padding: 0 28px;
+      background: var(--brand-crimson);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(227, 20, 69, 0.25);
+      letter-spacing: 0.01em;
+    }
+
+    .btn-primary:hover {
+      background: var(--crimson-light);
+      box-shadow: 0 4px 16px rgba(227, 20, 69, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      padding: 0 28px;
+      background: var(--brand-indigo);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-secondary:hover {
+      background: var(--indigo-light);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      padding: 0 28px;
+      background: transparent;
+      color: var(--brand-indigo);
+      border: 1.5px solid var(--brand-indigo);
+      border-radius: 6px;
+      letter-spacing: 0.01em;
+    }
+
+    .btn-outline:hover {
+      background: var(--indigo-tint);
+    }
+
+    .btn-sm {
+      height: 36px;
+      padding: 0 18px;
+      font-size: 13px;
+    }
+
+    .btn-lg {
+      height: 56px;
+      padding: 0 40px;
+      font-size: 15px;
+    }
+
+    .btn-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-end;
+    }
+
+    .btn-item {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-label {
+      font-size: 11px;
+      color: var(--medium-gray);
+      line-height: 1.5;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    /* ============================================================
+       CARDS
+    ============================================================ */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+      transition: box-shadow 0.25s, border-color 0.25s, transform 0.25s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(27, 45, 139, 0.1);
+      border-color: var(--brand-indigo);
+      transform: translateY(-4px);
+    }
+
+    .card-feature {
+      background: var(--brand-indigo);
+      border: none;
+      border-radius: 12px;
+      padding: 32px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+
+    .card-feature:hover {
+      box-shadow: 0 12px 32px rgba(27, 45, 139, 0.35);
+      transform: translateY(-4px);
+    }
+
+    .card-overline {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--brand-crimson);
+      margin-bottom: 14px;
+    }
+
+    .card-overline-light {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 14px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading-en);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brand-indigo);
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .card-title-light {
+      font-family: var(--font-heading-en);
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 12px;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--dark-text);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .card-body-light {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+
+    .card-stat {
+      font-family: var(--font-heading-en);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--brand-crimson);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .card-stat-label {
+      font-size: 13px;
+      color: var(--medium-gray);
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav-demo {
+      background: var(--brand-indigo);
+      height: 72px;
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading-en);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #fff;
+      margin-right: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      margin-right: 32px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+      padding-bottom: 4px;
+      position: relative;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    .nav-links a:hover::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--brand-crimson);
+    }
+
+    .nav-cta {
+      background: var(--brand-crimson);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--crimson-light);
+    }
+
+    /* ============================================================
+       INPUTS
+    ============================================================ */
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 28px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark-text);
+    }
+
+    .form-input {
+      height: 48px;
+      background: var(--white);
+      border: 1.5px solid var(--light-gray);
+      color: var(--dark-text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      padding: 0 14px;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-input::placeholder {
+      color: var(--medium-gray);
+    }
+
+    .form-input:focus {
+      border-color: var(--brand-indigo);
+      box-shadow: 0 0 0 3px var(--indigo-tint);
+    }
+
+    .form-textarea {
+      height: 112px;
+      background: var(--white);
+      border: 1.5px solid var(--light-gray);
+      color: var(--dark-text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-textarea::placeholder {
+      color: var(--medium-gray);
+    }
+
+    .form-textarea:focus {
+      border-color: var(--brand-indigo);
+      box-shadow: 0 0 0 3px var(--indigo-tint);
+    }
+
+    .form-select {
+      height: 48px;
+      background: var(--white);
+      border: 1.5px solid var(--light-gray);
+      color: var(--dark-text);
+      font-family: var(--font-body);
+      font-size: 15px;
+      padding: 0 14px;
+      border-radius: 8px;
+      outline: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239AA0B0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .form-select:focus {
+      border-color: var(--brand-indigo);
+      box-shadow: 0 0 0 3px var(--indigo-tint);
+    }
+
+    .form-hint {
+      font-size: 12px;
+      color: var(--medium-gray);
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: var(--brand-crimson);
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       DIVIDERS & DECORATIVE
+    ============================================================ */
+    .divider-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .divider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .divider-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--medium-gray);
+    }
+
+    hr.div-standard {
+      border: none;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .div-indigo {
+      height: 4px;
+      background: var(--brand-indigo);
+      border-radius: 2px;
+      width: 60px;
+    }
+
+    .div-crimson {
+      height: 4px;
+      background: var(--brand-crimson);
+      border-radius: 2px;
+      width: 40px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 4px 14px;
+    }
+
+    .tag-indigo {
+      background: var(--indigo-tint);
+      color: var(--brand-indigo);
+    }
+
+    .tag-crimson {
+      background: var(--brand-crimson);
+      color: var(--white);
+    }
+
+    .tag-gray {
+      background: var(--light-gray);
+      color: var(--dark-text);
+    }
+
+    /* ============================================================
+       MOTION SPECS
+    ============================================================ */
+    .motion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .motion-card {
+      background: var(--off-white);
+      border: 1px solid var(--light-gray);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .motion-name {
+      font-family: var(--font-heading-en);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--brand-indigo);
+      margin-bottom: 8px;
+    }
+
+    .motion-spec {
+      font-family: 'Courier New', monospace;
+      font-size: 12px;
+      color: var(--brand-indigo);
+      background: var(--indigo-tint);
+      padding: 6px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .motion-desc {
+      font-size: 13px;
+      color: var(--dark-text);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+       STATS
+    ============================================================ */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0;
+    }
+
+    .stat-item {
+      padding: 32px 28px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .stat-item:last-child { border-right: none; }
+
+    .stat-number {
+      font-family: var(--font-heading-en);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--brand-crimson);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-number-white {
+      font-family: var(--font-heading-en);
+      font-size: 48px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .stat-label-dark {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--medium-gray);
+    }
+
+    /* ============================================================
+       PHOTOGRAPHY
+    ============================================================ */
+    .photo-callout {
+      background: var(--indigo-tint);
+      border-left: 4px solid var(--brand-indigo);
+      border-radius: 0 12px 12px 0;
+      padding: 40px 48px;
+    }
+
+    .photo-callout-title {
+      font-family: var(--font-heading-en);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--brand-indigo);
+      margin-bottom: 20px;
+    }
+
+    .photo-rules {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .photo-rules li {
+      display: flex;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--dark-text);
+      line-height: 1.7;
+    }
+
+    .photo-rules li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-indigo);
+      flex-shrink: 0;
+      margin-top: 8px;
+    }
+
+    .photo-grid-demo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .photo-box {
+      aspect-ratio: 4/3;
+      border-radius: 10px;
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+    }
+
+    .photo-box-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-indigo);
+    }
+
+    .photo-box-bg1 { background: linear-gradient(135deg, #E8EAF6, #C5CAE9); }
+    .photo-box-bg2 { background: linear-gradient(135deg, #E8EAF6, #d1d5f0); }
+    .photo-box-bg3 { background: linear-gradient(135deg, #d1d5f0, #E8EAF6); }
+
+    /* ============================================================
+       LOGO USAGE
+    ============================================================ */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .logo-box {
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid var(--light-gray);
+    }
+
+    .logo-canvas {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-canvas-white   { background: var(--white); }
+    .logo-canvas-offwhite { background: var(--off-white); }
+    .logo-canvas-indigo  { background: var(--brand-indigo); }
+    .logo-canvas-crimson { background: var(--brand-crimson); }
+
+    .logo-mark {
+      font-family: var(--font-heading-en);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark.indigo  { color: var(--brand-indigo); }
+    .logo-mark.white   { color: #fff; }
+    .logo-mark.offwhite { color: var(--off-white); }
+
+    .logo-rule-text {
+      padding: 14px 18px;
+      font-size: 12px;
+      color: var(--medium-gray);
+      border-top: 1px solid var(--light-gray);
+      line-height: 1.5;
+    }
+
+    .logo-forbidden {
+      background: #FFF8F9;
+      border: 1px solid #FFCDD2;
+      border-radius: 10px;
+      padding: 28px;
+    }
+
+    .forbidden-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-crimson);
+      margin-bottom: 16px;
+    }
+
+    .forbidden-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .forbidden-list li {
+      font-size: 13px;
+      color: var(--dark-text);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .forbidden-list li::before {
+      content: '×';
+      position: absolute;
+      left: 0;
+      color: var(--brand-crimson);
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes countUp {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.5s ease both;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--off-white); }
+    ::-webkit-scrollbar-thumb { background: var(--light-gray); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--medium-gray); }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ======================== SIDEBAR ======================== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">DASI International</div>
+      <div class="brand-style">Style 3 — Corporate Authority</div>
+    </div>
+    <div class="toc-label">Contents</div>
+    <nav class="toc-nav">
+      <a href="#header">Overview</a>
+      <a href="#colors">Color Palette</a>
+      <a href="#typography">Typography</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#cards">Cards</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#inputs">Form Inputs</a>
+      <a href="#dividers">Dividers &amp; Tags</a>
+      <a href="#stats">Stats &amp; Data</a>
+      <a href="#motion">Motion</a>
+      <a href="#photography">Photography</a>
+      <a href="#logo">Logo Usage</a>
+    </nav>
+  </aside>
+
+  <!-- ======================== MAIN ======================== -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <section id="header" class="ci-header">
+      <div class="style-tag">大璽國際顧問股份有限公司 — Corporate Identity System</div>
+      <h1>靛藍權威</h1>
+      <div class="subtitle">Corporate Authority — Style 3 of 3</div>
+      <p class="description">
+        White background, bold indigo blocks, crimson CTAs.
+        Engineered for Big Four-tier authority: unambiguous, confident, and instantly credible to institutional and C-suite audiences.
+      </p>
+      <div class="header-color-chips">
+        <div class="color-chip" style="background:#1B2D8B" title="Brand Indigo"></div>
+        <div class="color-chip" style="background:#E31445" title="Brand Crimson"></div>
+        <div class="color-chip" style="background:#2A3F9E" title="Indigo Light"></div>
+        <div class="color-chip" style="background:#11205E" title="Indigo Dark"></div>
+        <div class="color-chip" style="background:#E8EAF6" title="Indigo Tint"></div>
+        <div class="color-chip" style="background:#FFFFFF;border:1px solid rgba(255,255,255,0.2)" title="White"></div>
+        <div class="color-chip" style="background:#F7F8FA;border:1px solid rgba(255,255,255,0.15)" title="Off White"></div>
+        <div class="color-chip" style="background:#9AA0B0" title="Medium Gray"></div>
+      </div>
+    </section>
+
+    <!-- COLOR PALETTE -->
+    <section id="colors" class="ci-section">
+      <span class="overline">01 — Design Tokens</span>
+      <h2 class="section-heading">Color Palette</h2>
+      <p class="section-sub">色彩系統</p>
+      <div class="swatch-grid">
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#1B2D8B; border-radius:8px;"></div>
+          <div class="swatch-name">Brand Indigo</div>
+          <div class="swatch-hex">#1B2D8B</div>
+          <div class="swatch-usage">Dominant brand color. Large blocks, nav, feature cards, headings on white.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#E31445; border-radius:8px;"></div>
+          <div class="swatch-name">Brand Crimson</div>
+          <div class="swatch-hex">#E31445</div>
+          <div class="swatch-usage">All CTAs. Stats on white. Highlight tags. Active indicators.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#2A3F9E; border-radius:8px;"></div>
+          <div class="swatch-name">Indigo Light</div>
+          <div class="swatch-hex">#2A3F9E</div>
+          <div class="swatch-usage">Secondary button hover, hover states on indigo panels.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#11205E; border-radius:8px;"></div>
+          <div class="swatch-name">Indigo Dark</div>
+          <div class="swatch-hex">#11205E</div>
+          <div class="swatch-usage">Footer backgrounds, deep contrast sections.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#E8EAF6; border-radius:8px;"></div>
+          <div class="swatch-name">Indigo Tint</div>
+          <div class="swatch-hex">#E8EAF6</div>
+          <div class="swatch-usage">Tags, focus rings, outline button hover, light panel fills.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#FFFFFF; border-radius:8px; border:1.5px solid #E8EAED;"></div>
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-usage">Page background. Card backgrounds. Input fields.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#F7F8FA; border-radius:8px; border:1.5px solid #E8EAED;"></div>
+          <div class="swatch-name">Off White</div>
+          <div class="swatch-hex">#F7F8FA</div>
+          <div class="swatch-usage">Section alternates, table row stripes, motion spec cards.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#E8EAED; border-radius:8px;"></div>
+          <div class="swatch-name">Light Gray</div>
+          <div class="swatch-hex">#E8EAED</div>
+          <div class="swatch-usage">Borders, dividers, input borders, skeleton states.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#9AA0B0; border-radius:8px;"></div>
+          <div class="swatch-name">Medium Gray</div>
+          <div class="swatch-hex">#9AA0B0</div>
+          <div class="swatch-usage">Captions, placeholders, metadata, disabled labels.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#1C1E2A; border-radius:8px;"></div>
+          <div class="swatch-name">Dark Text</div>
+          <div class="swatch-hex">#1C1E2A</div>
+          <div class="swatch-usage">Body text on white. H3–H4 on white. Not for large headings.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section id="typography" class="ci-section" style="background:var(--off-white);">
+      <span class="overline">02 — Typography Scale</span>
+      <h2 class="section-heading">Type System</h2>
+      <p class="section-sub">字體規範</p>
+
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>H1</strong>
+          Manrope<br>48px · 700<br>1.2lh · -0.01em
+        </div>
+        <div class="t-h1">Strategic Counsel</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>H2</strong>
+          Manrope<br>36px · 700<br>1.25lh
+        </div>
+        <div class="t-h2">Advisory Excellence</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>H3</strong>
+          Manrope<br>24px · 600<br>1.35lh
+        </div>
+        <div class="t-h3">Cross-Border Transaction Strategy</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>H4</strong>
+          Manrope<br>18px · 600<br>1.5lh
+        </div>
+        <div class="t-h4">Capital Markets &amp; Governance</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>Body Large</strong>
+          Inter<br>18px · 400<br>1.75lh
+        </div>
+        <div class="t-body-large">DASI International Consultants provides bespoke advisory to institutional investors, family offices, and sovereign entities navigating complex cross-border transactions.</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>Body</strong>
+          Inter<br>16px · 400<br>1.7lh
+        </div>
+        <div class="t-body">Our practitioners bring deep transactional experience and cross-cultural intelligence to every engagement, delivering outcomes that advance long-term institutional interests.</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>Caption</strong>
+          Inter<br>14px · 400<br>Medium Gray
+        </div>
+        <div class="t-caption">All data as of December 2025. This document is for informational purposes only. DASI International Consultants Ltd. All rights reserved.</div>
+      </div>
+      <div class="type-row" style="border-color:var(--light-gray);">
+        <div class="type-meta">
+          <strong>Badge</strong>
+          Inter<br>12px · 600<br>uppercase · 0.05em
+        </div>
+        <div class="t-badge">M&amp;A Advisory · Capital Markets · Governance</div>
+      </div>
+
+      <div style="margin-top:48px; padding:40px; background:var(--brand-indigo); border-radius:12px;">
+        <div class="overline-light" style="margin-bottom:16px;">On Brand Indigo Background</div>
+        <div style="font-family:var(--font-heading-en); font-size:36px; font-weight:700; color:#fff; margin-bottom:6px;">跨境顧問策略</div>
+        <div style="font-family:var(--font-heading-zh); font-size:18px; font-weight:400; color:rgba(255,255,255,0.7); margin-bottom:20px;">大璽國際顧問股份有限公司</div>
+        <div style="font-size:16px; font-weight:400; color:rgba(255,255,255,0.9); line-height:1.7; max-width:560px;">大璽國際顧問以卓越的跨境交易顧問服務，協助機構投資人、家族辦公室及主權基金在複雜的跨境交易與戰略轉型中取得優勢。</div>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section id="buttons" class="ci-section">
+      <span class="overline">03 — Interactive Elements</span>
+      <h2 class="section-heading">Button System</h2>
+      <p class="section-sub">按鈕元件</p>
+
+      <div class="btn-showcase">
+        <div class="btn-item">
+          <button class="btn btn-primary">Engage Advisory</button>
+          <div class="btn-label">Primary — bg #E31445<br>radius 6px · shadow crimson<br>Hover: #F04668 + lift</div>
+        </div>
+        <div class="btn-item">
+          <button class="btn btn-secondary">View Services</button>
+          <div class="btn-label">Secondary — bg Brand Indigo<br>radius 6px · white text<br>Hover: Indigo Light</div>
+        </div>
+        <div class="btn-item">
+          <button class="btn btn-outline">Learn More</button>
+          <div class="btn-label">Outline — transparent<br>1.5px Brand Indigo border<br>Hover: Indigo Tint bg</div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px;">
+        <div style="font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--medium-gray); margin-bottom:16px;">Size Variants</div>
+        <div class="button-row" style="margin-bottom:16px;">
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary btn-lg">Large CTA</button>
+        </div>
+        <div class="button-row">
+          <button class="btn btn-secondary btn-sm">Small</button>
+          <button class="btn btn-secondary">Default</button>
+          <button class="btn btn-secondary btn-lg">Large</button>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; padding:40px; background:var(--brand-indigo); border-radius:12px;">
+        <div class="overline-light" style="margin-bottom:20px;">On Brand Indigo Background</div>
+        <div class="button-row">
+          <button class="btn btn-primary">Primary CTA</button>
+          <button class="btn" style="background:rgba(255,255,255,0.12);color:#fff;border-radius:6px;padding:0 28px;border:1.5px solid rgba(255,255,255,0.25);">Ghost Button</button>
+          <a href="#" style="color:rgba(255,255,255,0.8); font-size:14px; font-weight:600; text-decoration:underline; text-underline-offset:3px;">Text Link →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS -->
+    <section id="cards" class="ci-section" style="background:var(--off-white);">
+      <span class="overline">04 — Components</span>
+      <h2 class="section-heading">Card System</h2>
+      <p class="section-sub">卡片元件</p>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-overline">M&amp;A Advisory</div>
+          <div class="card-title">Cross-Border Transaction Strategy</div>
+          <div class="card-body">Expert guidance on complex cross-border mergers, from preliminary due diligence through post-merger integration and value capture.</div>
+          <button class="btn btn-outline btn-sm">Learn More</button>
+        </div>
+        <div class="card">
+          <div class="card-overline">Capital Markets</div>
+          <div class="card-title">Equity &amp; Debt Structuring</div>
+          <div class="card-body">Sophisticated capital structure advisory for institutional clients seeking optimal financing arrangements across global markets.</div>
+          <button class="btn btn-outline btn-sm">Learn More</button>
+        </div>
+        <div class="card card-feature">
+          <div class="card-overline-light">Featured Service</div>
+          <div class="card-title-light">Strategic Partnership Formation</div>
+          <div class="card-body-light">Deep-sector expertise in identifying, evaluating, and structuring transformative strategic partnerships across Asian and global markets.</div>
+          <button class="btn btn-primary btn-sm">Engage Now</button>
+        </div>
+      </div>
+
+      <div style="margin-top:24px;">
+        <div style="font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--medium-gray); margin-bottom:16px;">Stat Cards</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:20px;">
+          <div class="card" style="text-align:center;">
+            <div class="card-stat">127+</div>
+            <div class="card-stat-label">Transactions Advised</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="card-stat">$48B</div>
+            <div class="card-stat-label">Deal Value Closed</div>
+          </div>
+          <div class="card" style="text-align:center;">
+            <div class="card-stat">22</div>
+            <div class="card-stat-label">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <section id="navigation" class="ci-section">
+      <span class="overline">05 — Navigation</span>
+      <h2 class="section-heading">Navigation Bar</h2>
+      <p class="section-sub">導覽列</p>
+      <div style="border-radius:12px; overflow:hidden; border:1px solid var(--light-gray);">
+        <nav class="nav-demo">
+          <div class="nav-logo">DASI International</div>
+          <ul class="nav-links">
+            <li><a href="#">Advisory</a></li>
+            <li><a href="#">Transactions</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+          <a href="#" class="nav-cta">Contact Us</a>
+        </nav>
+      </div>
+      <div style="margin-top:20px; padding:20px 24px; background:var(--indigo-tint); border-radius:8px; font-size:13px; color:var(--dark-text); line-height:1.7;">
+        <strong style="font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--brand-indigo); display:block; margin-bottom:8px;">Specs</strong>
+        Height: 72px · bg Brand Indigo solid<br>
+        Links: rgba(white, 0.8) → hover white + 2px crimson underline on hover<br>
+        CTA: Brand Crimson bg · radius 6px · hover Crimson Light
+      </div>
+    </section>
+
+    <!-- INPUTS -->
+    <section id="inputs" class="ci-section" style="background:var(--off-white);">
+      <span class="overline">06 — Form Elements</span>
+      <h2 class="section-heading">Input Fields</h2>
+      <p class="section-sub">表單元件</p>
+      <div class="input-grid">
+        <div class="form-field">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Enter your full name" />
+          <span class="form-hint">white bg · 1.5px #E8EAED border · radius 8px</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="advisory@dasi.com" />
+          <span class="form-hint">Focus: Brand Indigo border + 3px Indigo Tint ring</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Service Type</label>
+          <select class="form-select">
+            <option value="">Select advisory service</option>
+            <option>M&amp;A Advisory</option>
+            <option>Capital Markets</option>
+            <option>Strategic Consulting</option>
+          </select>
+          <span class="form-hint">Custom arrow · radius 8px · same focus rule</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Error State</label>
+          <input type="text" class="form-input" value="Invalid entry" style="border-color:#E31445; box-shadow:0 0 0 3px rgba(227,20,69,0.08);" />
+          <span class="form-error">This field contains an error</span>
+        </div>
+      </div>
+      <div style="margin-top:28px; max-width:600px;">
+        <div class="form-field">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Describe your advisory requirements in detail..."></textarea>
+          <span class="form-hint">Height 112px · resize vertical · same border/focus system</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDERS & TAGS -->
+    <section id="dividers" class="ci-section">
+      <span class="overline">07 — Decorative Elements</span>
+      <h2 class="section-heading">Dividers, Rules &amp; Tags</h2>
+      <p class="section-sub">分隔線與標籤元件</p>
+      <div class="divider-showcase">
+        <div class="divider-item">
+          <div class="divider-label">Standard divider — 1px Light Gray</div>
+          <hr class="div-standard" />
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Brand accent — Indigo 60px · radius 2px</div>
+          <div class="div-indigo"></div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">CTA accent — Crimson 40px · radius 2px</div>
+          <div class="div-crimson"></div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Tags &amp; Badges</div>
+          <div class="tag-row">
+            <span class="tag tag-indigo">M&amp;A Advisory</span>
+            <span class="tag tag-indigo">Capital Markets</span>
+            <span class="tag tag-indigo">Governance</span>
+            <span class="tag tag-crimson">New</span>
+            <span class="tag tag-crimson">Featured</span>
+            <span class="tag tag-gray">Report</span>
+            <span class="badge badge-indigo">Advisory</span>
+            <span class="badge badge-crimson">CTA Badge</span>
+            <span class="badge badge-outline">Outline</span>
+          </div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Grid — 12 col · max-width 1240px · 24px gutter · section 80px</div>
+          <div style="display:grid; grid-template-columns:repeat(12,1fr); gap:8px;">
+            <div style="height:28px;background:var(--indigo-tint);border-radius:4px;grid-column:span 3;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--brand-indigo);font-weight:600;">3</div>
+            <div style="height:28px;background:var(--indigo-tint);border-radius:4px;grid-column:span 3;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--brand-indigo);font-weight:600;">3</div>
+            <div style="height:28px;background:rgba(227,20,69,0.08);border-radius:4px;grid-column:span 6;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--brand-crimson);font-weight:600;">6 col</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS & DATA on indigo -->
+    <section id="stats" class="ci-section-alt">
+      <span class="overline-light">08 — Data Display</span>
+      <h2 class="section-heading-light">Statistics &amp; Data</h2>
+      <p class="section-sub-light">數據展示元件</p>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number-white">127+</div>
+          <div class="stat-label">Transactions Advised</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number-white">$48B</div>
+          <div class="stat-label">Total Deal Value</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number-white">22</div>
+          <div class="stat-label">Years of Practice</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number-white">18</div>
+          <div class="stat-label">Active Markets</div>
+        </div>
+      </div>
+      <div style="margin-top:48px; padding:28px; background:rgba(255,255,255,0.06); border-radius:8px; border:1px solid rgba(255,255,255,0.1); font-size:13px; color:rgba(255,255,255,0.7); line-height:1.7;">
+        <strong style="color:rgba(255,255,255,0.9); display:block; margin-bottom:4px;">On White background:</strong>
+        Stat numbers use Brand Crimson #E31445, 48px Manrope 700. Labels use Medium Gray. On indigo bg, numbers become white.
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section id="motion" class="ci-section">
+      <span class="overline">09 — Animation &amp; Motion</span>
+      <h2 class="section-heading">Motion Specs</h2>
+      <p class="section-sub">動態規範</p>
+      <div class="motion-grid">
+        <div class="motion-card">
+          <div class="motion-name">Page Entrance</div>
+          <div class="motion-spec">fadeInUp · 0.5s · ease · both</div>
+          <div class="motion-desc">Elements enter from 20px below opacity 0. Shorter duration than other styles — more direct and businesslike. Stagger: 0.08s.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Card Hover Lift</div>
+          <div class="motion-spec">translateY(-4px) · 0.25s · ease</div>
+          <div class="motion-desc">Cards lift 4px on hover — more pronounced than other styles, reinforcing interactivity. Paired with shadow increase and indigo border.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Counter Animation</div>
+          <div class="motion-spec">counter 0 → N · 1.5s · easeOut</div>
+          <div class="motion-desc">Statistical numbers animate from 0 on scroll entry. Creates confidence and draws attention to key metrics. Implement via IntersectionObserver + JS.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Button Lift</div>
+          <div class="motion-spec">translateY(-1px) · 0.2s · ease</div>
+          <div class="motion-desc">Buttons lift subtly on hover. Primary adds shadow intensity. All transitions defined on base state — never on :hover pseudo-class.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Nav Underline</div>
+          <div class="motion-spec">width: 0 → 100% · 0.2s · ease</div>
+          <div class="motion-desc">Crimson underline extends under nav links on hover. Fast and precise — signals interactivity without delay.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Focus Ring</div>
+          <div class="motion-spec">box-shadow expand · 0.15s · ease</div>
+          <div class="motion-desc">3px Indigo Tint ring appears on input focus. Accessibility compliant. Replaces browser default outline. Border transitions to Brand Indigo simultaneously.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="ci-section" style="background:var(--off-white);">
+      <span class="overline">10 — Visual Direction</span>
+      <h2 class="section-heading">Photography &amp; Imagery</h2>
+      <p class="section-sub">影像使用規範</p>
+      <div class="photo-callout">
+        <div class="photo-callout-title">Corporate Photography Direction</div>
+        <ul class="photo-rules">
+          <li><strong>Tone:</strong> Professional, authoritative, optimistic. Well-lit boardrooms, confident executive portraiture, institutional architecture. Never dark or moody.</li>
+          <li><strong>Subject Matter:</strong> Glass office buildings, city skylines, handshakes and meetings, digital interfaces/screens, financial charts, Asian business hubs (Singapore, Hong Kong, Taipei, Shanghai).</li>
+          <li><strong>Color Treatment:</strong> Slightly desaturated (10–15%). Can add a cool, slightly blue-shifted grade to harmonize with indigo palette. Avoid warm yellows or oranges.</li>
+          <li><strong>Composition:</strong> Clean, open compositions. Large sky areas for text overlay. Subject in one-third of frame. Never cropped awkwardly at edges.</li>
+          <li><strong>People:</strong> Diverse executive portraiture. Confident posture. Professional attire. Can use candid shots of team in action (meetings, whiteboarding). Always well-lit.</li>
+          <li><strong>On Indigo Backgrounds:</strong> Use overlay images with Brand Indigo at 70% opacity + multiply blend. Creates unified section treatment.</li>
+          <li><strong>Prohibited:</strong> Low-resolution imagery, clichéd stock (handshake close-ups, generic globes), overly casual photography, images with competing strong colors.</li>
+        </ul>
+      </div>
+      <div class="photo-grid-demo">
+        <div class="photo-box photo-box-bg1"><span class="photo-box-label">Corporate Exterior</span></div>
+        <div class="photo-box photo-box-bg2"><span class="photo-box-label">Executive Portrait</span></div>
+        <div class="photo-box photo-box-bg3"><span class="photo-box-label">Team Meeting</span></div>
+      </div>
+    </section>
+
+    <!-- LOGO -->
+    <section id="logo" class="ci-section">
+      <span class="overline">11 — Brand Identity</span>
+      <h2 class="section-heading">Logo Usage Rules</h2>
+      <p class="section-sub">標誌使用規範</p>
+      <div class="logo-grid">
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-white">
+            <div class="logo-mark indigo">DASI</div>
+          </div>
+          <div class="logo-rule-text">Primary: Brand Indigo on White. Default for all digital and light-background contexts.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-offwhite">
+            <div class="logo-mark indigo">DASI</div>
+          </div>
+          <div class="logo-rule-text">On Off White: Brand Indigo on Off White. Reports, presentations, gray panels.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-indigo">
+            <div class="logo-mark white">DASI</div>
+          </div>
+          <div class="logo-rule-text">Reversed: White on Brand Indigo. All dark/colored backgrounds, nav bar, dark headers.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-crimson">
+            <div class="logo-mark white">DASI</div>
+          </div>
+          <div class="logo-rule-text">On Crimson: White on Brand Crimson. Avoid — use only where no other option exists.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div style="padding:32px; background:var(--off-white); border:1px solid var(--light-gray); border-radius:12px;">
+          <div style="font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--medium-gray); margin-bottom:20px;">Clearspace Rule</div>
+          <div style="display:flex; justify-content:center; padding:24px; border:1.5px dashed var(--light-gray); border-radius:8px;">
+            <div style="position:relative; display:inline-block; padding:16px; border:1.5px dashed var(--indigo-tint);">
+              <div class="logo-mark indigo" style="font-size:24px;">DASI</div>
+            </div>
+          </div>
+          <div style="font-size:12px; color:var(--medium-gray); margin-top:14px; line-height:1.6;">Minimum clear space = cap-height of logotype on all sides. Dashed border shows exclusion zone.</div>
+        </div>
+        <div class="logo-forbidden">
+          <div class="forbidden-title">Never Do This</div>
+          <ul class="forbidden-list">
+            <li>Stretch or distort proportions</li>
+            <li>Apply drop shadows, gradients, or glows</li>
+            <li>Place on busy photographic backgrounds</li>
+            <li>Recreate in unauthorized typefaces</li>
+            <li>Use colors outside approved palette</li>
+            <li>Reduce below 60px in digital contexts</li>
+            <li>Outline or stroke the letterforms</li>
+            <li>Apply opacity or transparency to logotype</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:20px; padding:28px 32px; background:var(--indigo-tint); border-radius:10px;">
+        <div class="overline" style="margin-bottom:16px;">Approved Scale — Minimum Sizes</div>
+        <div style="display:flex; gap:48px; align-items:flex-end; flex-wrap:wrap;">
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div class="logo-mark indigo" style="font-size:36px;">DASI</div>
+            <div style="font-size:11px; color:var(--medium-gray); font-weight:500;">Digital min<br>60px wide</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div class="logo-mark indigo" style="font-size:22px;">DASI</div>
+            <div style="font-size:11px; color:var(--medium-gray); font-weight:500;">Small UI<br>40px wide</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
+            <div class="logo-mark indigo" style="font-size:52px;">DASI</div>
+            <div style="font-size:11px; color:var(--medium-gray); font-weight:500;">Hero<br>120px+ wide</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
