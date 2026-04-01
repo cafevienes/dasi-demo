@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASI CI — Style 5: 靛藍雅致 Quiet Indigo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Serif+TC:wght@300;400&family=Inter:wght@300;400;500&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — DASI Style 5: 靛藍雅致 Quiet Indigo
+       Quiet luxury reframe of Style 3's corporate indigo
+    ============================================================ */
+    :root {
+      /* Neutrals */
+      --canvas:          #FAF8F5;
+      --linen:           #F0ECE6;
+      --champagne:       #B8A088;
+      --charcoal:        #2A2D3A;
+      --slate:           #6B7084;
+      --mist:            #D4D1CC;
+
+      /* Brand */
+      --brand-indigo:    #1B2D8B;
+      --brand-crimson:   #E31445;
+      --deep-navy:       #0A1035;
+      --indigo-tint:     #E8EBF5;
+      --indigo-hover:    #2A3F9E;
+
+      /* Typography */
+      --font-heading:    'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+      --font-heading-zh: 'Noto Serif TC', 'Cormorant Garamond', serif;
+      --font-body:       'Inter', 'Noto Sans TC', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--canvas);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .page-wrap {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background: #FFFFFF;
+      border-right: 1px solid #E8E5E0;
+      overflow-y: auto;
+      z-index: 100;
+      padding: 40px 0 40px;
+    }
+
+    .sidebar-brand {
+      padding: 0 28px 28px;
+      border-bottom: 1px solid #E8E5E0;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-brand .brand-name {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 22px;
+      color: var(--brand-indigo);
+      letter-spacing: 0.02em;
+    }
+
+    .sidebar-brand .brand-sub {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      margin-top: 4px;
+    }
+
+    .sidebar nav {
+      padding: 0 0 0 0;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 9px 28px 9px 26px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--slate);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      line-height: 1.5;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      color: var(--brand-indigo);
+      border-left-color: var(--brand-indigo);
+    }
+
+    /* Main content */
+    .main {
+      margin-left: 240px;
+      flex: 1;
+      padding: 64px 72px 120px;
+      max-width: 960px;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+    ============================================================ */
+    .page-title {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 48px;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .page-subtitle {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      margin-bottom: 48px;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      scroll-margin-top: 40px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 34px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .section-overline {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      margin-bottom: 24px;
+    }
+
+    .section-desc {
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--charcoal);
+      max-width: 640px;
+      margin-bottom: 32px;
+    }
+
+    .section-desc strong {
+      font-weight: 500;
+    }
+
+    h3.subsection-title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 24px;
+      color: var(--charcoal);
+      margin: 40px 0 16px;
+      line-height: 1.4;
+    }
+
+    .divider-section {
+      width: 100%;
+      height: 1px;
+      background: #E8E5E0;
+      margin: 80px 0;
+    }
+
+    /* ============================================================
+       QUOTE / PRINCIPLE
+    ============================================================ */
+    .principle-block {
+      border-left: 3px solid var(--brand-indigo);
+      padding: 24px 32px;
+      background: #FFFFFF;
+      margin: 32px 0;
+    }
+
+    .principle-block p {
+      font-family: var(--font-heading-zh);
+      font-weight: 300;
+      font-size: 22px;
+      color: var(--brand-indigo);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       COLOR SWATCHES
+    ============================================================ */
+    .color-group-label {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      margin: 32px 0 16px;
+    }
+
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .color-swatch {
+      border: 1px solid #E8E5E0;
+    }
+
+    .color-swatch .swatch-fill {
+      height: 80px;
+      border-bottom: 1px solid #E8E5E0;
+    }
+
+    .color-swatch .swatch-info {
+      padding: 12px 14px;
+      background: #FFFFFF;
+    }
+
+    .color-swatch .swatch-name {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 2px;
+    }
+
+    .color-swatch .swatch-hex {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--slate);
+      font-family: 'Inter', monospace;
+    }
+
+    .color-swatch .swatch-usage {
+      font-size: 11px;
+      color: var(--slate);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       TYPE SPECIMENS
+    ============================================================ */
+    .type-specimen {
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid #E8E5E0;
+    }
+
+    .type-specimen:last-child {
+      border-bottom: none;
+    }
+
+    .type-meta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .type-meta span {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--champagne);
+      background: var(--linen);
+      padding: 3px 10px;
+    }
+
+    .type-example-en {
+      font-family: var(--font-heading);
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .type-example-zh {
+      font-family: var(--font-heading-zh);
+      color: var(--charcoal);
+    }
+
+    .type-example-body-en {
+      font-family: var(--font-body);
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .type-example-body-zh {
+      font-family: 'Noto Sans TC', var(--font-body);
+      color: var(--charcoal);
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .button-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 13px 36px;
+      background: var(--brand-indigo);
+      color: #FFFFFF;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--indigo-hover);
+    }
+
+    .btn-secondary {
+      display: inline-block;
+      padding: 12px 36px;
+      background: transparent;
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: 1px solid var(--champagne);
+      border-radius: 0;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--brand-indigo);
+      color: var(--brand-indigo);
+    }
+
+    .btn-text {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--brand-indigo);
+      text-decoration: none;
+      cursor: pointer;
+      transition: text-decoration-color 0.2s;
+      text-underline-offset: 4px;
+    }
+
+    .btn-text:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--brand-indigo);
+    }
+
+    .btn-ghost {
+      display: inline-block;
+      padding: 13px 24px;
+      background: transparent;
+      color: var(--slate);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--brand-indigo);
+    }
+
+    .btn-label {
+      font-size: 11px;
+      color: var(--slate);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .button-showcase {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .button-showcase .btn-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    /* ============================================================
+       CARDS
+    ============================================================ */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card-standard {
+      background: #FFFFFF;
+      border: 1px solid #E8E5E0;
+      padding: 32px 28px;
+    }
+
+    .card-standard .card-overline {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      margin-bottom: 12px;
+    }
+
+    .card-standard .card-title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .card-standard .card-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    .card-feature {
+      background: #FFFFFF;
+      border: 1px solid #E8E5E0;
+      border-left: 3px solid var(--brand-indigo);
+      padding: 32px 28px;
+    }
+
+    .card-feature .card-overline {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+      margin-bottom: 12px;
+    }
+
+    .card-feature .card-title {
+      font-family: var(--font-heading);
+      font-weight: 400;
+      font-size: 22px;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+    }
+
+    .card-feature .card-body {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.7;
+    }
+
+    .card-stat {
+      background: #FFFFFF;
+      border: 1px solid #E8E5E0;
+      padding: 36px 28px;
+      text-align: center;
+    }
+
+    .card-stat .stat-number {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 56px;
+      color: var(--brand-indigo);
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .card-stat .stat-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--champagne);
+    }
+
+    .card-stat .stat-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--slate);
+      margin-top: 8px;
+    }
+
+    /* ============================================================
+       NAVIGATION MOCKUP
+    ============================================================ */
+    .nav-mockup {
+      background: #FFFFFF;
+      border: 1px solid #E8E5E0;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      margin-bottom: 24px;
+    }
+
+    .nav-mockup .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 22px;
+      color: var(--brand-indigo);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-mockup .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-mockup .nav-links a {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--slate);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-mockup .nav-links a:hover,
+    .nav-mockup .nav-links a.nav-active {
+      color: var(--brand-indigo);
+    }
+
+    .nav-mockup .nav-cta {
+      padding: 9px 24px;
+      background: var(--brand-indigo);
+      color: #FFFFFF;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+    }
+
+    .nav-spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .nav-spec-table th,
+    .nav-spec-table td {
+      text-align: left;
+      padding: 10px 16px;
+      font-size: 13px;
+      border-bottom: 1px solid #E8E5E0;
+    }
+
+    .nav-spec-table th {
+      font-weight: 500;
+      color: var(--charcoal);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--champagne);
+    }
+
+    .nav-spec-table td {
+      font-weight: 300;
+      color: var(--charcoal);
+    }
+
+    /* ============================================================
+       FORM INPUTS
+    ============================================================ */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--champagne);
+      margin-bottom: 8px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: #FFFFFF;
+      border: 1px solid var(--mist);
+      padding: 12px 16px;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 0;
+      -webkit-appearance: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--brand-indigo);
+    }
+
+    .form-input::placeholder {
+      color: var(--mist);
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7084' stroke-width='1.2' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       DIVIDERS DEMO
+    ============================================================ */
+    .divider-demo {
+      margin-bottom: 36px;
+    }
+
+    .divider-demo-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--champagne);
+      margin-bottom: 16px;
+    }
+
+    .divider-standard {
+      width: 100%;
+      height: 1px;
+      background: #E8E5E0;
+    }
+
+    .divider-decorative {
+      width: 48px;
+      height: 1px;
+      background: var(--champagne);
+    }
+
+    .divider-full {
+      width: calc(100% + 144px);
+      margin-left: -72px;
+      height: 1px;
+      background: #E8E5E0;
+    }
+
+    /* ============================================================
+       MOTION SECTION
+    ============================================================ */
+    .motion-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .motion-card {
+      background: #FFFFFF;
+      border: 1px solid #E8E5E0;
+      padding: 28px;
+    }
+
+    .motion-card .motion-label {
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--champagne);
+      margin-bottom: 12px;
+    }
+
+    .motion-card .motion-value {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 24px;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+
+    .motion-card .motion-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    .motion-demo-box {
+      width: 64px;
+      height: 64px;
+      background: var(--indigo-tint);
+      border: 1px solid #E8E5E0;
+      margin: 16px 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .motion-demo-box.fade:hover {
+      opacity: 0.5;
+    }
+
+    .motion-demo-box.lift:hover {
+      transform: translateY(-1px);
+    }
+
+    /* ============================================================
+       LOGO USAGE
+    ============================================================ */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .logo-block {
+      padding: 48px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #E8E5E0;
+      min-height: 180px;
+    }
+
+    .logo-placeholder {
+      font-family: var(--font-heading);
+      font-weight: 300;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .logo-placeholder-sub {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    .logo-bg-label {
+      font-size: 11px;
+      font-weight: 400;
+      margin-top: 16px;
+      opacity: 0.6;
+    }
+
+    .logo-on-canvas {
+      background: var(--canvas);
+    }
+    .logo-on-canvas .logo-placeholder { color: var(--brand-indigo); }
+    .logo-on-canvas .logo-placeholder-sub { color: var(--champagne); }
+    .logo-on-canvas .logo-bg-label { color: var(--slate); }
+
+    .logo-on-white {
+      background: #FFFFFF;
+    }
+    .logo-on-white .logo-placeholder { color: var(--brand-indigo); }
+    .logo-on-white .logo-placeholder-sub { color: var(--champagne); }
+    .logo-on-white .logo-bg-label { color: var(--slate); }
+
+    .logo-on-indigo {
+      background: var(--brand-indigo);
+    }
+    .logo-on-indigo .logo-placeholder { color: #FFFFFF; }
+    .logo-on-indigo .logo-placeholder-sub { color: rgba(255,255,255,0.5); }
+    .logo-on-indigo .logo-bg-label { color: rgba(255,255,255,0.5); }
+
+    .logo-on-navy {
+      background: var(--deep-navy);
+    }
+    .logo-on-navy .logo-placeholder { color: #FFFFFF; }
+    .logo-on-navy .logo-placeholder-sub { color: var(--champagne); }
+    .logo-on-navy .logo-bg-label { color: rgba(255,255,255,0.4); }
+
+    /* ============================================================
+       COMPARISON TABLE
+    ============================================================ */
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+
+    .compare-table th,
+    .compare-table td {
+      text-align: left;
+      padding: 12px 20px;
+      font-size: 14px;
+      font-weight: 300;
+      border-bottom: 1px solid #E8E5E0;
+      vertical-align: top;
+    }
+
+    .compare-table th {
+      font-weight: 500;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--champagne);
+      padding-bottom: 16px;
+    }
+
+    .compare-table td:first-child {
+      font-weight: 400;
+      color: var(--charcoal);
+      width: 160px;
+    }
+
+    /* ============================================================
+       UTILITY
+    ============================================================ */
+    .code {
+      font-family: 'Inter', monospace;
+      font-size: 12px;
+      background: var(--linen);
+      padding: 2px 8px;
+      color: var(--charcoal);
+    }
+
+    .spec-note {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+  <!-- ============================================================
+       SIDEBAR
+  ============================================================ -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">DASI</div>
+      <div class="brand-sub">Style 5 &middot; CI Spec</div>
+    </div>
+    <nav>
+      <a href="#overview" class="active">Overview</a>
+      <a href="#philosophy">Design Philosophy</a>
+      <a href="#colors">Colors</a>
+      <a href="#typography">Typography</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#cards">Cards</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#inputs">Inputs</a>
+      <a href="#dividers">Dividers</a>
+      <a href="#motion">Motion</a>
+      <a href="#logo-usage">Logo Usage</a>
+    </nav>
+  </aside>
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main class="main">
+
+    <h1 class="page-title">靛藍雅致</h1>
+    <p class="page-subtitle">Quiet Indigo &mdash; Corporate Identity Specification</p>
+
+    <!-- ──────────────────────────────────────────────────────────
+         1. OVERVIEW
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="overview">
+      <p class="section-overline">01 &mdash; Overview</p>
+      <h2 class="section-title">靛藍雅致 — Quiet Indigo</h2>
+      <p class="section-desc">
+        Style 5 以「靜奢」(Quiet Luxury) 為核心設計語言。我們相信真正的品味不需要聲張——它存在於精準的字距中、在克制的色彩裡、在大量留白的呼吸空間裡。這是一個為專業受眾打造的設計系統，每一個元素都經過深思熟慮的取捨。
+      </p>
+
+      <div class="principle-block">
+        <p>以克制傳達奢華，以留白彰顯品味。</p>
+      </div>
+
+      <p class="section-desc">
+        靛藍雅致取自 Style 3 的企業靛藍色系，但完全拋棄了權威感與力量感的表達方式。取而代之的是溫暖的亞麻底色、editorial 級別的排版、以及香檳金的微妙點綴——營造出一種低調而不可忽視的優雅。
+      </p>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         2. DESIGN PHILOSOPHY
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="philosophy">
+      <p class="section-overline">02 &mdash; Design Philosophy</p>
+      <h2 class="section-title">設計哲學</h2>
+      <p class="section-desc">
+        靛藍雅致是 Style 3「靛藍企業」的靜奢重構。Style 3 透過深色背景、粗體字重與金色裝飾來傳達企業權威；Style 5 則將同樣的靛藍品牌色置入完全不同的語境——以 editorial typography、溫暖中性色與大量留白，重新詮釋專業與信任。
+      </p>
+
+      <h3 class="subsection-title">與 Style 3 的對比</h3>
+
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>面向</th>
+            <th>Style 3 靛藍企業</th>
+            <th>Style 5 靛藍雅致</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>基調</td>
+            <td>深色背景、高對比</td>
+            <td>暖白畫布、低對比</td>
+          </tr>
+          <tr>
+            <td>字型策略</td>
+            <td>Sans-serif 為主、粗字重</td>
+            <td>Serif 標題、極細字重</td>
+          </tr>
+          <tr>
+            <td>裝飾色</td>
+            <td>金色 Gold #C9A96E</td>
+            <td>香檳 Champagne #B8A088</td>
+          </tr>
+          <tr>
+            <td>圓角</td>
+            <td>8-12px</td>
+            <td>0px（方正）</td>
+          </tr>
+          <tr>
+            <td>陰影</td>
+            <td>多層漸層陰影</td>
+            <td>無陰影，僅用邊線</td>
+          </tr>
+          <tr>
+            <td>語調</td>
+            <td>權威、力量、領導</td>
+            <td>克制、雅致、品味</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="section-desc" style="margin-top: 24px;">
+        核心差異在於<strong>傳達自信的方式</strong>：Style 3 用視覺份量說服，Style 5 用留白與克制說服。兩者同樣專業，但面向不同的美學期待。
+      </p>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         3. COLORS
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="colors">
+      <p class="section-overline">03 &mdash; Colors</p>
+      <h2 class="section-title">色彩系統</h2>
+      <p class="section-desc">
+        色板以溫暖中性色為基底，品牌靛藍作為唯一的強調色，香檳金用於標籤與裝飾。整體克制，讓色彩的每次出現都具有意義。
+      </p>
+
+      <p class="color-group-label">Neutrals — 中性色</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #FAF8F5;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Canvas</div>
+            <div class="swatch-hex">#FAF8F5</div>
+            <div class="swatch-usage">頁面背景</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #F0ECE6;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Linen</div>
+            <div class="swatch-hex">#F0ECE6</div>
+            <div class="swatch-usage">次要背景、標籤底色</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #B8A088;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Champagne</div>
+            <div class="swatch-hex">#B8A088</div>
+            <div class="swatch-usage">Overline、裝飾線、標籤文字</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #2A2D3A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Charcoal</div>
+            <div class="swatch-hex">#2A2D3A</div>
+            <div class="swatch-usage">主要文字</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #6B7084;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Slate</div>
+            <div class="swatch-hex">#6B7084</div>
+            <div class="swatch-usage">次要文字、說明文字</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #D4D1CC;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Mist</div>
+            <div class="swatch-hex">#D4D1CC</div>
+            <div class="swatch-usage">輸入框邊線、placeholder</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="color-group-label">Brand — 品牌色</p>
+      <div class="color-grid">
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #1B2D8B;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Indigo</div>
+            <div class="swatch-hex">#1B2D8B</div>
+            <div class="swatch-usage">主要強調色、按鈕、連結</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #E31445;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Brand Crimson</div>
+            <div class="swatch-hex">#E31445</div>
+            <div class="swatch-usage">警告、錯誤、極少量使用</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #0A1035;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Deep Navy</div>
+            <div class="swatch-hex">#0A1035</div>
+            <div class="swatch-usage">深色背景場景、footer</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #E8EBF5;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Indigo Tint</div>
+            <div class="swatch-hex">#E8EBF5</div>
+            <div class="swatch-usage">淡靛藍背景、hover 狀態</div>
+          </div>
+        </div>
+        <div class="color-swatch">
+          <div class="swatch-fill" style="background: #2A3F9E;"></div>
+          <div class="swatch-info">
+            <div class="swatch-name">Indigo Hover</div>
+            <div class="swatch-hex">#2A3F9E</div>
+            <div class="swatch-usage">按鈕 hover 狀態</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         4. TYPOGRAPHY
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="typography">
+      <p class="section-overline">04 &mdash; Typography</p>
+      <h2 class="section-title">字型系統</h2>
+      <p class="section-desc">
+        標題使用 Cormorant Garamond（EN）與 Noto Serif TC（ZH）的細字重，呈現 editorial 感。內文使用 Inter 與 Noto Sans TC，確保可讀性。整體字重偏輕，強調優雅而非厚重。
+      </p>
+
+      <!-- H1 -->
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span>H1</span>
+          <span>Cormorant Garamond 300</span>
+          <span>48px</span>
+        </div>
+        <div class="type-example-en" style="font-weight: 300; font-size: 48px; line-height: 1.2;">
+          The Art of Restraint
+        </div>
+        <div class="type-example-zh" style="font-weight: 300; font-size: 48px; line-height: 1.3; margin-top: 8px;">
+          以克制成就不凡
+        </div>
+      </div>
+
+      <!-- H2 -->
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span>H2</span>
+          <span>Cormorant Garamond 400</span>
+          <span>34px</span>
+        </div>
+        <div class="type-example-en" style="font-weight: 400; font-size: 34px; line-height: 1.3;">
+          Quiet Confidence in Every Detail
+        </div>
+        <div class="type-example-zh" style="font-weight: 400; font-size: 34px; line-height: 1.4; margin-top: 8px;">
+          每個細節都是自信的表達
+        </div>
+      </div>
+
+      <!-- H3 -->
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span>H3</span>
+          <span>Cormorant Garamond 400</span>
+          <span>24px</span>
+        </div>
+        <div class="type-example-en" style="font-weight: 400; font-size: 24px; line-height: 1.4;">
+          Strategic Design for Discerning Brands
+        </div>
+        <div class="type-example-zh" style="font-weight: 400; font-size: 24px; line-height: 1.5; margin-top: 8px;">
+          為講究的品牌量身打造的策略設計
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span>Body</span>
+          <span>Inter 300</span>
+          <span>16px / 1.85</span>
+        </div>
+        <div class="type-example-body-en" style="font-weight: 300; font-size: 16px; line-height: 1.85; max-width: 560px;">
+          Good design is as little design as possible. Less, but better — because it concentrates on the essential aspects, and the products are not burdened with non-essentials.
+        </div>
+        <div class="type-example-body-zh" style="font-weight: 300; font-size: 16px; line-height: 1.85; max-width: 560px; margin-top: 8px;">
+          好的設計是盡可能少的設計。少，但更好——因為它專注於本質，而不讓產品承受非必要之重。真正的品味從來不需要刻意炫耀。
+        </div>
+      </div>
+
+      <!-- Overline -->
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span>Overline</span>
+          <span>Inter 500</span>
+          <span>11px / uppercase / tracking 0.15em</span>
+        </div>
+        <div style="font-family: var(--font-body); font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em; color: var(--champagne);">
+          Section Title &mdash; 章節標題
+        </div>
+      </div>
+
+      <!-- Caption -->
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span>Caption</span>
+          <span>Inter 400</span>
+          <span>13px</span>
+        </div>
+        <div style="font-family: var(--font-body); font-size: 13px; font-weight: 400; color: var(--slate);">
+          Image caption or supplementary note &mdash; 圖片說明或補充資訊
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         5. BUTTONS
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="buttons">
+      <p class="section-overline">05 &mdash; Buttons</p>
+      <h2 class="section-title">按鈕樣式</h2>
+      <p class="section-desc">
+        按鈕設計遵循方正、無圓角的原則。主要按鈕使用品牌靛藍填充；次要按鈕以香檳色邊框表達；文字連結與 Ghost 按鈕則極度低調。
+      </p>
+
+      <div class="button-showcase">
+        <div class="btn-item">
+          <button class="btn-primary">了解更多</button>
+          <p class="btn-label">Primary</p>
+        </div>
+        <div class="btn-item">
+          <button class="btn-secondary">聯繫我們</button>
+          <p class="btn-label">Secondary</p>
+        </div>
+        <div class="btn-item">
+          <a href="#" class="btn-text">閱讀全文</a>
+          <p class="btn-label">Text Link</p>
+        </div>
+        <div class="btn-item">
+          <button class="btn-ghost">更多選項</button>
+          <p class="btn-label">Ghost</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">按鈕規格</h3>
+      <table class="nav-spec-table">
+        <thead>
+          <tr>
+            <th>樣式</th>
+            <th>背景</th>
+            <th>文字</th>
+            <th>邊框</th>
+            <th>圓角</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Primary</td>
+            <td><span class="code">#1B2D8B</span></td>
+            <td><span class="code">#FFFFFF</span></td>
+            <td>無</td>
+            <td>0px</td>
+          </tr>
+          <tr>
+            <td>Secondary</td>
+            <td>transparent</td>
+            <td><span class="code">#2A2D3A</span></td>
+            <td>1px <span class="code">#B8A088</span></td>
+            <td>0px</td>
+          </tr>
+          <tr>
+            <td>Text Link</td>
+            <td>無</td>
+            <td><span class="code">#1B2D8B</span></td>
+            <td>無</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Ghost</td>
+            <td>transparent</td>
+            <td><span class="code">#6B7084</span></td>
+            <td>無</td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="spec-note">
+        Hover 狀態：Primary 背景變為 <span class="code">#2A3F9E</span>，Secondary 邊框與文字變為靛藍，Text Link 加底線，Ghost 文字變為靛藍。
+      </p>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         6. CARDS
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="cards">
+      <p class="section-overline">06 &mdash; Cards</p>
+      <h2 class="section-title">卡片元件</h2>
+      <p class="section-desc">
+        卡片以白色背景、1px 邊線構成，完全不使用陰影。Feature 卡片以 3px 靛藍左邊線區別。Stat 卡片使用 Cormorant Garamond 的大字號數字作為視覺焦點。
+      </p>
+
+      <h3 class="subsection-title">Standard Card</h3>
+      <div class="card-grid">
+        <div class="card-standard">
+          <div class="card-overline">Strategy</div>
+          <div class="card-title">品牌定位策略</div>
+          <div class="card-body">透過深度市場洞察與競品分析，為品牌找到獨特的市場位置與溝通語言。</div>
+        </div>
+        <div class="card-standard">
+          <div class="card-overline">Design</div>
+          <div class="card-title">視覺識別系統</div>
+          <div class="card-body">從標誌設計到完整的品牌識別手冊，建立一致且具辨識度的品牌形象。</div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Feature Card</h3>
+      <div class="card-grid">
+        <div class="card-feature">
+          <div class="card-overline">Featured</div>
+          <div class="card-title">數位轉型顧問</div>
+          <div class="card-body">協助企業從策略到執行，完成全方位的數位轉型旅程，提升營運效率與顧客體驗。</div>
+        </div>
+        <div class="card-feature">
+          <div class="card-overline">Featured</div>
+          <div class="card-title">永續品牌經營</div>
+          <div class="card-body">將 ESG 理念融入品牌核心，打造兼具商業價值與社會影響力的永續品牌。</div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Stat Card</h3>
+      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+        <div class="card-stat">
+          <div class="stat-number">96%</div>
+          <div class="stat-label">客戶滿意度</div>
+          <div class="stat-desc">持續追蹤與優化</div>
+        </div>
+        <div class="card-stat">
+          <div class="stat-number">240+</div>
+          <div class="stat-label">專案完成數</div>
+          <div class="stat-desc">跨產業實戰經驗</div>
+        </div>
+        <div class="card-stat">
+          <div class="stat-number">12</div>
+          <div class="stat-label">年深耕經驗</div>
+          <div class="stat-desc">品牌策略顧問</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         7. NAVIGATION
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="navigation">
+      <p class="section-overline">07 &mdash; Navigation</p>
+      <h2 class="section-title">導覽列</h2>
+      <p class="section-desc">
+        導覽列採用白色背景、底部邊線的乾淨設計。Logo 使用 Cormorant Garamond 細體，導覽連結為 Inter 400。CTA 按鈕與主要按鈕風格一致。
+      </p>
+
+      <div class="nav-mockup">
+        <div class="nav-logo">DASI</div>
+        <div class="nav-links">
+          <a href="#" class="nav-active">首頁</a>
+          <a href="#">服務項目</a>
+          <a href="#">案例分享</a>
+          <a href="#">關於我們</a>
+          <a href="#" class="nav-cta">立即諮詢</a>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">導覽列規格</h3>
+      <table class="nav-spec-table">
+        <thead>
+          <tr>
+            <th>屬性</th>
+            <th>規格</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>高度</td>
+            <td>72px</td>
+          </tr>
+          <tr>
+            <td>背景</td>
+            <td><span class="code">#FFFFFF</span></td>
+          </tr>
+          <tr>
+            <td>底部邊線</td>
+            <td>1px <span class="code">#E8E5E0</span></td>
+          </tr>
+          <tr>
+            <td>Logo 字型</td>
+            <td>Cormorant Garamond 300, 22px, Brand Indigo</td>
+          </tr>
+          <tr>
+            <td>連結字型</td>
+            <td>Inter 400, 13px, Slate</td>
+          </tr>
+          <tr>
+            <td>連結間距</td>
+            <td>32px gap</td>
+          </tr>
+          <tr>
+            <td>Active 狀態</td>
+            <td>Brand Indigo 文字色</td>
+          </tr>
+          <tr>
+            <td>水平 padding</td>
+            <td>40px</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         8. INPUTS
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="inputs">
+      <p class="section-overline">08 &mdash; Inputs</p>
+      <h2 class="section-title">表單元件</h2>
+      <p class="section-desc">
+        表單設計同樣遵循無圓角、低調的原則。邊線使用 Mist 色，focus 狀態切換為 Brand Indigo。標籤使用與 Overline 相同的樣式。
+      </p>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">姓名 Name</label>
+          <input type="text" class="form-input" placeholder="請輸入您的姓名" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">電子郵件 Email</label>
+          <input type="email" class="form-input" placeholder="name@example.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">產業類別 Industry</label>
+          <select class="form-select">
+            <option>請選擇產業</option>
+            <option>科技業</option>
+            <option>金融業</option>
+            <option>製造業</option>
+            <option>服務業</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">聯絡電話 Phone</label>
+          <input type="tel" class="form-input" placeholder="+886" />
+        </div>
+        <div class="form-group full-width">
+          <label class="form-label">訊息內容 Message</label>
+          <textarea class="form-textarea" placeholder="請簡述您的需求..."></textarea>
+        </div>
+      </div>
+
+      <p class="spec-note">
+        所有輸入框：padding 12px 16px，border 1px <span class="code">#D4D1CC</span>，border-radius 0px，focus border <span class="code">#1B2D8B</span>。
+      </p>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         9. DIVIDERS
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="dividers">
+      <p class="section-overline">09 &mdash; Dividers</p>
+      <h2 class="section-title">分隔線</h2>
+      <p class="section-desc">
+        分隔線是版面呼吸節奏的重要元素。三種類型各有其使用場景。
+      </p>
+
+      <div class="divider-demo">
+        <p class="divider-demo-label">Standard — 標準分隔線</p>
+        <div class="divider-standard"></div>
+        <p class="spec-note">寬度 100%，1px <span class="code">#E8E5E0</span>。用於段落之間、表格列之間。</p>
+      </div>
+
+      <div class="divider-demo">
+        <p class="divider-demo-label">Decorative — 裝飾分隔線</p>
+        <div class="divider-decorative"></div>
+        <p class="spec-note">寬度 48px，1px <span class="code">#B8A088</span> (Champagne)。用於內容與內容之間的語意分隔，如引言下方。</p>
+      </div>
+
+      <div class="divider-demo">
+        <p class="divider-demo-label">Section — 全幅分隔線</p>
+        <div class="divider-full"></div>
+        <p class="spec-note">延伸至容器邊緣之外，1px <span class="code">#E8E5E0</span>。用於主要章節之間的強分隔。</p>
+      </div>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         10. MOTION
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="motion">
+      <p class="section-overline">10 &mdash; Motion</p>
+      <h2 class="section-title">動態原則</h2>
+      <p class="section-desc">
+        動態設計極度克制。不使用滑入 (slide-in)、彈跳 (bounce) 或誇張的位移動畫。唯一允許的動態是<strong>純透明度漸變 (pure fade)</strong> 與<strong>極微上浮 (-1px lift)</strong>。一切動作都應該是「幾乎感覺不到，但移除後會覺得少了什麼」。
+      </p>
+
+      <div class="motion-grid">
+        <div class="motion-card">
+          <div class="motion-label">Fade In</div>
+          <div class="motion-value">opacity 0 → 1</div>
+          <div class="motion-desc">頁面元素進入時使用純透明度變化，不搭配任何位移 (translateY)。時間 0.3s，ease 曲線。</div>
+          <div class="motion-demo-box fade"></div>
+          <div style="font-size: 11px; color: var(--slate);">Hover 此方塊查看效果</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-label">Hover Lift</div>
+          <div class="motion-value">translateY(-1px)</div>
+          <div class="motion-desc">卡片或可互動元素的 hover 狀態。僅 1px 上浮，幾乎不可察覺但增添精緻感。時間 0.3s，ease 曲線。</div>
+          <div class="motion-demo-box lift"></div>
+          <div style="font-size: 11px; color: var(--slate);">Hover 此方塊查看效果</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-label">Color Transition</div>
+          <div class="motion-value">0.2s ease</div>
+          <div class="motion-desc">所有色彩變化（hover、focus、active）使用 0.2s ease 過渡。包含文字色、背景色、邊框色。</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-label">禁止使用</div>
+          <div class="motion-value">No Bounce / Slide</div>
+          <div class="motion-desc">不使用 translateX/Y 進入動畫、cubic-bezier 彈跳曲線、rotate、scale 或任何引人注目的動態效果。</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider-section"></div>
+
+    <!-- ──────────────────────────────────────────────────────────
+         11. LOGO USAGE
+    ─────────────────────────────────────────────────────────── -->
+    <section class="section" id="logo-usage">
+      <p class="section-overline">11 &mdash; Logo Usage</p>
+      <h2 class="section-title">Logo 使用規範</h2>
+      <p class="section-desc">
+        Logo 在不同背景上的呈現方式。深色背景使用白色 Logo，淺色背景使用 Brand Indigo Logo。香檳色作為 tagline 色僅出現在深色背景上。
+      </p>
+
+      <div class="logo-grid">
+        <div class="logo-block logo-on-canvas">
+          <div class="logo-placeholder">DASI</div>
+          <div class="logo-placeholder-sub">Digital Advisory</div>
+          <div class="logo-bg-label">Canvas #FAF8F5</div>
+        </div>
+        <div class="logo-block logo-on-white">
+          <div class="logo-placeholder">DASI</div>
+          <div class="logo-placeholder-sub">Digital Advisory</div>
+          <div class="logo-bg-label">White #FFFFFF</div>
+        </div>
+        <div class="logo-block logo-on-indigo">
+          <div class="logo-placeholder">DASI</div>
+          <div class="logo-placeholder-sub">Digital Advisory</div>
+          <div class="logo-bg-label">Brand Indigo #1B2D8B</div>
+        </div>
+        <div class="logo-block logo-on-navy">
+          <div class="logo-placeholder">DASI</div>
+          <div class="logo-placeholder-sub">Digital Advisory</div>
+          <div class="logo-bg-label">Deep Navy #0A1035</div>
+        </div>
+      </div>
+
+      <p class="spec-note" style="margin-top: 24px;">
+        Logo 周圍需保留至少等同於 Logo 高度的淨空區域。任何情況下不得對 Logo 進行旋轉、傾斜、加陰影、加外框或改變比例。
+      </p>
+    </section>
+
+  </main>
+</div>
+
+<!-- ============================================================
+     SIDEBAR ACTIVE STATE SCRIPT
+============================================================ -->
+<script>
+  (function() {
+    var links = document.querySelectorAll('.sidebar nav a');
+    var sections = [];
+
+    links.forEach(function(link) {
+      var id = link.getAttribute('href').replace('#', '');
+      var el = document.getElementById(id);
+      if (el) sections.push({ link: link, el: el });
+    });
+
+    function onScroll() {
+      var scrollY = window.scrollY + 80;
+      var active = sections[0];
+
+      for (var i = 0; i < sections.length; i++) {
+        if (sections[i].el.offsetTop <= scrollY) {
+          active = sections[i];
+        }
+      }
+
+      links.forEach(function(l) { l.classList.remove('active'); });
+      if (active) active.link.classList.add('active');
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>

@@ -12,7 +12,7 @@
         theme: {
           extend: {
             colors: {
-              "primary": "#bbc3ff","primary-fixed": "#dee0ff","on-primary-container": "#8b9bfd","on-surface": "#dee1fd","surface-container-high": "#25293e","on-tertiary-fixed-variant": "#920027","surface-container-lowest": "#090d21","primary-fixed-dim": "#bbc3ff","surface-container-highest": "#303349","surface": "#0e1226","on-tertiary-container": "#ff7681","on-secondary-fixed-variant": "#5a4312","on-secondary": "#412d00","surface-dim": "#0e1226","secondary-container": "#5d4514","on-background": "#dee1fd","on-error-container": "#ffdad6","background": "#0e1226","secondary-fixed": "#ffdea4","surface-tint": "#bbc3ff","on-surface-variant": "#c6c5d4","on-tertiary-fixed": "#40000c","outline-variant": "#454652","on-primary": "#102483","inverse-primary": "#4656b3","inverse-on-surface": "#2b2f45","secondary-fixed-dim": "#e4c285","tertiary-fixed": "#ffdada","error-container": "#93000a","tertiary-fixed-dim": "#ffb3b5","tertiary": "#ffb3b5","on-secondary-container": "#d5b478","error": "#ffb4ab","inverse-surface": "#dee1fd","on-secondary-fixed": "#261900","on-primary-fixed-variant": "#2c3d9a","outline": "#8f909d","surface-container-low": "#161a2f","surface-container": "#1a1e33","surface-variant": "#303349","primary-container": "#1b2d8b","on-primary-fixed": "#000f5c","secondary": "#e4c285","tertiary-container": "#76001e","on-tertiary": "#680019","on-error": "#690005","surface-bright": "#34384e"
+              "primary": "#bbc3ff","primary-fixed": "#dee0ff","on-primary-container": "#8b9bfd","on-surface": "#dee1fd","surface-container-high": "#25293e","on-tertiary-fixed-variant": "#920027","surface-container-lowest": "#090d21","primary-fixed-dim": "#bbc3ff","surface-container-highest": "#303349","surface": "#0e1226","on-tertiary-container": "#ff7681","on-secondary-fixed-variant": "#5a4312","on-secondary": "#412d00","surface-dim": "#0e1226","secondary-container": "#5d4514","on-background": "#dee1fd","on-error-container": "#ffdad6","background": "#0e1226","secondary-fixed": "#ffdea4","surface-tint": "#bbc3ff","on-surface-variant": "#c6c5d4","on-tertiary-fixed": "#40000c","outline-variant": "#454652","on-primary": "#102483","inverse-primary": "#4656b3","inverse-on-surface": "#2b2f45","secondary-fixed-dim": "#E31445","tertiary-fixed": "#ffdada","error-container": "#93000a","tertiary-fixed-dim": "#ffb3b5","tertiary": "#ffb3b5","on-secondary-container": "#d5b478","error": "#ffb4ab","inverse-surface": "#dee1fd","on-secondary-fixed": "#261900","on-primary-fixed-variant": "#2c3d9a","outline": "#8f909d","surface-container-low": "#161a2f","surface-container": "#1a1e33","surface-variant": "#303349","primary-container": "#1b2d8b","on-primary-fixed": "#000f5c","secondary": "#E31445","tertiary-container": "#76001e","on-tertiary": "#680019","on-error": "#690005","surface-bright": "#34384e"
             },
             fontFamily: {
               "serif": ["Cormorant Garamond", "Noto Serif TC", "serif"],
@@ -28,10 +28,10 @@
 <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            color: #e4c285;
+            color: #E31445;
         }
         .glow-gold {
-            filter: drop-shadow(0 0 4px rgba(228, 194, 133, 0.3));
+            filter: drop-shadow(0 0 4px rgba(227, 20, 69, 0.3));
         }
         body {
             background-color: #0e1226;
@@ -45,7 +45,7 @@
 </head>
 <body class="bg-background">
 <!-- TopNavBar -->
-<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 md:px-16 bg-[#0c1024]/95 backdrop-blur-xl h-20 border-b border-[#c9a96e]/15 shadow-2xl shadow-indigo-950/50">
+<nav class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-8 md:px-16 bg-[#0c1024]/95 backdrop-blur-xl h-20 border-b border-[#E31445]/15 shadow-2xl shadow-indigo-950/50">
 <a href="index.html"><img src="../assets/logo-standard.png" alt="大璽國際顧問" style="height:56px; display:block;"></a>
 <div class="hidden md:flex gap-10 items-center">
 <a class="text-[#a8aebe] hover:text-[#e31445] transition-colors duration-300 font-body text-sm tracking-widest" href="index.html">首頁</a>
@@ -59,11 +59,11 @@
         </a>
 </nav>
 <main class="pt-20">
-<!-- Hero Title Section -->
-<section class="py-24 px-8 md:px-16 bg-surface">
+<!-- Hero Title Section — Brand Indigo -->
+<section class="py-24 px-8 md:px-16 bg-primary-container">
 <div class="max-w-7xl mx-auto">
 <span class="text-secondary font-serif uppercase tracking-[0.3em] text-sm block mb-4">Strategic Excellence</span>
-<img src="../assets/logo-standard.png" alt="大璽" style="height:96px; margin:0 auto 24px; display:block; filter:drop-shadow(0 0 30px rgba(212,175,106,0.3));">
+<img src="../assets/logo-standard.png" alt="大璽" style="height:96px; margin:0 auto 24px; display:block; filter:brightness(0) invert(1) brightness(1.5) sepia(1) hue-rotate(10deg) saturate(3);">
 <h1 class="font-serif text-6xl md:text-8xl hero-title text-on-surface mb-8">專業服務範疇</h1>
 <p class="font-body text-on-surface-variant max-w-2xl text-lg leading-relaxed">
                     大璽國際顧問以卓越的專業素養，為台灣企業與高淨值客戶提供最具前瞻性的稅務與財務諮詢方案。
@@ -72,17 +72,17 @@
 </section>
 <!-- Top Zone: 5 Premium Services (Alternating Bands) -->
 <section>
-<!-- IPO -->
-<div class="w-full bg-[#0c1024] py-32 border-b border-secondary/10">
+<!-- IPO — Feature Band with Brand Indigo bg and gold icon accents -->
+<div class="w-full bg-primary-container py-32 border-b border-secondary/20">
 <div class="max-w-7xl mx-auto px-8 md:px-16 grid md:grid-cols-2 gap-16 items-center">
 <div class="order-2 md:order-1">
-<span class="material-symbols-outlined text-5xl mb-6 glow-gold">corporate_fare</span>
+<span class="material-symbols-outlined text-5xl mb-6 glow-gold" style="color: #E31445; filter: drop-shadow(0 0 8px rgba(227, 20, 69, 0.5));">corporate_fare</span>
 <h2 class="font-serif text-4xl text-on-surface mb-6">IPO 輔導（上市上櫃）</h2>
 <p class="font-body text-on-surface-variant leading-relaxed text-lg mb-8">
                             協助企業優化控股架構，建立內部控制制度，規劃完善的上市櫃路徑與財務結構。針對上市前進行精確的財務穿透與稅務合規分析，確保在資本市場的穩定性與競爭優勢。
                         </p>
 <a href="contact.html" class="inline-flex items-center text-secondary border-b border-secondary/30 pb-1 cursor-pointer hover:border-secondary transition-all">
-                            瞭解詳細流程 <span class="material-symbols-outlined ml-2 text-sm" style="color: #e4c285;">arrow_forward</span>
+                            瞭解詳細流程 <span class="material-symbols-outlined ml-2 text-sm" style="color: #E31445;">arrow_forward</span>
 </a>
 </div>
 <div class="order-1 md:order-2 h-96 bg-surface-container relative">
@@ -103,7 +103,7 @@
                             針對跨國運營企業，提供移轉訂價規劃、常設機構判定及雙邊稅務協定應用。在合規前提下，極大化全球稅務效益，降低國際營運風險。
                         </p>
 <a href="contact.html" class="inline-flex items-center text-secondary border-b border-secondary/30 pb-1 cursor-pointer hover:border-secondary transition-all">
-                            預約專家諮詢 <span class="material-symbols-outlined ml-2 text-sm" style="color: #e4c285;">arrow_forward</span>
+                            預約專家諮詢 <span class="material-symbols-outlined ml-2 text-sm" style="color: #E31445;">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -118,7 +118,7 @@
                             為家族辦公室及高淨值人士客製化財富保全方案。結合信託架構與跨代傳承工具，在法律與稅務的雙重維護下，實現家族財富的長青基業。
                         </p>
 <a href="contact.html" class="inline-flex items-center text-secondary border-b border-secondary/30 pb-1 cursor-pointer hover:border-secondary transition-all">
-                            隱私方案諮詢 <span class="material-symbols-outlined ml-2 text-sm" style="color: #e4c285;">arrow_forward</span>
+                            隱私方案諮詢 <span class="material-symbols-outlined ml-2 text-sm" style="color: #E31445;">arrow_forward</span>
 </a>
 </div>
 <div class="order-1 md:order-2 h-96 bg-surface-container relative">
@@ -139,7 +139,7 @@
                             深耕公共政策與產業補助，提供研發補助申請、貸款融資及企業紓困專案諮詢。作為產官學界的溝通橋樑，協助企業精準銜接政策資源，確保大型投資案順利落地。
                         </p>
 <a href="contact.html" class="inline-flex items-center text-secondary border-b border-secondary/30 pb-1 cursor-pointer hover:border-secondary transition-all">
-                            成功案例回顧 <span class="material-symbols-outlined ml-2 text-sm" style="color: #e4c285;">arrow_forward</span>
+                            成功案例回顧 <span class="material-symbols-outlined ml-2 text-sm" style="color: #E31445;">arrow_forward</span>
 </a>
 </div>
 </div>
@@ -154,7 +154,7 @@
                             專業稅務團隊與法律顧問協作，針對高複雜度之補稅處分進行覆核、訴願與訴訟程序。憑藉深厚的法律素養與實務經驗，維護客戶正當權益。
                         </p>
 <a href="contact.html" class="inline-flex items-center text-secondary border-b border-secondary/30 pb-1 cursor-pointer hover:border-secondary transition-all">
-                            爭議預審評估 <span class="material-symbols-outlined ml-2 text-sm" style="color: #e4c285;">arrow_forward</span>
+                            爭議預審評估 <span class="material-symbols-outlined ml-2 text-sm" style="color: #E31445;">arrow_forward</span>
 </a>
 </div>
 <div class="order-1 md:order-2 h-96 bg-surface-container relative">
@@ -221,28 +221,37 @@
 </div>
 </div>
 </section>
+<!-- CTA Banner -->
+<section class="w-full bg-[#e31445] py-16 px-8 md:px-16">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+<h2 class="font-serif text-3xl md:text-4xl text-white text-center md:text-left">需要專業諮詢？立即聯繫我們</h2>
+<a href="contact.html" class="inline-block bg-white text-[#e31445] font-serif text-lg px-12 py-4 hover:bg-on-surface transition-all cursor-pointer active:scale-95 duration-200 whitespace-nowrap">
+                    預約諮詢
+                </a>
+</div>
+</section>
 </main>
 <!-- Footer -->
-<footer class="w-full py-12 px-8 md:px-24 grid grid-cols-1 md:grid-cols-3 gap-12 bg-[#1b2d8b] border-t border-[#c9a96e]/20 font-sans text-sm text-[#a8aebe] leading-relaxed">
+<footer class="w-full py-12 px-8 md:px-24 grid grid-cols-1 md:grid-cols-3 gap-12 bg-[#1b2d8b] border-t border-[#E31445]/20 font-sans text-sm text-[#a8aebe] leading-relaxed">
 <div>
 <div class="text-xl font-serif text-[#ffffff] mb-4">大璽國際顧問 DASI</div>
 <p class="mb-4">大璽國際顧問股份有限公司，旗下設有大璽聯合會計師事務所，致力於財稅策略與跨境規劃服務。</p>
-<p>© 2025 大璽國際顧問股份有限公司. All Rights Reserved.</p>
+<p>&copy; 2025 大璽國際顧問股份有限公司. All Rights Reserved.</p>
 </div>
 <div class="flex flex-col gap-3">
 <div class="text-white font-bold mb-2 uppercase tracking-tighter">Quick Links</div>
-<a class="text-[#a8aebe] hover:text-[#c9a96e] transition-colors" href="index.html">首頁</a>
-<a class="text-[#a8aebe] hover:text-[#c9a96e] transition-colors" href="about.html">關於我們</a>
-<a class="text-[#a8aebe] hover:text-[#c9a96e] transition-colors" href="insights.html">案例分享</a>
-<a class="text-[#a8aebe] hover:text-[#c9a96e] transition-colors" href="contact.html">聯繫我們</a>
+<a class="text-[#a8aebe] hover:text-[#E31445] transition-colors" href="index.html">首頁</a>
+<a class="text-[#a8aebe] hover:text-[#E31445] transition-colors" href="about.html">關於我們</a>
+<a class="text-[#a8aebe] hover:text-[#E31445] transition-colors" href="insights.html">案例分享</a>
+<a class="text-[#a8aebe] hover:text-[#E31445] transition-colors" href="contact.html">聯繫我們</a>
 </div>
 <div>
 <div class="text-white font-bold mb-4 uppercase tracking-tighter">Office Location</div>
 <div class="space-y-2">
-<p><span class="text-[#c9a96e]">地址：</span>台北市中正區羅斯福路三段 158 號 4 樓</p>
-<p><span class="text-[#c9a96e]">電話：</span>02-2366-0277 #20</p>
-<p><span class="text-[#c9a96e]">傳真：</span>02-2366-0365</p>
-<p><span class="text-[#c9a96e]">Email：</span>pamela@dasi-int.com.tw</p>
+<p><span class="text-[#E31445]">地址：</span>台北市中正區羅斯福路三段 158 號 4 樓</p>
+<p><span class="text-[#E31445]">電話：</span>02-2366-0277 #20</p>
+<p><span class="text-[#E31445]">傳真：</span>02-2366-0365</p>
+<p><span class="text-[#E31445]">Email：</span>pamela@dasi-int.com.tw</p>
 </div>
 </div>
 </footer>

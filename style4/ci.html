@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DASI CI — Style 4: 靛藍金權 Indigo Gold Authority</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============================================================
+       DESIGN TOKENS — DASI Style 4: 靛藍金權
+       Fusion: Style 1 (Indigo & Gold) primary + Style 3 (Corporate Authority) secondary
+    ============================================================ */
+    :root {
+      --brand-indigo:     #1B2D8B;
+      --brand-crimson:    #E31445;
+      --gold-accent:      #C9A96E;
+      --deep-bg:          #0C1024;
+      --card-surface:     #111738;
+      --indigo-dark:      #11205E;
+      --indigo-light:     #2A3F9E;
+      --indigo-tint:      #E8EAF6;
+      --warm-white:       #FAF8F5;
+      --silver:           #A8AEBE;
+      --muted:            #5C6280;
+
+      --font-heading-en:  'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+      --font-heading-zh:  'Noto Serif TC', 'Cormorant Garamond', serif;
+      --font-body:        'Inter', 'Noto Sans TC', sans-serif;
+      --font-label:       'Inter', 'Noto Sans TC', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--deep-bg);
+      color: var(--warm-white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+       LAYOUT
+    ============================================================ */
+    .page-wrap {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar TOC */
+    .sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      background: rgba(12, 16, 36, 0.98);
+      border-right: 1px solid rgba(201, 169, 110, 0.12);
+      overflow-y: auto;
+      z-index: 100;
+      padding: 32px 0 32px;
+    }
+
+    .sidebar-brand {
+      padding: 0 24px 24px;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+      margin-bottom: 20px;
+    }
+
+    .sidebar-brand .brand-name {
+      font-family: var(--font-heading-en);
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+    }
+
+    .sidebar-brand .brand-style {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
+    .toc-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 24px;
+      margin-bottom: 8px;
+    }
+
+    .toc-nav a {
+      display: block;
+      padding: 8px 24px;
+      font-size: 12px;
+      color: var(--silver);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: color 0.2s, background 0.2s;
+      border-left: 2px solid transparent;
+    }
+
+    .toc-nav a:hover {
+      color: var(--gold-accent);
+      border-left-color: var(--gold-accent);
+      background: rgba(201, 169, 110, 0.05);
+    }
+
+    /* Main content */
+    .main-content {
+      margin-left: 220px;
+      flex: 1;
+      min-width: 0;
+    }
+
+    /* Sections */
+    .ci-section {
+      padding: 96px 72px;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+      max-width: 1200px;
+    }
+
+    .ci-section:last-child { border-bottom: none; }
+
+    /* ============================================================
+       OVERLINE / SECTION LABELS
+    ============================================================ */
+    .overline {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* ============================================================
+       HEADER
+    ============================================================ */
+    .ci-header {
+      background: linear-gradient(135deg, #0C1024 0%, #1B2D8B 50%, #11205E 100%);
+      padding: 80px 72px 96px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px solid var(--gold-accent);
+    }
+
+    .ci-header::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ci-header::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(27,45,139,0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .ci-header .style-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-bottom: 20px;
+    }
+
+    .ci-header h1 {
+      font-family: var(--font-heading-en);
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      color: var(--warm-white);
+      margin-bottom: 8px;
+    }
+
+    .ci-header h1 .gold { color: var(--gold-accent); }
+    .ci-header h1 .indigo-light { color: var(--indigo-tint); }
+
+    .ci-header .subtitle {
+      font-family: var(--font-heading-zh);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--silver);
+      margin-bottom: 32px;
+    }
+
+    .ci-header .description {
+      font-size: 16px;
+      color: var(--silver);
+      max-width: 560px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+    }
+
+    .header-color-chips {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .color-chip {
+      width: 48px;
+      height: 48px;
+      border-radius: 0;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* ============================================================
+       SECTION HEADINGS
+    ============================================================ */
+    .section-heading {
+      font-family: var(--font-heading-en);
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--warm-white);
+      margin-bottom: 8px;
+    }
+
+    .section-heading-zh {
+      font-family: var(--font-heading-zh);
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-bottom: 48px;
+    }
+
+    .gold-rule {
+      width: 60px;
+      height: 2px;
+      background: var(--gold-accent);
+      margin-bottom: 16px;
+    }
+
+    /* ============================================================
+       COLOR PALETTE
+    ============================================================ */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+      gap: 20px;
+    }
+
+    .swatch-box {
+      height: 90px;
+      border: 1px solid rgba(255,255,255,0.06);
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .swatch-hex {
+      font-size: 12px;
+      font-family: monospace;
+      color: var(--silver);
+      letter-spacing: 0.05em;
+    }
+
+    .swatch-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--warm-white);
+      margin-bottom: 2px;
+    }
+
+    .swatch-usage {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       TYPOGRAPHY SCALE
+    ============================================================ */
+    .type-row {
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.08);
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-top: 8px;
+    }
+
+    .type-meta strong {
+      display: block;
+      color: var(--silver);
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .t-h1 {
+      font-family: var(--font-heading-en);
+      font-size: 52px;
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      color: var(--warm-white);
+    }
+
+    .t-h2 {
+      font-family: var(--font-heading-en);
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--warm-white);
+    }
+
+    .t-h3 {
+      font-family: var(--font-heading-en);
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.35;
+      color: var(--warm-white);
+    }
+
+    .t-h4 {
+      font-family: var(--font-heading-en);
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--warm-white);
+    }
+
+    .t-body-lg {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--warm-white);
+    }
+
+    .t-body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--warm-white);
+    }
+
+    .t-caption {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.03em;
+      color: var(--silver);
+    }
+
+    .t-overline {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-accent);
+    }
+
+    .t-badge {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 0 32px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.3s, box-shadow 0.25s;
+      border-radius: 0;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--brand-crimson);
+      color: var(--warm-white);
+    }
+
+    .btn-primary:hover {
+      background: #F02855;
+      box-shadow: 0 4px 16px rgba(227,20,69,0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--gold-accent);
+      border: 1px solid var(--gold-accent);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(201, 169, 110, 0.1);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255,255,255,0.6);
+    }
+
+    .btn-outline-white:hover {
+      background: #fff;
+      color: var(--brand-indigo);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--warm-white);
+      border: none;
+    }
+
+    .btn-ghost:hover {
+      color: var(--brand-crimson);
+    }
+
+    .btn-sm {
+      height: 36px;
+      padding: 0 20px;
+      font-size: 11px;
+    }
+
+    .btn-lg {
+      height: 56px;
+      padding: 0 48px;
+      font-size: 14px;
+    }
+
+    .btn-label {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+
+    .btn-showcase {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .btn-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* ============================================================
+       CARDS
+    ============================================================ */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-surface);
+      border: 1px solid rgba(201, 169, 110, 0.08);
+      padding: 32px;
+      border-radius: 0;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      border-color: rgba(201, 169, 110, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(201,169,110,0.08);
+    }
+
+    .card-overline {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-family: var(--font-heading-en);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--warm-white);
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .card-body {
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .card-divider {
+      height: 1px;
+      background: rgba(201, 169, 110, 0.12);
+      margin-bottom: 24px;
+    }
+
+    .card-meta {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* Feature card — Brand Indigo bg (from Style 3 corporate authority) */
+    .card-featured {
+      background: var(--brand-indigo);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+    }
+
+    .card-featured .card-overline { color: var(--gold-accent); }
+    .card-featured .card-body { color: rgba(250, 248, 245, 0.8); }
+    .card-featured .card-divider { background: rgba(201,169,110,0.2); }
+    .card-featured .card-meta { color: rgba(168,174,190,0.7); }
+
+    /* Stats card — Gold numbers on indigo (fusion element) */
+    .card-stat {
+      background: var(--brand-indigo);
+      border: 1px solid rgba(201,169,110,0.15);
+      padding: 40px 32px;
+      text-align: center;
+    }
+
+    .card-stat .stat-number {
+      font-family: var(--font-heading-en);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold-accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .card-stat .stat-label {
+      font-family: var(--font-label);
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav-demo {
+      background: rgba(12, 16, 36, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      height: 80px;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      gap: 0;
+      position: relative;
+    }
+
+    .nav-logo {
+      font-family: var(--font-heading-en);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--warm-white);
+      margin-right: auto;
+    }
+
+    .nav-logo span {
+      color: var(--gold-accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+      margin-right: 40px;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      color: var(--silver);
+      text-decoration: none;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--brand-crimson);
+      transition: width 0.4s;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-crimson);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      background: var(--brand-crimson);
+      padding: 10px 24px;
+      text-decoration: none;
+      transition: background 0.25s;
+    }
+
+    .nav-cta:hover {
+      background: #F02855;
+    }
+
+    /* ============================================================
+       INPUTS — Underline style (Style 1 luxury + gold focus)
+    ============================================================ */
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+    }
+
+    .form-input {
+      height: 48px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #2A3060;
+      color: var(--warm-white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 0 4px;
+      border-radius: 0;
+      outline: none;
+      transition: border-color 0.25s;
+    }
+
+    .form-input::placeholder {
+      color: var(--muted);
+    }
+
+    .form-input:focus {
+      border-bottom-color: var(--gold-accent);
+    }
+
+    .form-textarea {
+      height: 120px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #2A3060;
+      color: var(--warm-white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 12px 4px;
+      border-radius: 0;
+      outline: none;
+      resize: vertical;
+      transition: border-color 0.25s;
+    }
+
+    .form-textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .form-textarea:focus {
+      border-bottom-color: var(--gold-accent);
+    }
+
+    .form-select {
+      height: 48px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #2A3060;
+      color: var(--warm-white);
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 0 4px;
+      border-radius: 0;
+      outline: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A96E' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 4px center;
+      transition: border-color 0.25s;
+    }
+
+    .form-select:focus {
+      border-bottom-color: var(--gold-accent);
+    }
+
+    .form-hint {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .form-error {
+      font-size: 12px;
+      color: var(--brand-crimson);
+    }
+
+    /* ============================================================
+       TAGS & BADGES
+    ============================================================ */
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .tag-gold {
+      border: 1px solid rgba(201,169,110,0.3);
+      color: var(--gold-accent);
+    }
+
+    .tag-indigo {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+    }
+
+    .tag-crimson {
+      background: var(--brand-crimson);
+      color: #fff;
+    }
+
+    .tag-tint {
+      background: var(--indigo-tint);
+      color: var(--brand-indigo);
+    }
+
+    /* ============================================================
+       DIVIDERS & DECORATIVE
+    ============================================================ */
+    .divider-showcase {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .divider-item {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .divider-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    hr.div-standard {
+      border: none;
+      border-top: 1px solid rgba(201, 169, 110, 0.15);
+    }
+
+    .div-decorative {
+      width: 60px;
+      height: 2px;
+      background: var(--gold-accent);
+    }
+
+    hr.div-indigo {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .div-ornament {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .div-ornament::before,
+    .div-ornament::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201, 169, 110, 0.15);
+    }
+
+    .div-ornament span {
+      color: var(--gold-accent);
+      font-size: 16px;
+      letter-spacing: 0.3em;
+    }
+
+    /* ============================================================
+       MOTION SPECS
+    ============================================================ */
+    .motion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .motion-card {
+      background: var(--card-surface);
+      border: 1px solid rgba(201, 169, 110, 0.08);
+      padding: 28px;
+    }
+
+    .motion-name {
+      font-family: var(--font-heading-en);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--warm-white);
+      margin-bottom: 8px;
+    }
+
+    .motion-spec {
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--gold-accent);
+      background: rgba(201, 169, 110, 0.06);
+      padding: 8px 12px;
+      margin-bottom: 12px;
+      border-left: 2px solid var(--gold-accent);
+    }
+
+    .motion-desc {
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       PHOTOGRAPHY
+    ============================================================ */
+    .photo-callout {
+      background: var(--card-surface);
+      border-left: 3px solid var(--gold-accent);
+      padding: 40px 48px;
+      position: relative;
+    }
+
+    .photo-callout::before {
+      content: '\201C';
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-family: var(--font-heading-en);
+      font-size: 80px;
+      color: rgba(201, 169, 110, 0.15);
+      line-height: 1;
+    }
+
+    .photo-callout-title {
+      font-family: var(--font-heading-en);
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--warm-white);
+      margin-bottom: 20px;
+    }
+
+    .photo-rules {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .photo-rules li {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--silver);
+      line-height: 1.7;
+    }
+
+    .photo-rules li::before {
+      content: '\2014';
+      color: var(--gold-accent);
+      flex-shrink: 0;
+    }
+
+    .photo-grid-demo {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .photo-box {
+      aspect-ratio: 4/3;
+      background: var(--card-surface);
+      border: 1px solid rgba(201, 169, 110, 0.1);
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(12,16,36,0.8));
+    }
+
+    .photo-box-label {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-box-bg1 { background: linear-gradient(135deg, #1B2D8B33, #C9A96E22); }
+    .photo-box-bg2 { background: linear-gradient(135deg, #E3144522, #1B2D8B33); }
+    .photo-box-bg3 { background: linear-gradient(135deg, #11173822, #1B2D8B22); }
+
+    /* ============================================================
+       LOGO USAGE
+    ============================================================ */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .logo-box {
+      border: 1px solid rgba(201, 169, 110, 0.1);
+      overflow: hidden;
+    }
+
+    .logo-canvas {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-canvas-dark { background: var(--deep-bg); }
+    .logo-canvas-indigo { background: var(--brand-indigo); }
+    .logo-canvas-light { background: var(--warm-white); }
+    .logo-canvas-gold { background: var(--gold-accent); }
+
+    .logo-mark {
+      font-family: var(--font-heading-en);
+      font-size: 22px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark.light { color: var(--warm-white); }
+    .logo-mark.gold { color: var(--gold-accent); }
+    .logo-mark.dark { color: var(--deep-bg); }
+    .logo-mark.indigo { color: var(--brand-indigo); }
+
+    .logo-rule-text {
+      padding: 16px 20px;
+      background: rgba(201, 169, 110, 0.04);
+      font-size: 12px;
+      color: var(--muted);
+      border-top: 1px solid rgba(201, 169, 110, 0.08);
+      line-height: 1.5;
+    }
+
+    .logo-forbidden {
+      background: var(--card-surface);
+      border: 1px solid rgba(201, 169, 110, 0.08);
+      padding: 24px;
+    }
+
+    .forbidden-title {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brand-crimson);
+      margin-bottom: 16px;
+    }
+
+    .forbidden-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .forbidden-list li {
+      font-size: 13px;
+      color: var(--silver);
+      padding-left: 20px;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .forbidden-list li::before {
+      content: '\2715';
+      position: absolute;
+      left: 0;
+      color: var(--brand-crimson);
+      font-size: 11px;
+    }
+
+    /* ============================================================
+       FUSION CALLOUT
+    ============================================================ */
+    .fusion-callout {
+      background: linear-gradient(135deg, var(--brand-indigo), var(--indigo-dark));
+      border: 1px solid rgba(201,169,110,0.2);
+      padding: 40px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fusion-callout::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,169,110,0.1) 0%, transparent 70%);
+    }
+
+    .fusion-title {
+      font-family: var(--font-heading-en);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--gold-accent);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .fusion-body {
+      font-size: 15px;
+      color: rgba(250,248,245,0.85);
+      line-height: 1.8;
+      max-width: 600px;
+      position: relative;
+    }
+
+    /* ============================================================
+       ANIMATIONS
+    ============================================================ */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--deep-bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.3); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(201,169,110,0.5); }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 900px) {
+      .sidebar { display: none; }
+      .main-content { margin-left: 0; }
+      .ci-header { padding: 48px 24px 64px; }
+      .ci-header h1 { font-size: 36px; }
+      .ci-section { padding: 48px 24px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .type-row { grid-template-columns: 1fr; }
+      .photo-grid-demo { grid-template-columns: 1fr; }
+      .logo-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- ======================== SIDEBAR ======================== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-name">DASI International</div>
+      <div class="brand-style">Style 4 — Indigo Gold Authority</div>
+    </div>
+    <div class="toc-label">Contents</div>
+    <nav class="toc-nav">
+      <a href="#header">Overview</a>
+      <a href="#fusion">Fusion Concept</a>
+      <a href="#colors">Color Palette</a>
+      <a href="#typography">Typography</a>
+      <a href="#buttons">Buttons</a>
+      <a href="#cards">Cards &amp; Stats</a>
+      <a href="#navigation">Navigation</a>
+      <a href="#tags">Tags &amp; Badges</a>
+      <a href="#inputs">Form Inputs</a>
+      <a href="#dividers">Dividers</a>
+      <a href="#motion">Motion</a>
+      <a href="#photography">Photography</a>
+      <a href="#logo">Logo Usage</a>
+    </nav>
+  </aside>
+
+  <!-- ======================== MAIN ======================== -->
+  <main class="main-content">
+
+    <!-- HEADER -->
+    <section id="header" class="ci-header">
+      <div class="style-tag">大璽國際顧問股份有限公司 — Corporate Identity System</div>
+      <h1>靛藍<span class="gold">金</span><span class="indigo-light">權</span></h1>
+      <div class="subtitle">Indigo Gold Authority — Style 4</div>
+      <p class="description">
+        The luxury atmosphere of Style 1 meets the corporate authority of Style 3.
+        Dark canvas with gold accents as the primary aesthetic, Brand Indigo blocks for hero
+        sections and feature cards to align with logo color identity.
+      </p>
+      <div class="header-color-chips">
+        <div class="color-chip" style="background:#1B2D8B" title="Brand Indigo"></div>
+        <div class="color-chip" style="background:#E31445" title="Brand Crimson"></div>
+        <div class="color-chip" style="background:#C9A96E" title="Gold Accent"></div>
+        <div class="color-chip" style="background:#0C1024" title="Deep BG"></div>
+        <div class="color-chip" style="background:#111738" title="Card Surface"></div>
+        <div class="color-chip" style="background:#11205E" title="Indigo Dark"></div>
+        <div class="color-chip" style="background:#2A3F9E" title="Indigo Light"></div>
+        <div class="color-chip" style="background:#FAF8F5;border-color:rgba(255,255,255,0.2)" title="Warm White"></div>
+        <div class="color-chip" style="background:#A8AEBE" title="Silver"></div>
+      </div>
+    </section>
+
+    <!-- FUSION CONCEPT -->
+    <section id="fusion" class="ci-section">
+      <span class="overline">Design Rationale</span>
+      <h2 class="section-heading">Fusion Concept</h2>
+      <p class="section-heading-zh">融合設計概念</p>
+      <div class="gold-rule"></div>
+
+      <div class="fusion-callout" style="margin-bottom:32px;">
+        <div class="fusion-title">Style 1 + Style 3 = Gold Authority</div>
+        <div class="fusion-body">
+          以「靛藍金韻」的深邃暗色畫布、金色奢華質感、襯線字型為主調。融入「靛藍權威」的品牌靛藍色塊運用——英雄區塊、特色卡片、導覽列均以 Brand Indigo 為底色，確保 Logo 色系在整站中高度可見，兼具私人銀行的尊榮感與四大事務所的企業權威。
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px;">
+        <div style="background:var(--card-surface); border:1px solid rgba(201,169,110,0.08); padding:28px;">
+          <div class="overline">From Style 1 — Primary</div>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--gold-accent);">&#10003;</span> Dark canvas background (#0C1024)</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--gold-accent);">&#10003;</span> Gold accent system (#C9A96E)</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--gold-accent);">&#10003;</span> Serif headings (Cormorant Garamond)</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--gold-accent);">&#10003;</span> Sharp 0px corners</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--gold-accent);">&#10003;</span> Glassmorphism navigation</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--gold-accent);">&#10003;</span> Gold decorative dividers</li>
+          </ul>
+        </div>
+        <div style="background:var(--card-surface); border:1px solid rgba(201,169,110,0.08); padding:28px;">
+          <div class="overline">From Style 3 — Secondary</div>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:10px; margin-top:12px;">
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--brand-indigo); background:rgba(27,45,139,0.3); width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">&#10003;</span> Brand Indigo hero blocks</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--brand-indigo); background:rgba(27,45,139,0.3); width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">&#10003;</span> Feature cards on #1B2D8B</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--brand-indigo); background:rgba(27,45,139,0.3); width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">&#10003;</span> Stats with count-up animation</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--brand-indigo); background:rgba(27,45,139,0.3); width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">&#10003;</span> Extended indigo palette</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--brand-indigo); background:rgba(27,45,139,0.3); width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">&#10003;</span> Structured grid hierarchy</li>
+            <li style="font-size:14px; color:var(--silver); display:flex; gap:10px;"><span style="color:var(--brand-indigo); background:rgba(27,45,139,0.3); width:18px; height:18px; display:flex; align-items:center; justify-content:center; font-size:11px; flex-shrink:0;">&#10003;</span> Button shadow on hover</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COLOR PALETTE -->
+    <section id="colors" class="ci-section">
+      <span class="overline">01 — Design Tokens</span>
+      <h2 class="section-heading">Color Palette</h2>
+      <p class="section-heading-zh">色彩系統</p>
+      <div class="gold-rule"></div>
+      <div class="swatch-grid">
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#1B2D8B"></div>
+          <div class="swatch-name">Brand Indigo</div>
+          <div class="swatch-hex">#1B2D8B</div>
+          <div class="swatch-usage">Hero blocks, feature cards, nav bar. Logo-aligned dominant color.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#E31445"></div>
+          <div class="swatch-name">Brand Crimson</div>
+          <div class="swatch-hex">#E31445</div>
+          <div class="swatch-usage">All CTAs, hover states, action highlights.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#C9A96E"></div>
+          <div class="swatch-name">Gold Accent</div>
+          <div class="swatch-hex">#C9A96E</div>
+          <div class="swatch-usage">Overlines, borders, dividers, stat numbers, icon strokes.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#0C1024"></div>
+          <div class="swatch-name">Deep Background</div>
+          <div class="swatch-hex">#0C1024</div>
+          <div class="swatch-usage">Primary page canvas, alternating content sections.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#111738;border:1px solid rgba(255,255,255,0.06)"></div>
+          <div class="swatch-name">Card Surface</div>
+          <div class="swatch-hex">#111738</div>
+          <div class="swatch-usage">Standard card backgrounds, elevated surfaces.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#11205E"></div>
+          <div class="swatch-name">Indigo Dark</div>
+          <div class="swatch-hex">#11205E</div>
+          <div class="swatch-usage">Gradients, pressed states, deep hero overlays.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#2A3F9E"></div>
+          <div class="swatch-name">Indigo Light</div>
+          <div class="swatch-hex">#2A3F9E</div>
+          <div class="swatch-usage">Hover states on indigo elements.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#E8EAF6;border:1px solid rgba(255,255,255,0.1)"></div>
+          <div class="swatch-name">Indigo Tint</div>
+          <div class="swatch-hex">#E8EAF6</div>
+          <div class="swatch-usage">Tags/badges on light context.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#FAF8F5;border:1px solid rgba(255,255,255,0.1)"></div>
+          <div class="swatch-name">Warm White</div>
+          <div class="swatch-hex">#FAF8F5</div>
+          <div class="swatch-usage">Primary text on dark backgrounds.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#A8AEBE"></div>
+          <div class="swatch-name">Silver</div>
+          <div class="swatch-hex">#A8AEBE</div>
+          <div class="swatch-usage">Secondary text, nav links, subtitles.</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-box" style="background:#5C6280"></div>
+          <div class="swatch-name">Muted</div>
+          <div class="swatch-hex">#5C6280</div>
+          <div class="swatch-usage">Metadata, placeholders, disabled states.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section id="typography" class="ci-section">
+      <span class="overline">02 — Typography Scale</span>
+      <h2 class="section-heading">Type System</h2>
+      <p class="section-heading-zh">字體規範</p>
+      <div class="gold-rule"></div>
+
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H1</strong>
+          Cormorant Garamond<br>52px &middot; 300 &middot; 1.15lh<br>tracking 0.02em
+        </div>
+        <div class="t-h1">Strategic Vision</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H2</strong>
+          Cormorant Garamond<br>38px &middot; 400 &middot; 1.25lh
+        </div>
+        <div class="t-h2">Advisory Excellence</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H3</strong>
+          Cormorant Garamond<br>26px &middot; 500 &middot; 1.35lh
+        </div>
+        <div class="t-h3">Cross-Border M&amp;A Strategy</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>H4</strong>
+          Cormorant Garamond<br>20px &middot; 500 &middot; 1.4lh
+        </div>
+        <div class="t-h4">Capital Markets &amp; Governance</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Body Lg</strong>
+          Inter / Noto Sans TC<br>18px &middot; 400 &middot; 1.75lh
+        </div>
+        <div class="t-body-lg">DASI International Consultants provides bespoke advisory services to institutional investors and high-net-worth individuals.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Body</strong>
+          Inter / Noto Sans TC<br>16px &middot; 400 &middot; 1.8lh
+        </div>
+        <div class="t-body">Expert guidance on complex cross-border transactions and strategic transformations, from preliminary due diligence through post-merger integration.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Caption</strong>
+          Inter<br>13px &middot; 400<br>tracking 0.03em
+        </div>
+        <div class="t-caption">All figures as of December 2025. DASI International Consultants Ltd. All rights reserved.</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta">
+          <strong>Overline</strong>
+          Inter<br>12px &middot; 600<br>uppercase &middot; 0.12em
+        </div>
+        <div class="t-overline">Section Label — Category Title</div>
+      </div>
+
+      <div style="margin-top:48px; padding:40px; background:var(--card-surface); border:1px solid rgba(201,169,110,0.08);">
+        <div class="overline">Bilingual Example — 中英雙語示例</div>
+        <div class="t-h2" style="font-family: var(--font-heading-zh); margin-bottom:8px;">跨境顧問策略</div>
+        <div class="t-h3" style="font-family: var(--font-heading-zh); color:var(--silver); margin-bottom:20px;">大璽國際顧問股份有限公司</div>
+        <div class="t-body" style="font-family:'Noto Sans TC', sans-serif;">大璽國際顧問以卓越的跨境交易顧問服務，協助機構投資人、家族辦公室及主權基金在複雜的跨境交易與戰略轉型中取得優勢。</div>
+      </div>
+    </section>
+
+    <!-- BUTTONS -->
+    <section id="buttons" class="ci-section">
+      <span class="overline">03 — Interactive Elements</span>
+      <h2 class="section-heading">Button System</h2>
+      <p class="section-heading-zh">按鈕元件</p>
+      <div class="gold-rule"></div>
+
+      <div class="btn-showcase">
+        <div class="btn-item">
+          <button class="btn btn-primary">Engage Advisory</button>
+          <div class="btn-label">Primary — bg #E31445<br>Hover: #F02855 + shadow</div>
+        </div>
+        <div class="btn-item">
+          <button class="btn btn-secondary">Request Proposal</button>
+          <div class="btn-label">Secondary — gold border<br>Hover: rgba(gold, 0.1)</div>
+        </div>
+        <div class="btn-item">
+          <button class="btn btn-ghost">Learn More &rarr;</button>
+          <div class="btn-label">Ghost — no border<br>Hover: color crimson</div>
+        </div>
+      </div>
+
+      <div style="margin-top:40px">
+        <div class="overline" style="margin-bottom:20px">Size Variants</div>
+        <div class="button-row">
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary btn-lg">Large CTA</button>
+        </div>
+      </div>
+
+      <div style="margin-top:40px; padding:40px; background:var(--brand-indigo);">
+        <div class="overline">On Brand Indigo Background</div>
+        <div class="button-row" style="margin-top:20px">
+          <button class="btn btn-primary">Primary CTA</button>
+          <button class="btn btn-outline-white">Outline White</button>
+          <button class="btn btn-secondary">Gold Border</button>
+          <button class="btn btn-ghost">Ghost Link</button>
+        </div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.5); margin-top:8px;">
+          On indigo: white outline button added (from Style 3). Gold border remains for premium contexts.
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS & STATS -->
+    <section id="cards" class="ci-section">
+      <span class="overline">04 — Components</span>
+      <h2 class="section-heading">Cards &amp; Stats</h2>
+      <p class="section-heading-zh">卡片與數據元件</p>
+      <div class="gold-rule"></div>
+
+      <div style="margin-bottom:16px; font-size:13px; color:var(--silver);">Standard cards on dark background (from Style 1)</div>
+      <div class="card-grid" style="margin-bottom:48px;">
+        <div class="card">
+          <div class="card-overline">M&amp;A Advisory</div>
+          <div class="card-title">Cross-Border Transaction Strategy</div>
+          <div class="card-body">Expert guidance on complex cross-border mergers and acquisitions, from preliminary due diligence through post-merger integration.</div>
+          <div class="card-divider"></div>
+          <div class="card-meta">bg #111738 &middot; border rgba(gold, 0.08) &middot; hover gold glow</div>
+        </div>
+        <div class="card">
+          <div class="card-overline">Capital Markets</div>
+          <div class="card-title">Equity &amp; Debt Structuring</div>
+          <div class="card-body">Sophisticated capital structure advisory for clients seeking optimal financing arrangements across global markets.</div>
+          <div class="card-divider"></div>
+          <div class="card-meta">Hover for border transition effect</div>
+        </div>
+        <div class="card card-featured">
+          <div class="card-overline">Featured Service</div>
+          <div class="card-title">Strategic Partnership Formation</div>
+          <div class="card-body">Deep expertise in identifying and structuring transformative strategic partnerships for Asian and global markets.</div>
+          <div class="card-divider"></div>
+          <div class="card-meta">bg #1B2D8B (Brand Indigo) &middot; from Style 3</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:16px; font-size:13px; color:var(--silver);">Stats cards — Gold numbers on Brand Indigo (fusion element)</div>
+      <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;">
+        <div class="card-stat">
+          <div class="stat-number">30+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="card-stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Enterprise Clients</div>
+        </div>
+        <div class="card-stat">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">IPO Advisory Cases</div>
+        </div>
+      </div>
+      <div style="margin-top:12px; font-size:12px; color:var(--muted);">
+        Numbers: Cormorant Garamond 48px weight 300, Gold #C9A96E &middot; Labels: Inter 13px uppercase &middot; bg Brand Indigo with gold border
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <section id="navigation" class="ci-section">
+      <span class="overline">05 — Navigation</span>
+      <h2 class="section-heading">Navigation Bar</h2>
+      <p class="section-heading-zh">導覽列</p>
+      <div class="gold-rule"></div>
+      <div style="border:1px solid rgba(201,169,110,0.12); overflow:hidden;">
+        <nav class="nav-demo">
+          <div class="nav-logo">DASI <span>International</span></div>
+          <ul class="nav-links">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Insights</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+          <a href="#" class="nav-cta">Consultation</a>
+        </nav>
+      </div>
+      <div style="margin-top:24px; padding:20px; background:var(--card-surface); font-size:13px; color:var(--silver); border:1px solid rgba(201,169,110,0.08);">
+        <strong style="color:var(--gold-accent); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;">Specs</strong><br><br>
+        Height: 80px &middot; bg rgba(12,16,36,0.95) with backdrop-blur 20px (glassmorphism from Style 1)<br>
+        Bottom border: 1px rgba(gold, 0.12) &middot; Logo: Cormorant Garamond with gold accent<br>
+        Links: #A8AEBE &rarr; hover #E31445 &middot; underline expand 0.4s &middot; CTA: uppercase 12px crimson bg
+      </div>
+    </section>
+
+    <!-- TAGS & BADGES -->
+    <section id="tags" class="ci-section">
+      <span class="overline">06 — Labels</span>
+      <h2 class="section-heading">Tags &amp; Badges</h2>
+      <p class="section-heading-zh">標籤元件</p>
+      <div class="gold-rule"></div>
+
+      <div style="margin-bottom:16px; font-size:13px; color:var(--silver);">On dark background</div>
+      <div class="tag-row">
+        <span class="tag tag-gold">IPO Advisory</span>
+        <span class="tag tag-gold">Cross-Border Tax</span>
+        <span class="tag tag-gold">High Net Worth</span>
+        <span class="tag tag-crimson">Featured</span>
+      </div>
+
+      <div style="margin-top:32px; padding:32px; background:var(--brand-indigo);">
+        <div style="margin-bottom:12px; font-size:13px; color:rgba(255,255,255,0.6);">On Brand Indigo background</div>
+        <div class="tag-row">
+          <span class="tag tag-indigo">Government Project</span>
+          <span class="tag tag-indigo">Special Tax Case</span>
+          <span class="tag tag-crimson">New</span>
+        </div>
+      </div>
+
+      <div style="margin-top:24px; font-size:12px; color:var(--muted);">
+        Gold-bordered tags for dark bg (Style 1 luxury feel) &middot; White-translucent tags on indigo bg (Style 3 approach) &middot; Sharp 0px corners &middot; 12px weight 600
+      </div>
+    </section>
+
+    <!-- INPUTS -->
+    <section id="inputs" class="ci-section">
+      <span class="overline">07 — Form Elements</span>
+      <h2 class="section-heading">Input Fields</h2>
+      <p class="section-heading-zh">表單元件</p>
+      <div class="gold-rule"></div>
+      <div class="input-grid">
+        <div class="form-field">
+          <label class="form-label">Full Name</label>
+          <input type="text" class="form-input" placeholder="Enter your full name" />
+          <span class="form-hint">Underline-only style &middot; focus: gold underline</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="advisory@dasi.com" />
+          <span class="form-hint">Transition: border-color 0.25s ease</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Service Type</label>
+          <select class="form-select">
+            <option value="">Select advisory service</option>
+            <option>IPO Advisory</option>
+            <option>Cross-Border Tax</option>
+            <option>High Net Worth Planning</option>
+          </select>
+          <span class="form-hint">Gold arrow SVG &middot; underline focus</span>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Error State</label>
+          <input type="text" class="form-input" value="Invalid entry" style="border-bottom-color:#E31445;" />
+          <span class="form-error">This field contains an error</span>
+        </div>
+      </div>
+      <div style="margin-top:32px">
+        <div class="form-field">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Describe your advisory needs..."></textarea>
+          <span class="form-hint">Height: 120px &middot; resize: vertical &middot; same focus rule as inputs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIVIDERS -->
+    <section id="dividers" class="ci-section">
+      <span class="overline">08 — Decorative Elements</span>
+      <h2 class="section-heading">Dividers &amp; Rules</h2>
+      <p class="section-heading-zh">分隔線與裝飾元素</p>
+      <div class="gold-rule"></div>
+      <div class="divider-showcase">
+        <div class="divider-item">
+          <div class="divider-label">Standard rule — 1px rgba(gold, 0.15)</div>
+          <hr class="div-standard" />
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Decorative accent — 2px solid gold, 60px wide</div>
+          <div class="div-decorative"></div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">On Indigo sections — 1px rgba(white, 0.15)</div>
+          <div style="background:var(--brand-indigo); padding:24px;">
+            <hr class="div-indigo" />
+          </div>
+        </div>
+        <div class="divider-item">
+          <div class="divider-label">Ornamental center divider</div>
+          <div class="div-ornament"><span>&#10022; &#10022; &#10022;</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOTION -->
+    <section id="motion" class="ci-section">
+      <span class="overline">09 — Animation &amp; Motion</span>
+      <h2 class="section-heading">Motion Specs</h2>
+      <p class="section-heading-zh">動態規範</p>
+      <div class="gold-rule"></div>
+      <div class="motion-grid">
+        <div class="motion-card">
+          <div class="motion-name">Page Entrance</div>
+          <div class="motion-spec">fadeInUp &middot; 0.6s &middot; ease &middot; both</div>
+          <div class="motion-desc">Elements enter from 20px below at opacity 0. Stagger: 0.1s between siblings.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Hover Lift</div>
+          <div class="motion-spec">translateY(-2px) &middot; 0.3s &middot; ease</div>
+          <div class="motion-desc">Cards and buttons. Paired with border-color and shadow transitions.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Underline Expand</div>
+          <div class="motion-spec">width: 0 &rarr; 100% &middot; 0.4s &middot; ease</div>
+          <div class="motion-desc">Nav links. Underline grows left to right. Color: Brand Crimson.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Button Hover</div>
+          <div class="motion-spec">bg shift + shadow &middot; 0.25s &middot; ease</div>
+          <div class="motion-desc">Primary buttons gain shadow 0 4px 16px rgba(crimson, 0.3) on hover. From Style 3.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Counter Animation</div>
+          <div class="motion-spec">count-up &middot; 1.5s &middot; ease-out</div>
+          <div class="motion-desc">Stat numbers count up on scroll. From Style 3 corporate authority.</div>
+        </div>
+        <div class="motion-card">
+          <div class="motion-name">Guiding Principle</div>
+          <div class="motion-spec">Restraint &middot; Precision &middot; Purpose</div>
+          <div class="motion-desc">No parallax. Duration cap: 0.8s. Motion serves communication, never decoration.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="ci-section">
+      <span class="overline">10 — Visual Direction</span>
+      <h2 class="section-heading">Photography &amp; Imagery</h2>
+      <p class="section-heading-zh">影像使用規範</p>
+      <div class="gold-rule"></div>
+      <div class="photo-callout">
+        <div class="photo-callout-title">Photographic Identity</div>
+        <ul class="photo-rules">
+          <li><strong style="color:var(--warm-white)">Tone &amp; Mood:</strong> Deep, cinematic on dark canvas. Professional and forward-looking on indigo sections. Rich contrast across both contexts.</li>
+          <li><strong style="color:var(--warm-white)">Subject Matter:</strong> Architecture (glass towers, night skylines), boardroom environments, professional portraits, abstract textures. Modern Taipei cityscape for heroes.</li>
+          <li><strong style="color:var(--warm-white)">Color Treatment:</strong> Brand Indigo overlay (60-80% opacity, multiply) on dark sections. Reduced saturation (40-60%) on indigo hero blocks.</li>
+          <li><strong style="color:var(--warm-white)">Icons:</strong> Outlined style (Phosphor/Lucide), 24px, stroke 1.5px. Gold on dark background. White on indigo background.</li>
+          <li><strong style="color:var(--warm-white)">Prohibited:</strong> Saturated stock photos, cartoon icons, clip art, busy backgrounds, lens flares.</li>
+        </ul>
+      </div>
+      <div class="photo-grid-demo">
+        <div class="photo-box photo-box-bg1"><span class="photo-box-label">Architecture</span></div>
+        <div class="photo-box photo-box-bg2"><span class="photo-box-label">Executive Portrait</span></div>
+        <div class="photo-box photo-box-bg3"><span class="photo-box-label">Indigo Texture</span></div>
+      </div>
+    </section>
+
+    <!-- LOGO -->
+    <section id="logo" class="ci-section">
+      <span class="overline">11 — Brand Identity</span>
+      <h2 class="section-heading">Logo Usage Rules</h2>
+      <p class="section-heading-zh">標誌使用規範</p>
+      <div class="gold-rule"></div>
+      <div class="logo-grid">
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-dark">
+            <div class="logo-mark gold">DASI</div>
+          </div>
+          <div class="logo-rule-text">Primary: Gold on Deep Background. Standard usage on dark-themed pages.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-indigo">
+            <div class="logo-mark light">DASI</div>
+          </div>
+          <div class="logo-rule-text">On Brand Indigo: White logotype + Gold accents. Hero sections, nav, footer.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-light">
+            <div class="logo-mark indigo">DASI</div>
+          </div>
+          <div class="logo-rule-text">Light mode: Brand Indigo on Warm White. Print, stationery, reports.</div>
+        </div>
+        <div class="logo-box">
+          <div class="logo-canvas logo-canvas-gold">
+            <div class="logo-mark dark">DASI</div>
+          </div>
+          <div class="logo-rule-text">Special: Deep color on Gold. Awards, certificates, premium print only.</div>
+        </div>
+      </div>
+
+      <div style="margin-top:32px;">
+        <div class="logo-forbidden">
+          <div class="forbidden-title">Never Do This</div>
+          <ul class="forbidden-list">
+            <li>Stretch or distort the logo proportions</li>
+            <li>Apply drop shadows or emboss effects</li>
+            <li>Use on busy photographic backgrounds without overlay</li>
+            <li>Outline or stroke the logotype</li>
+            <li>Recreate the logo in unauthorized typefaces</li>
+            <li>Place on colors not in the DASI palette</li>
+            <li>Reduce below 60px width in digital contexts</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>文案確認 — 企業文化區塊 | 大璽國際顧問</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+TC:wght@400;700&family=Inter:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+    background: #f4f3f0;
+    color: #1a1a1a;
+    min-height: 100vh;
+  }
+
+  /* ── Review Banner ── */
+  .review-banner {
+    background: #fff3cd;
+    border-bottom: 2px solid #e6c745;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    color: #664d03;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .review-banner strong { font-weight: 700; }
+
+  /* ── Meta Info ── */
+  .meta {
+    max-width: 900px;
+    margin: 48px auto 0;
+    padding: 0 32px;
+  }
+  .meta h1 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .meta-table {
+    font-size: 14px;
+    color: #666;
+    line-height: 2;
+    margin-bottom: 32px;
+  }
+  .meta-table span { color: #1a1a1a; font-weight: 500; }
+
+  /* ── Preview Frame ── */
+  .preview-frame {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    padding: 0 32px;
+  }
+  .frame-label {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 12px;
+  }
+  .frame {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  }
+
+  /* ── Simulated website section (dark theme matching style4) ── */
+  .site-section {
+    background: #0e1226;
+    color: #dee1fd;
+    font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  }
+
+  /* Culture Hero */
+  .culture-hero {
+    text-align: center;
+    padding: 80px 32px 64px;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+  .culture-hero .label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    color: #c9a96e;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .culture-hero h2 {
+    font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .culture-hero .lead {
+    font-size: 17px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.55);
+    max-width: 640px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  /* Philosophy Section */
+  .philosophy {
+    padding: 80px 32px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .philosophy blockquote {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px;
+    line-height: 1.6;
+    color: #fff;
+    border-left: 3px solid #c9a96e;
+    padding-left: 24px;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+  .philosophy .attribution {
+    font-size: 14px;
+    color: #c9a96e;
+    padding-left: 28px;
+    margin-bottom: 40px;
+  }
+  .philosophy p {
+    font-size: 16px;
+    line-height: 2;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  /* Values Grid */
+  .values-grid {
+    padding: 0 32px 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,169,110,0.12);
+  }
+  .value-card {
+    background: #0e1226;
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .value-card .icon {
+    font-size: 36px;
+    color: #c9a96e;
+    margin-bottom: 20px;
+  }
+  .value-card h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 16px;
+    font-weight: 700;
+  }
+  .value-card p {
+    font-size: 14px;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
+  /* Growth Section */
+  .growth {
+    padding: 80px 32px;
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .growth .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: #c9a96e;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .growth h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  .growth p {
+    font-size: 16px;
+    line-height: 2;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    margin-bottom: 16px;
+  }
+
+  /* CTA */
+  .culture-cta {
+    text-align: center;
+    padding: 64px 32px 80px;
+    border-top: 1px solid rgba(201,169,110,0.15);
+  }
+  .culture-cta h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .culture-cta p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 28px;
+    font-weight: 300;
+  }
+  .culture-cta a {
+    display: inline-block;
+    background: #c9a96e;
+    color: #0e1226;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 40px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .culture-cta a:hover { opacity: 0.85; }
+
+  @media (max-width: 700px) {
+    .values-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Copy text reference below frame ── */
+  .copy-reference {
+    max-width: 900px;
+    margin: 0 auto 80px;
+    padding: 0 32px;
+  }
+  .copy-reference h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #1a1a1a;
+  }
+  .copy-block {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  .copy-block h3 {
+    font-size: 14px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 12px;
+  }
+  .copy-block p, .copy-block blockquote {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #333;
+  }
+  .copy-block blockquote {
+    border-left: 3px solid #c9a96e;
+    padding-left: 16px;
+    margin: 8px 0;
+    font-style: italic;
+  }
+  .source-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<!-- Review Banner -->
+<div class="review-banner">
+  <span class="material-symbols-outlined" style="font-size:20px;">rate_review</span>
+  <div><strong>文案確認</strong> — 此頁面僅供客戶確認文案內容，非最終網站頁面。確認後將套入正式網站設計。</div>
+</div>
+
+<!-- Meta -->
+<div class="meta">
+  <h1>企業文化區塊 — 文案確認</h1>
+  <div class="meta-table">
+    適用位置：<span>關於我們 (about) 頁面 — 核心價值區塊下方</span><br>
+    文案來源：<span>EP214 Podcast 訪談內容（杜總談話）</span><br>
+    建立日期：<span>2026-04-01</span><br>
+    狀態：<span style="color:#e65100; font-weight:600;">待客戶確認</span>
+  </div>
+</div>
+
+<!-- ===== Preview Frame ===== -->
+<div class="preview-frame">
+  <div class="frame-label">網站呈現預覽（以 Style 04 靛藍金權為基礎）</div>
+  <div class="frame">
+    <div class="site-section">
+
+      <!-- Culture Hero -->
+      <div class="culture-hero">
+        <div class="label">Our Culture</div>
+        <h2>不只是記帳，<br>是讓數字替你說話</h2>
+        <p class="lead">
+          每家公司都有自己的故事，但報表往往說的是另一個版本。<br>
+          大璽做的，是讓這兩個版本統一——對內看懂營運，對外贏得信任。
+        </p>
+      </div>
+
+      <!-- Philosophy — Client-Facing -->
+      <div class="philosophy">
+        <blockquote>「報表不只是給國稅局看的，它決定了你在銀行、投資人、甚至下一代眼中的樣子。」</blockquote>
+        <div class="attribution">— 杜謙，大璽國際顧問 總經理</div>
+        <p>
+          曾有企業主自認公司賺錢，報表送到銀行卻被判定「營運有問題」。帳面上的節稅策略，讓數據說了一個與現實完全不同的故事。這樣的情況，在台灣中小企業中並不少見。
+        </p>
+        <p style="margin-top:16px;">
+          大璽從創立之初便相信：帳，不是記完就好。它應該忠實反映一家公司的體質，成為決策、融資、傳承的可靠依據。這是我們對每一位客戶的承諾，也是驅動我們不斷拓展專業的根本原因。
+        </p>
+      </div>
+
+      <!-- Values Grid — Service Philosophy -->
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="material-symbols-outlined icon">search_insights</span>
+          <h3>主動發現問題</h3>
+          <p>別的事務所說「都可以」，我們會主動約你來，告訴你帳上哪裡不對勁、哪個選擇三年後差一百萬。不等問題發生，而是提前解決。</p>
+        </div>
+        <div class="value-card">
+          <span class="material-symbols-outlined icon">account_tree</span>
+          <h3>跨領域整合能力</h3>
+          <p>記帳只是我們的起點。從國內外稅務、財富傳承、銀行融資到 IPO 輔導，一個團隊涵蓋企業財務的完整生命週期，不再需要四處找人。</p>
+        </div>
+        <div class="value-card">
+          <span class="material-symbols-outlined icon">handshake</span>
+          <h3>站在你這邊思考</h3>
+          <p>合法節稅是義務，但不該讓報表失真。我們幫客戶在「繳最少的稅」與「讓數據說真話」之間找到最佳平衡，確保每一步都經得起檢驗。</p>
+        </div>
+      </div>
+
+      <!-- Depth Section — What sets us apart -->
+      <div class="growth">
+        <div class="section-label">What Sets Us Apart</div>
+        <h3>從一本帳，到一整個生態系</h3>
+        <p>
+          台灣的中小企業多是技術或業務起家，帳務往往是最後才被正視的環節。但當企業要融資、要擴張、要傳承時，帳的品質決定了一切。
+        </p>
+        <p>
+          大璽在二十餘年的服務歷程中，從單純記帳逐步發展出稅務規劃、跨境架構、政府專案申請、IPO 輔導等完整服務線。我們與律師事務所、地政士、行銷夥伴組成專業生態系，讓客戶在每一個關鍵時刻都有對的人站在身邊。
+        </p>
+      </div>
+
+      <!-- Team Culture — Internal facing -->
+      <div class="growth" style="border-top: 1px solid rgba(201,169,110,0.15);">
+        <div class="section-label">Our Team</div>
+        <h3>最好的服務，來自最好狀態的人</h3>
+        <p>
+          「在我們公司，加班是能力不足的表徵。」這是杜總經常對團隊說的話。大璽嚴格限制非必要加班、要求同仁休完所有特休，因為我們相信——只有在最佳狀態下工作的專業人才，才能為客戶做出最精準的判斷。
+        </p>
+        <p>
+          在大璽，記帳是部門之一，不是全部。每位夥伴都有機會從基礎稅務延伸到國際架構、財富傳承、IPO 輔導等更深更廣的專業領域。我們不培養只會埋頭做帳的人，我們培養能和企業主坐在同一張桌子上對話的顧問。
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="culture-cta">
+        <h3>讓我們從一通電話開始</h3>
+        <p>不論是稅務疑問、融資規劃，或只是想找個能真正聊的會計師。</p>
+        <a href="#">預約諮詢</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ===== Plain Text Copy Reference ===== -->
+<div class="copy-reference">
+  <h2>純文字版（供確認用）</h2>
+
+  <div class="copy-block">
+    <h3>區塊標題</h3>
+    <p><strong>英文小標：</strong>Our Culture</p>
+    <p><strong>主標題：</strong>不只是記帳，是讓數字替你說話</p>
+    <p><strong>副標：</strong>每家公司都有自己的故事，但報表往往說的是另一個版本。大璽做的，是讓這兩個版本統一——對內看懂營運，對外贏得信任。</p>
+  </div>
+
+  <div class="copy-block">
+    <h3>經營者語錄 + 服務理念</h3>
+    <blockquote>「報表不只是給國稅局看的，它決定了你在銀行、投資人、甚至下一代眼中的樣子。」</blockquote>
+    <p>— 杜謙，大璽國際顧問 總經理</p>
+    <p style="margin-top:12px;">曾有企業主自認公司賺錢，報表送到銀行卻被判定「營運有問題」。帳面上的節稅策略，讓數據說了一個與現實完全不同的故事。這樣的情況，在台灣中小企業中並不少見。</p>
+    <p style="margin-top:12px;">大璽從創立之初便相信：帳，不是記完就好。它應該忠實反映一家公司的體質，成為決策、融資、傳承的可靠依據。這是我們對每一位客戶的承諾，也是驅動我們不斷拓展專業的根本原因。</p>
+    <div class="source-note">出處：創業好了沒 EP214（03:17–10:18 段落），杜總談話提煉改寫</div>
+  </div>
+
+  <div class="copy-block">
+    <h3>三大服務文化</h3>
+    <p><strong>1. 主動發現問題</strong><br>別的事務所說「都可以」，我們會主動約你來，告訴你帳上哪裡不對勁、哪個選擇三年後差一百萬。不等問題發生，而是提前解決。</p>
+    <p style="margin-top:12px;"><strong>2. 跨領域整合能力</strong><br>記帳只是我們的起點。從國內外稅務、財富傳承、銀行融資到 IPO 輔導，一個團隊涵蓋企業財務的完整生命週期，不再需要四處找人。</p>
+    <p style="margin-top:12px;"><strong>3. 站在你這邊思考</strong><br>合法節稅是義務，但不該讓報表失真。我們幫客戶在「繳最少的稅」與「讓數據說真話」之間找到最佳平衡，確保每一步都經得起檢驗。</p>
+  </div>
+
+  <div class="copy-block">
+    <h3>專業深度段落</h3>
+    <p><strong>標題：</strong>從一本帳，到一整個生態系</p>
+    <p style="margin-top:8px;">台灣的中小企業多是技術或業務起家，帳務往往是最後才被正視的環節。但當企業要融資、要擴張、要傳承時，帳的品質決定了一切。</p>
+    <p style="margin-top:8px;">大璽在二十餘年的服務歷程中，從單純記帳逐步發展出稅務規劃、跨境架構、政府專案申請、IPO 輔導等完整服務線。我們與律師事務所、地政士、行銷夥伴組成專業生態系，讓客戶在每一個關鍵時刻都有對的人站在身邊。</p>
+  </div>
+
+  <div class="copy-block">
+    <h3>團隊文化段落（內部面向）</h3>
+    <p><strong>標題：</strong>最好的服務，來自最好狀態的人</p>
+    <p style="margin-top:8px;">「在我們公司，加班是能力不足的表徵。」這是杜總經常對團隊說的話。大璽嚴格限制非必要加班、要求同仁休完所有特休，因為我們相信——只有在最佳狀態下工作的專業人才，才能為客戶做出最精準的判斷。</p>
+    <p style="margin-top:8px;">在大璽，記帳是部門之一，不是全部。每位夥伴都有機會從基礎稅務延伸到國際架構、財富傳承、IPO 輔導等更深更廣的專業領域。我們不培養只會埋頭做帳的人，我們培養能和企業主坐在同一張桌子上對話的顧問。</p>
+    <div class="source-note">出處：創業好了沒 EP214（50:38 段落），杜總原話改寫</div>
+  </div>
+
+  <div class="copy-block">
+    <h3>CTA</h3>
+    <p><strong>標題：</strong>讓我們從一通電話開始</p>
+    <p><strong>說明：</strong>不論是稅務疑問、融資規劃，或只是想找個能真正聊的會計師。</p>
+    <p><strong>按鈕：</strong>預約諮詢</p>
+  </div>
+</div>
+
+</body>
+</html>
