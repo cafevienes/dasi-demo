@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>聯繫我們 — 大璽國際顧問 DASI International Consultants</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Material Symbols -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          "parchment": "#F8F5F0",
+          "ivory": "#EFEAE3",
+          "champagne-warm": "#D8D5CE",
+          "charcoal": "#2C2E38",
+          "warm-gray": "#7A7B86",
+          "mist": "#D8D5CE",
+          "deep-navy": "#0A0E28",
+          "indigo-wash": "#ECEEF8",
+          "crimson-wash": "#FCF0F0",
+          "brand-indigo": "#1B2D8B",
+          "brand-crimson": "#C4243B",
+          "indigo-hover": "#2A3F9E",
+          "crimson-dark": "#9E1B30",
+        },
+        fontFamily: {
+          "serif-en": ["Cormorant Garamond", "serif"],
+          "serif-tc": ["Noto Serif TC", "serif"],
+          "body": ["Inter", "Noto Sans TC", "sans-serif"],
+        },
+        borderRadius: {
+          "DEFAULT": "0px",
+          "lg": "0px",
+          "xl": "0px",
+        },
+      }}
+    }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', 'Noto Sans TC', sans-serif; color: #2C2E38; background: #F8F5F0; }
+
+    .overline {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #C4243B;
+      font-weight: 500;
+    }
+
+    .heritage-divider {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 20px auto;
+    }
+    .heritage-divider span:first-child {
+      display: block; width: 24px; height: 2px; background: #1B2D8B;
+    }
+    .heritage-divider span:last-child {
+      display: block; width: 24px; height: 2px; background: #C4243B;
+    }
+
+    .mobile-menu { display: none; }
+    .mobile-menu.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== NAV ==================== -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-brand-indigo h-[72px]">
+    <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+      <a href="index.html">
+        <img src="../assets/logo-standard.png" alt="大璽國際顧問" style="height:52px; display:block; filter:brightness(0) invert(1);">
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="font-['Inter'] font-medium text-white/80 hover:text-white transition-colors" style="font-size:15px;">首頁</a>
+        <a href="about.html" class="font-['Inter'] font-medium text-white/80 hover:text-white transition-colors" style="font-size:15px;">關於我們</a>
+        <a href="services.html" class="font-['Inter'] font-medium text-white/80 hover:text-white transition-colors" style="font-size:15px;">專業服務</a>
+        <a href="insights.html" class="font-['Inter'] font-medium text-white/80 hover:text-white transition-colors" style="font-size:15px;">案例分享</a>
+        <a href="contact.html" class="font-['Inter'] font-medium text-white relative pb-1" style="font-size:15px;">
+          聯繫我們
+          <span class="absolute bottom-0 left-0 right-0 h-[2px] bg-brand-crimson"></span>
+        </a>
+        <a href="contact.html" class="ml-4 px-6 py-2.5 bg-brand-crimson text-white font-['Inter'] font-medium text-sm hover:bg-crimson-dark transition-colors">預約諮詢</a>
+      </div>
+
+      <button id="menuToggle" class="md:hidden text-white" onclick="document.getElementById('mobileMenu').classList.toggle('active')">
+        <span class="material-symbols-outlined text-[28px]">menu</span>
+      </button>
+    </div>
+
+    <div id="mobileMenu" class="mobile-menu md:hidden bg-brand-indigo border-t border-white/10 px-6 py-4">
+      <a href="index.html" class="block py-3 text-white/80 hover:text-white font-medium border-b border-white/10">首頁</a>
+      <a href="about.html" class="block py-3 text-white/80 hover:text-white font-medium border-b border-white/10">關於我們</a>
+      <a href="services.html" class="block py-3 text-white/80 hover:text-white font-medium border-b border-white/10">專業服務</a>
+      <a href="insights.html" class="block py-3 text-white/80 hover:text-white font-medium border-b border-white/10">案例分享</a>
+      <a href="contact.html" class="block py-3 text-white font-medium border-b border-white/10">聯繫我們</a>
+      <a href="contact.html" class="inline-block mt-4 px-6 py-2.5 bg-brand-crimson text-white font-medium text-sm">預約諮詢</a>
+    </div>
+  </nav>
+
+
+  <!-- ==================== HERO ==================== -->
+  <section class="bg-parchment pt-[200px] pb-[120px]">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <img src="../assets/logo-standard.png" alt="大璽" style="height:80px; margin:0 auto 28px; display:block;">
+      <p class="overline">與我們聯繫</p>
+      <div class="heritage-divider">
+        <span></span><span></span>
+      </div>
+      <h1 class="font-serif-en font-normal text-charcoal mt-6" style="font-size:44px; line-height:1.25;">
+        期待為您服務
+      </h1>
+    </div>
+  </section>
+
+
+  <!-- ==================== MAIN: FORM + INFO ==================== -->
+  <section class="py-[96px]">
+    <div class="max-w-[1120px] mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+
+        <!-- Left: Form (7 cols) -->
+        <div class="lg:col-span-7">
+          <div class="bg-white border border-mist p-[48px]">
+            <h3 class="font-serif-en font-medium text-brand-indigo mb-8" style="font-size:24px;">預約諮詢</h3>
+
+            <form class="space-y-6">
+              <!-- 公司名稱 -->
+              <div>
+                <label class="block text-sm text-charcoal font-medium mb-2">公司名稱</label>
+                <input type="text" class="w-full bg-white border border-mist px-4 py-3 text-sm text-charcoal focus:border-brand-indigo focus:outline-none focus:ring-0" style="border-radius:0px;" placeholder="請輸入公司名稱">
+              </div>
+
+              <!-- 聯絡人姓名 -->
+              <div>
+                <label class="block text-sm text-charcoal font-medium mb-2">聯絡人姓名</label>
+                <input type="text" class="w-full bg-white border border-mist px-4 py-3 text-sm text-charcoal focus:border-brand-indigo focus:outline-none focus:ring-0" style="border-radius:0px;" placeholder="請輸入姓名">
+              </div>
+
+              <!-- 電子信箱 -->
+              <div>
+                <label class="block text-sm text-charcoal font-medium mb-2">電子信箱</label>
+                <input type="email" class="w-full bg-white border border-mist px-4 py-3 text-sm text-charcoal focus:border-brand-indigo focus:outline-none focus:ring-0" style="border-radius:0px;" placeholder="請輸入電子信箱">
+              </div>
+
+              <!-- 聯絡電話 -->
+              <div>
+                <label class="block text-sm text-charcoal font-medium mb-2">聯絡電話</label>
+                <input type="tel" class="w-full bg-white border border-mist px-4 py-3 text-sm text-charcoal focus:border-brand-indigo focus:outline-none focus:ring-0" style="border-radius:0px;" placeholder="請輸入聯絡電話">
+              </div>
+
+              <!-- 諮詢服務 -->
+              <div>
+                <label class="block text-sm text-charcoal font-medium mb-2">諮詢服務</label>
+                <select class="w-full bg-white border border-mist px-4 py-3 text-sm text-charcoal focus:border-brand-indigo focus:outline-none focus:ring-0" style="border-radius:0px;">
+                  <option value="">請選擇諮詢服務</option>
+                  <option value="ipo">IPO 輔導</option>
+                  <option value="cross-border">跨境稅務規劃</option>
+                  <option value="hnwi">高資產節稅規劃</option>
+                  <option value="gov">政府專案</option>
+                  <option value="special">特殊稅務案件</option>
+                  <option value="other">其他</option>
+                </select>
+              </div>
+
+              <!-- 諮詢內容 -->
+              <div>
+                <label class="block text-sm text-charcoal font-medium mb-2">諮詢內容</label>
+                <textarea rows="5" class="w-full bg-white border border-mist px-4 py-3 text-sm text-charcoal focus:border-brand-indigo focus:outline-none focus:ring-0 resize-none" style="border-radius:0px;" placeholder="請簡述您的諮詢需求"></textarea>
+              </div>
+
+              <!-- Submit -->
+              <button type="submit" class="w-full bg-brand-indigo text-white font-medium text-sm py-3.5 hover:bg-indigo-hover transition-colors" style="border-radius:0px;">
+                送出諮詢
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Right: Contact Info (5 cols) -->
+        <div class="lg:col-span-5 lg:pl-12">
+          <h3 class="font-serif-en font-medium text-brand-indigo mb-8" style="font-size:24px;">聯繫資訊</h3>
+
+          <ul class="space-y-6">
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-brand-crimson text-[22px] mt-0.5">location_on</span>
+              <span class="text-charcoal text-sm leading-relaxed">台北市中正區羅斯福路三段158號4樓</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-brand-crimson text-[22px] mt-0.5">phone</span>
+              <span class="text-charcoal text-sm leading-relaxed">02-2366-0277 #20 (Pamela Peng)</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-brand-crimson text-[22px] mt-0.5">fax</span>
+              <span class="text-charcoal text-sm leading-relaxed">02-2366-0365</span>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-brand-crimson text-[22px] mt-0.5">mail</span>
+              <a href="mailto:pamela@dasi-int.com.tw" class="text-charcoal text-sm hover:text-brand-indigo transition-colors">pamela@dasi-int.com.tw</a>
+            </li>
+            <li class="flex items-start gap-4">
+              <span class="material-symbols-outlined text-brand-crimson text-[22px] mt-0.5">schedule</span>
+              <span class="text-charcoal text-sm leading-relaxed">週一至週五 09:00–18:00</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== MAP ==================== -->
+  <section class="py-[80px] bg-ivory">
+    <div class="max-w-[1120px] mx-auto px-6">
+      <div class="border border-mist bg-white flex items-center justify-center" style="height:320px;">
+        <div class="text-center">
+          <span class="material-symbols-outlined text-mist text-[48px] mb-3">map</span>
+          <p class="text-warm-gray text-sm">地圖載入中</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-deep-navy pt-16 pb-8">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 pb-12 border-b border-white/10">
+
+        <div>
+          <img src="../assets/logo-standard.png" alt="大璽國際顧問" style="height:44px; display:block; filter:brightness(0) invert(1);" class="mb-6">
+          <p class="text-white/60 text-sm leading-relaxed">
+            大璽國際顧問以三十年的財稅專業，為企業與高資產客戶提供值得信賴的全方位顧問服務。
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-medium text-sm mb-6">快速連結</h4>
+          <ul class="space-y-3">
+            <li><a href="about.html" class="text-white/60 text-sm hover:text-brand-crimson transition-colors">關於我們</a></li>
+            <li><a href="services.html" class="text-white/60 text-sm hover:text-brand-crimson transition-colors">專業服務</a></li>
+            <li><a href="insights.html" class="text-white/60 text-sm hover:text-brand-crimson transition-colors">案例分享</a></li>
+            <li><a href="contact.html" class="text-white/60 text-sm hover:text-brand-crimson transition-colors">聯繫我們</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-medium text-sm mb-6">聯絡資訊</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-brand-crimson text-[20px] mt-0.5">location_on</span>
+              <span class="text-white/60 text-sm leading-relaxed">台北市中正區羅斯福路三段158號4樓</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-brand-crimson text-[20px] mt-0.5">call</span>
+              <div class="text-white/60 text-sm leading-relaxed">
+                <p>02-2366-0277 #20 (Pamela Peng)</p>
+                <p>02-2366-0365</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="material-symbols-outlined text-brand-crimson text-[20px] mt-0.5">mail</span>
+              <a href="mailto:pamela@dasi-int.com.tw" class="text-white/60 text-sm hover:text-brand-crimson transition-colors">pamela@dasi-int.com.tw</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 text-center">
+        <p class="text-white/40 text-xs">&copy; 2026 大璽國際顧問 DASI International Consultants. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

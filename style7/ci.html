@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>璽韻風華 Heritage Elegance — CI 規範</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ========================================
+   Style 7 — 璽韻風華 Heritage Elegance
+   CI Specification
+   ======================================== */
+
+:root {
+  --parchment: #F8F5F0;
+  --ivory: #EFEAE3;
+  --charcoal: #2C2E38;
+  --warm-gray: #7A7B86;
+  --mist: #D8D5CE;
+  --deep-navy: #0A0E28;
+  --brand-indigo: #1B2D8B;
+  --brand-crimson: #C4243B;
+  --indigo-hover: #2A3F9E;
+  --crimson-dark: #9E1B30;
+  --indigo-wash: #ECEEF8;
+  --crimson-wash: #FCF0F0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 32px;
+}
+
+body {
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--charcoal);
+  background: var(--parchment);
+}
+
+/* ---- Layout ---- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---- Sidebar ---- */
+.sidebar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 240px;
+  min-width: 240px;
+  height: 100vh;
+  overflow-y: auto;
+  background: #fff;
+  border-right: 1px solid var(--mist);
+  padding: 32px 0;
+  z-index: 100;
+}
+
+.sidebar-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--brand-indigo);
+  padding: 0 24px 20px;
+  border-bottom: 1px solid var(--mist);
+  margin-bottom: 12px;
+}
+
+.sidebar-title span {
+  display: block;
+  font-size: 11px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  margin-top: 2px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 9px 24px;
+  font-size: 14px;
+  color: var(--charcoal);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.sidebar nav a:hover {
+  color: var(--brand-crimson);
+}
+
+.sidebar nav a.active {
+  color: var(--brand-indigo);
+  border-left-color: var(--brand-indigo);
+  font-weight: 500;
+}
+
+/* ---- Main ---- */
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: 48px 64px 96px;
+  max-width: 960px;
+}
+
+/* ---- Section Headings ---- */
+.section {
+  margin-bottom: 72px;
+}
+
+.section-overline {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand-crimson);
+  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+}
+
+.section h2 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.section h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+
+.section p {
+  color: var(--charcoal);
+  margin-bottom: 16px;
+  max-width: 680px;
+}
+
+.section-lead {
+  font-size: 17px;
+  color: var(--warm-gray) !important;
+  line-height: 1.8;
+}
+
+/* Heritage divider under section headings */
+.heritage-rule {
+  display: flex;
+  width: 48px;
+  height: 3px;
+  margin: 16px 0 28px;
+}
+
+.heritage-rule .hr-indigo {
+  width: 24px;
+  height: 100%;
+  background: var(--brand-indigo);
+}
+
+.heritage-rule .hr-crimson {
+  width: 24px;
+  height: 100%;
+  background: var(--brand-crimson);
+}
+
+/* ---- Comparison Table ---- */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  text-align: left;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--mist);
+}
+
+.comparison-table th {
+  font-weight: 500;
+  color: var(--warm-gray);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--ivory);
+}
+
+.comparison-table tr.highlight {
+  background: var(--indigo-wash);
+  font-weight: 500;
+}
+
+.comparison-table .style-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-right: 6px;
+}
+
+.style-tag.indigo { background: var(--indigo-wash); color: var(--brand-indigo); }
+.style-tag.crimson { background: var(--crimson-wash); color: var(--brand-crimson); }
+
+/* ---- Color Swatches ---- */
+.swatch-group {
+  margin: 24px 0 36px;
+}
+
+.swatch-group-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--warm-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.swatch {
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.swatch-color {
+  height: 72px;
+  position: relative;
+}
+
+.swatch-info {
+  padding: 12px 14px;
+}
+
+.swatch-name {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.swatch-hex {
+  font-size: 13px;
+  font-family: 'Cormorant Garamond', monospace;
+  color: var(--warm-gray);
+  margin-bottom: 4px;
+}
+
+.swatch-usage {
+  font-size: 12px;
+  color: var(--warm-gray);
+  line-height: 1.5;
+}
+
+/* ---- Heritage Elements ---- */
+.heritage-demo {
+  background: #fff;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+  padding: 32px;
+  margin: 20px 0;
+}
+
+.heritage-demo-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--warm-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.demo-divider {
+  display: flex;
+  width: 48px;
+  height: 3px;
+  margin: 0 0 8px;
+}
+
+.demo-divider .seg-indigo { width: 24px; background: var(--brand-indigo); }
+.demo-divider .seg-crimson { width: 24px; background: var(--brand-crimson); }
+
+.demo-cards-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.demo-mini-card {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid var(--mist);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--charcoal);
+}
+
+.demo-mini-card.border-indigo {
+  border-left: 3px solid var(--brand-indigo);
+}
+
+.demo-mini-card.border-crimson {
+  border-left: 3px solid var(--brand-crimson);
+}
+
+.dual-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.dual-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dual-dots .dot.indigo { background: var(--brand-indigo); }
+.dual-dots .dot.crimson { background: var(--brand-crimson); }
+
+/* ---- Typography ---- */
+.type-specimen {
+  margin: 24px 0;
+  padding: 28px 32px;
+  background: #fff;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+}
+
+.type-specimen .meta {
+  font-size: 12px;
+  color: var(--warm-gray);
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 8px;
+}
+
+.type-specimen .meta code {
+  background: var(--ivory);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+}
+
+.type-h1 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--charcoal);
+}
+
+.type-h2 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--charcoal);
+}
+
+.type-h3 {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--charcoal);
+}
+
+.type-body {
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--charcoal);
+}
+
+.type-overline {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--brand-crimson);
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+}
+
+.type-caption {
+  font-size: 13px;
+  color: var(--warm-gray);
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+}
+
+/* ---- Buttons ---- */
+.btn-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 28px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.btn-primary {
+  background: var(--brand-indigo);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--indigo-hover);
+}
+
+.btn-crimson {
+  background: var(--brand-crimson);
+  color: #fff;
+}
+
+.btn-crimson:hover {
+  background: var(--crimson-dark);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--brand-crimson);
+  border: 1px solid var(--brand-crimson);
+}
+
+.btn-secondary:hover {
+  background: var(--crimson-wash);
+}
+
+.btn-text {
+  background: none;
+  border: none;
+  color: var(--brand-indigo);
+  padding: 11px 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.btn-text:hover {
+  text-decoration: underline;
+}
+
+.btn-label {
+  font-size: 12px;
+  color: var(--warm-gray);
+  width: 100%;
+  margin-top: 4px;
+}
+
+/* ---- Cards ---- */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 24px 0;
+}
+
+.card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 28px;
+  border: 1px solid var(--mist);
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--charcoal);
+}
+
+.card-text {
+  font-size: 14px;
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+.card.heritage-indigo {
+  border-left: 3px solid var(--brand-indigo);
+}
+
+.card.heritage-crimson {
+  border-left: 3px solid var(--brand-crimson);
+}
+
+.card.stat-card {
+  text-align: center;
+  padding: 32px 20px;
+}
+
+.card.stat-card .stat-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--brand-indigo);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.card.stat-card .stat-label {
+  font-size: 13px;
+  color: var(--warm-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card-variant-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--warm-gray);
+  margin-bottom: 12px;
+}
+
+/* ---- Navigation Mockup ---- */
+.nav-mockup {
+  background: var(--brand-indigo);
+  border-radius: 6px;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  margin: 24px 0;
+  gap: 28px;
+}
+
+.nav-mockup .nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+  margin-right: auto;
+}
+
+.nav-mockup .nav-link {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.nav-mockup .nav-link:hover {
+  color: #fff;
+}
+
+.nav-mockup .nav-link.active {
+  color: #fff;
+  border-bottom-color: var(--brand-crimson);
+}
+
+.nav-mockup .nav-cta {
+  background: var(--brand-crimson);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  transition: background 0.2s;
+}
+
+.nav-mockup .nav-cta:hover {
+  background: var(--crimson-dark);
+}
+
+/* ---- Inputs ---- */
+.input-group {
+  margin: 16px 0;
+  max-width: 420px;
+}
+
+.input-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  border: 1px solid var(--mist);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--charcoal);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: var(--brand-indigo);
+  box-shadow: 0 0 0 3px var(--indigo-wash);
+}
+
+.input-field::placeholder {
+  color: var(--mist);
+}
+
+select.input-field {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7B86' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+textarea.input-field {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ---- Dividers Section ---- */
+.divider-demo {
+  margin: 24px 0;
+  padding: 28px 32px;
+  background: #fff;
+  border: 1px solid var(--mist);
+  border-radius: 6px;
+}
+
+.divider-standard {
+  height: 1px;
+  background: var(--mist);
+  margin: 16px 0;
+}
+
+.divider-heritage {
+  display: flex;
+  width: 48px;
+  height: 3px;
+  margin: 16px 0;
+}
+
+.divider-heritage .dh-indigo { width: 24px; background: var(--brand-indigo); }
+.divider-heritage .dh-crimson { width: 24px; background: var(--brand-crimson); }
+
+.divider-section {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, var(--brand-indigo), var(--brand-crimson));
+  margin: 16px 0;
+}
+
+.divider-label {
+  font-size: 12px;
+  color: var(--warm-gray);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ---- Motion ---- */
+.motion-list {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.motion-list li {
+  padding: 14px 20px;
+  border-left: 2px solid var(--mist);
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.motion-list li strong {
+  display: block;
+  font-size: 13px;
+  color: var(--brand-indigo);
+  margin-bottom: 2px;
+}
+
+/* ---- Logo Usage ---- */
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.logo-box {
+  height: 140px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid var(--mist);
+}
+
+.logo-box .logo-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box .logo-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.logo-box .logo-wordmark {
+  font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.logo-box .logo-bg-label {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+.logo-on-parchment { background: var(--parchment); }
+.logo-on-parchment .logo-icon { background: var(--brand-indigo); color: #fff; }
+.logo-on-parchment .logo-wordmark { color: var(--charcoal); }
+.logo-on-parchment .logo-bg-label { color: var(--charcoal); }
+
+.logo-on-white { background: #fff; }
+.logo-on-white .logo-icon { background: var(--brand-indigo); color: #fff; }
+.logo-on-white .logo-wordmark { color: var(--charcoal); }
+.logo-on-white .logo-bg-label { color: var(--charcoal); }
+
+.logo-on-indigo { background: var(--brand-indigo); border-color: var(--brand-indigo); }
+.logo-on-indigo .logo-icon { background: #fff; color: var(--brand-indigo); }
+.logo-on-indigo .logo-wordmark { color: #fff; }
+.logo-on-indigo .logo-bg-label { color: #fff; }
+
+.logo-on-navy { background: var(--deep-navy); border-color: var(--deep-navy); }
+.logo-on-navy .logo-icon { background: var(--brand-crimson); color: #fff; }
+.logo-on-navy .logo-wordmark { color: #fff; }
+.logo-on-navy .logo-bg-label { color: #fff; }
+
+/* ---- Utility ---- */
+.code {
+  font-family: 'Cormorant Garamond', monospace;
+  font-size: 13px;
+  background: var(--ivory);
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-title">
+      璽韻風華
+      <span>CI Specification</span>
+    </div>
+    <nav>
+      <a href="#overview" class="active">概覽 Overview</a>
+      <a href="#philosophy">設計哲學</a>
+      <a href="#colors">色彩系統</a>
+      <a href="#heritage">璽韻元素</a>
+      <a href="#typography">文字排版</a>
+      <a href="#buttons">按鈕</a>
+      <a href="#cards">卡片</a>
+      <a href="#navigation">導覽列</a>
+      <a href="#inputs">表單輸入</a>
+      <a href="#dividers">分隔線</a>
+      <a href="#motion">動態效果</a>
+      <a href="#logo">標誌使用</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- 1. Overview -->
+    <section id="overview" class="section">
+      <div class="section-overline">Style 7</div>
+      <h2>璽韻風華 — Heritage Elegance</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+      <p class="section-lead">
+        以溫潤的羊皮紙色調為底蘊，靛藍與緋紅雙色交融並重，承載文化厚度與安靜的奢華感。兩種品牌色彩以平等姿態共存，既非主從、亦非對立，而是如篆刻印章般相得益彰。
+      </p>
+      <p>
+        Heritage Elegance 追求的是一種「有來歷的精緻」。不張揚、不低調，而是讓每一個視覺元素都帶有歷史的溫度與當代的俐落。靛藍是信賴與深邃，緋紅是熱忱與果斷——雙色並置，即為品牌的完整表達。
+      </p>
+    </section>
+
+    <!-- 2. Design Philosophy -->
+    <section id="philosophy" class="section">
+      <div class="section-overline">Design Philosophy</div>
+      <h2>設計哲學</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+      <p>
+        Style 7 的核心差異在於雙品牌色的「對等使用」。不同於其他風格中靛藍或緋紅的主從關係，璽韻風華讓兩色同時出場、同等份量、交替呈現。
+      </p>
+
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>風格</th>
+            <th>靛藍角色</th>
+            <th>緋紅角色</th>
+            <th>底色基調</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="style-tag indigo">Style 3</span>凝墨靛彩</td>
+            <td>主導色，大面積使用</td>
+            <td>點綴，僅用於 CTA</td>
+            <td>白底</td>
+          </tr>
+          <tr>
+            <td><span class="style-tag indigo">Style 5</span>素雅淨界</td>
+            <td>克制使用，僅限重點</td>
+            <td>幾乎不出現</td>
+            <td>留白</td>
+          </tr>
+          <tr>
+            <td><span class="style-tag crimson">Style 6</span>夜幕星河</td>
+            <td>融入暗色底</td>
+            <td>螢光般的亮點色</td>
+            <td>深色</td>
+          </tr>
+          <tr class="highlight">
+            <td><span class="style-tag indigo">Style 7</span>璽韻風華</td>
+            <td><strong>對等使用，交替出現</strong></td>
+            <td><strong>對等使用，交替出現</strong></td>
+            <td>羊皮紙暖色</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 3. Colors -->
+    <section id="colors" class="section">
+      <div class="section-overline">Color System</div>
+      <h2>色彩系統</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+
+      <div class="swatch-group">
+        <div class="swatch-group-title">中性色 Neutrals</div>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#F8F5F0;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Parchment</div>
+              <div class="swatch-hex">#F8F5F0</div>
+              <div class="swatch-usage">頁面背景、主要底色</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#EFEAE3;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ivory</div>
+              <div class="swatch-hex">#EFEAE3</div>
+              <div class="swatch-usage">區塊底色、表格表頭</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#2C2E38; border-bottom:1px solid #eee;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Charcoal</div>
+              <div class="swatch-hex">#2C2E38</div>
+              <div class="swatch-usage">主要文字色</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#7A7B86;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Warm Gray</div>
+              <div class="swatch-hex">#7A7B86</div>
+              <div class="swatch-usage">次要文字、說明、圖說</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#D8D5CE;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Mist</div>
+              <div class="swatch-hex">#D8D5CE</div>
+              <div class="swatch-usage">邊框、分隔線</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#0A0E28;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Deep Navy</div>
+              <div class="swatch-hex">#0A0E28</div>
+              <div class="swatch-usage">深色背景、頁尾</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="swatch-group">
+        <div class="swatch-group-title">品牌色 Brand</div>
+        <div class="swatches">
+          <div class="swatch">
+            <div class="swatch-color" style="background:#1B2D8B;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Brand Indigo</div>
+              <div class="swatch-hex">#1B2D8B</div>
+              <div class="swatch-usage">主品牌色、導覽、連結</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#C4243B;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Brand Crimson</div>
+              <div class="swatch-hex">#C4243B</div>
+              <div class="swatch-usage">主品牌色、CTA、強調</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#2A3F9E;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Indigo Hover</div>
+              <div class="swatch-hex">#2A3F9E</div>
+              <div class="swatch-usage">靛藍互動態</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#9E1B30;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Crimson Dark</div>
+              <div class="swatch-hex">#9E1B30</div>
+              <div class="swatch-usage">緋紅互動態</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#ECEEF8;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Indigo Wash</div>
+              <div class="swatch-hex">#ECEEF8</div>
+              <div class="swatch-usage">靛藍淡底、Focus 光暈</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background:#FCF0F0;"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Crimson Wash</div>
+              <div class="swatch-hex">#FCF0F0</div>
+              <div class="swatch-usage">緋紅淡底、警告背景</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Heritage Elements -->
+    <section id="heritage" class="section">
+      <div class="section-overline">Heritage Elements</div>
+      <h2>璽韻元素</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+      <p>以下為「璽韻風華」的標誌性視覺元素——雙色並置的設計語彙，貫穿整個品牌識別。</p>
+
+      <div class="heritage-demo">
+        <div class="heritage-demo-label">Heritage Divider 璽韻分隔線</div>
+        <p style="font-size:13px;color:var(--warm-gray);margin-bottom:12px;">48px 寬：靛藍 24px + 緋紅 24px，高度 3px</p>
+        <div class="demo-divider"><div class="seg-indigo"></div><div class="seg-crimson"></div></div>
+      </div>
+
+      <div class="heritage-demo">
+        <div class="heritage-demo-label">Alternating Card Borders 交替邊框</div>
+        <p style="font-size:13px;color:var(--warm-gray);margin-bottom:12px;">奇數卡片左邊框靛藍，偶數卡片左邊框緋紅</p>
+        <div class="demo-cards-row">
+          <div class="demo-mini-card border-indigo">
+            <strong style="font-size:13px;color:var(--brand-indigo);">卡片 1</strong>
+            靛藍邊框
+          </div>
+          <div class="demo-mini-card border-crimson">
+            <strong style="font-size:13px;color:var(--brand-crimson);">卡片 2</strong>
+            緋紅邊框
+          </div>
+          <div class="demo-mini-card border-indigo">
+            <strong style="font-size:13px;color:var(--brand-indigo);">卡片 3</strong>
+            靛藍邊框
+          </div>
+        </div>
+      </div>
+
+      <div class="heritage-demo">
+        <div class="heritage-demo-label">Dual-Color Dots 雙色圓點</div>
+        <p style="font-size:13px;color:var(--warm-gray);margin-bottom:16px;">用於列表標記、分頁指示器等</p>
+        <div class="dual-dots" style="margin-bottom:12px;">
+          <div class="dot indigo"></div>
+          <div class="dot crimson"></div>
+          <div class="dot indigo"></div>
+          <div class="dot crimson"></div>
+          <div class="dot indigo"></div>
+        </div>
+        <div class="dual-dots" style="gap:10px;">
+          <div class="dot indigo" style="width:10px;height:10px;"></div>
+          <div class="dot crimson" style="width:10px;height:10px;"></div>
+          <div class="dot indigo" style="width:10px;height:10px;"></div>
+          <div class="dot crimson" style="width:10px;height:10px;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Typography -->
+    <section id="typography" class="section">
+      <div class="section-overline">Typography</div>
+      <h2>文字排版</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+
+      <div class="type-specimen">
+        <div class="meta">H1 — <code>Cormorant Garamond / Noto Serif TC</code> · 44px · weight 400</div>
+        <div class="type-h1">Heritage Elegance</div>
+        <div class="type-h1" style="margin-top:4px;">璽韻風華・承載百年底蘊</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="meta">H2 — <code>Cormorant Garamond / Noto Serif TC</code> · 32px · weight 500</div>
+        <div class="type-h2">Dual-Color Identity</div>
+        <div class="type-h2" style="margin-top:4px;">雙色並重的品牌識別</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="meta">H3 — <code>Cormorant Garamond / Noto Serif TC</code> · 22px · weight 500</div>
+        <div class="type-h3">Cultural Warmth Meets Modern Clarity</div>
+        <div class="type-h3" style="margin-top:4px;">文化溫度遇上當代俐落</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="meta">Body — <code>Inter / Noto Sans TC</code> · 16px · weight 400 · line-height 1.8</div>
+        <div class="type-body">
+          Every detail carries intention. From the warmth of parchment to the quiet authority of deep navy, each layer of the Heritage Elegance identity speaks to a brand that values both tradition and forward motion.
+        </div>
+        <div class="type-body" style="margin-top:8px;">
+          每一個細節都承載意圖。從羊皮紙的溫潤到深海軍藍的沉穩權威，璽韻風華的每一層視覺語彙，都在訴說一個兼重傳統與前行的品牌故事。
+        </div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="meta">Overline — <code>Inter / Noto Sans TC</code> · 12px · weight 600 · uppercase · tracking 0.12em · Crimson</div>
+        <div class="type-overline">HERITAGE COLLECTION</div>
+        <div class="type-overline" style="margin-top:4px;">品牌精選</div>
+      </div>
+
+      <div class="type-specimen">
+        <div class="meta">Caption — <code>Inter / Noto Sans TC</code> · 13px · Warm Gray</div>
+        <div class="type-caption">Last updated: 2026-03-30 · Version 1.0</div>
+        <div class="type-caption" style="margin-top:4px;">最後更新：2026-03-30 · 版本 1.0</div>
+      </div>
+    </section>
+
+    <!-- 6. Buttons -->
+    <section id="buttons" class="section">
+      <div class="section-overline">Buttons</div>
+      <h2>按鈕</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+
+      <h3>Primary — Indigo</h3>
+      <div class="btn-row">
+        <button class="btn btn-primary">了解更多</button>
+        <button class="btn btn-primary">Get Started</button>
+      </div>
+
+      <h3>Crimson CTA</h3>
+      <div class="btn-row">
+        <button class="btn btn-crimson">立即預約</button>
+        <button class="btn btn-crimson">Book Now</button>
+      </div>
+
+      <h3>Secondary — Crimson Outline</h3>
+      <div class="btn-row">
+        <button class="btn btn-secondary">查看方案</button>
+        <button class="btn btn-secondary">View Plans</button>
+      </div>
+
+      <h3>Text Link</h3>
+      <div class="btn-row">
+        <a href="#" class="btn-text">探索全部 →</a>
+        <a href="#" class="btn-text">Learn More →</a>
+      </div>
+    </section>
+
+    <!-- 7. Cards -->
+    <section id="cards" class="section">
+      <div class="section-overline">Cards</div>
+      <h2>卡片</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-variant-label">Standard 標準</div>
+          <div class="card-title">品牌策略</div>
+          <div class="card-text">以 Mist 邊框圍繞，無陰影，讓內容在溫潤的底色上安靜呈現。</div>
+        </div>
+
+        <div class="card heritage-indigo">
+          <div class="card-variant-label">Heritage — Indigo 靛藍</div>
+          <div class="card-title">視覺識別</div>
+          <div class="card-text">3px 靛藍左邊框，用於奇數位置或靛藍語境的內容卡片。</div>
+        </div>
+
+        <div class="card heritage-crimson">
+          <div class="card-variant-label">Heritage — Crimson 緋紅</div>
+          <div class="card-title">品牌體驗</div>
+          <div class="card-text">3px 緋紅左邊框，用於偶數位置或緋紅語境的內容卡片。</div>
+        </div>
+
+        <div class="card stat-card">
+          <div class="card-variant-label">Stat Card 數據卡</div>
+          <div class="stat-number">97%</div>
+          <div class="stat-label">客戶滿意度</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Navigation -->
+    <section id="navigation" class="section">
+      <div class="section-overline">Navigation</div>
+      <h2>導覽列</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+      <p>靛藍背景、白色連結文字、緋紅 active 底線、緋紅 CTA 按鈕。</p>
+
+      <div class="nav-mockup">
+        <div class="nav-logo">璽韻</div>
+        <a href="#" class="nav-link active">首頁</a>
+        <a href="#" class="nav-link">關於</a>
+        <a href="#" class="nav-link">服務</a>
+        <a href="#" class="nav-link">作品</a>
+        <a href="#" class="nav-cta">聯繫我們</a>
+      </div>
+    </section>
+
+    <!-- 9. Inputs -->
+    <section id="inputs" class="section">
+      <div class="section-overline">Form Inputs</div>
+      <h2>表單輸入</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+
+      <div class="input-group">
+        <label class="input-label">姓名 Name</label>
+        <input type="text" class="input-field" placeholder="請輸入您的姓名">
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">服務類型 Service Type</label>
+        <select class="input-field">
+          <option value="">請選擇</option>
+          <option>品牌策略</option>
+          <option>視覺識別</option>
+          <option>數位體驗</option>
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label class="input-label">備註 Notes</label>
+        <textarea class="input-field" placeholder="請描述您的需求..."></textarea>
+      </div>
+    </section>
+
+    <!-- 10. Dividers -->
+    <section id="dividers" class="section">
+      <div class="section-overline">Dividers</div>
+      <h2>分隔線</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+
+      <div class="divider-demo">
+        <div class="divider-label">Standard — Mist 標準</div>
+        <div class="divider-standard"></div>
+        <p style="font-size:13px;color:var(--warm-gray);margin:12px 0 24px;">1px Mist，用於一般段落分隔</p>
+
+        <div class="divider-label">Heritage — Dual-Color 璽韻雙色</div>
+        <div class="divider-heritage"><div class="dh-indigo"></div><div class="dh-crimson"></div></div>
+        <p style="font-size:13px;color:var(--warm-gray);margin:12px 0 24px;">48px 寬，3px 高，靛藍+緋紅各半。用於段落標題下方</p>
+
+        <div class="divider-label">Section — Full-Width Gradient 全寬漸層</div>
+        <div class="divider-section"></div>
+        <p style="font-size:13px;color:var(--warm-gray);margin:12px 0 0;">靛藍到緋紅的漸層，1px，用於大區塊之間</p>
+      </div>
+    </section>
+
+    <!-- 11. Motion -->
+    <section id="motion" class="section">
+      <div class="section-overline">Motion</div>
+      <h2>動態效果</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+      <p>璽韻風華的動態語彙強調「沉穩」與「從容」。所有動畫皆為功能導向，絕不彈跳、絕不過衝。</p>
+
+      <ul class="motion-list">
+        <li>
+          <strong>Transition Duration 過渡時長</strong>
+          預設 200ms，複雜動畫不超過 400ms。使用 ease-out 或 ease-in-out 曲線。
+        </li>
+        <li>
+          <strong>Hover State 懸停態</strong>
+          色彩過渡 200ms，不改變元素尺寸。按鈕可搭配極微弱的 translateY(-1px)。
+        </li>
+        <li>
+          <strong>Fade-In 淡入</strong>
+          opacity 0→1，搭配 translateY(8px→0)，300ms ease-out。用於滾動觸發的區塊進場。
+        </li>
+        <li>
+          <strong>Focus Ring 焦點環</strong>
+          box-shadow 以 150ms 過渡展現 Indigo Wash 光暈，3px 擴散。
+        </li>
+        <li>
+          <strong>禁止事項</strong>
+          不使用 bounce、elastic、spring 等誇張曲線。不使用超過 500ms 的動畫。不使用旋轉、縮放等變形效果。
+        </li>
+      </ul>
+    </section>
+
+    <!-- 12. Logo Usage -->
+    <section id="logo" class="section">
+      <div class="section-overline">Logo Usage</div>
+      <h2>標誌使用</h2>
+      <div class="heritage-rule"><div class="hr-indigo"></div><div class="hr-crimson"></div></div>
+      <p>以下展示標誌在不同背景上的呈現方式。實際標誌檔案請使用 SVG 格式。</p>
+
+      <div class="logo-grid">
+        <div class="logo-box logo-on-parchment">
+          <div class="logo-placeholder">
+            <div class="logo-icon">璽</div>
+            <div class="logo-wordmark">璽韻風華</div>
+          </div>
+          <div class="logo-bg-label">Parchment</div>
+        </div>
+
+        <div class="logo-box logo-on-white">
+          <div class="logo-placeholder">
+            <div class="logo-icon">璽</div>
+            <div class="logo-wordmark">璽韻風華</div>
+          </div>
+          <div class="logo-bg-label">White</div>
+        </div>
+
+        <div class="logo-box logo-on-indigo">
+          <div class="logo-placeholder">
+            <div class="logo-icon">璽</div>
+            <div class="logo-wordmark">璽韻風華</div>
+          </div>
+          <div class="logo-bg-label">Indigo</div>
+        </div>
+
+        <div class="logo-box logo-on-navy">
+          <div class="logo-placeholder">
+            <div class="logo-icon">璽</div>
+            <div class="logo-wordmark">璽韻風華</div>
+          </div>
+          <div class="logo-bg-label">Deep Navy</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Sidebar active state script -->
+<script>
+(function() {
+  const links = document.querySelectorAll('.sidebar nav a');
+  const sections = document.querySelectorAll('.section[id]');
+
+  function updateActive() {
+    let current = '';
+    sections.forEach(function(section) {
+      const top = section.getBoundingClientRect().top;
+      if (top <= 80) current = section.id;
+    });
+    links.forEach(function(link) {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+})();
+</script>
+
+</body>
+</html>
