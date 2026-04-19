@@ -85,22 +85,20 @@
     margin: 0 auto;
   }
   .grid-main {
-    grid-template-columns: repeat(5, 1fr);
-    max-width: 1600px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
   }
   .grid-elim {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 700px;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1100px;
     padding-top: 32px;
   }
   .grid-elim .card { opacity: 0.45; transition: opacity 0.3s; }
   .grid-elim .card:hover { opacity: 0.8; }
 
-  @media (max-width: 1400px) {
-    .grid-main { grid-template-columns: repeat(3, 1fr); max-width: 1000px; }
-  }
   @media (max-width: 1000px) {
-    .grid-main { grid-template-columns: repeat(2, 1fr); max-width: 800px; }
+    .grid-main { grid-template-columns: repeat(2, 1fr); }
+    .grid-elim { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 700px) {
     .grid-main { grid-template-columns: 1fr; padding: 40px 24px; gap: 24px; }
@@ -152,48 +150,31 @@
   /* Style previews */
   .preview-1 { background: linear-gradient(160deg, #120820 0%, #1a0d30 40%, #0d1640 100%); }
   .preview-1 .preview-tag { color: #D4AF6A; }
-  .preview-1::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 80%, rgba(212,175,106,0.08) 0%, transparent 70%);
-  }
+  .preview-1::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 80%, rgba(212,175,106,0.08) 0%, transparent 70%); }
 
+  /* Style 8: Deep Indigo-Purple */
+  .preview-8 { background: linear-gradient(160deg, #080716 0%, #131230 50%, #2A1E96 100%); }
+  .preview-8 .preview-tag { color: #C9A96E; }
+  .preview-8::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 80%, rgba(42,30,150,0.2) 0%, transparent 70%); }
+
+  /* Style 9: Amethyst */
+  .preview-9 { background: linear-gradient(160deg, #0A0920 0%, #1C1840 45%, #5040C8 100%); }
+  .preview-9 .preview-tag { color: #D4B97A; }
+  .preview-9::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 50% 80%, rgba(123,104,232,0.18) 0%, transparent 70%); }
+
+  /* Eliminated styles */
   .preview-2 { background: #F5F2ED; }
   .preview-2 .preview-tag { color: #1B2D8B; }
-
   .preview-3 { background: #1B2D8B; }
   .preview-3 .preview-tag { color: rgba(255,255,255,0.5); }
-
   .preview-4 { background: linear-gradient(135deg, #0C1024 0%, #1B2D8B 60%, #11205E 100%); }
   .preview-4 .preview-tag { color: #C9A96E; }
-  .preview-4::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 80%, rgba(201,169,110,0.06) 0%, transparent 70%);
-  }
-
   .preview-5 { background: #FAF8F5; border: 1px solid #E8E5E0; }
   .preview-5 .preview-tag { color: #B8A088; opacity: 1; }
-
   .preview-6 { background: linear-gradient(135deg, #0C1024 0%, #1B2D8B 60%, #450c18 100%); }
   .preview-6 .preview-tag { color: #E31445; }
-  .preview-6::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 80%, rgba(227,20,69,0.06) 0%, transparent 70%);
-  }
-
   .preview-7 { background: #F8F5F0; border: 1px solid #D8D5CE; }
   .preview-7 .preview-tag { color: #7A7B86; opacity: 1; }
-  .preview-7 .heritage-mark { display: flex; gap: 0; margin-top: 8px; }
-  .preview-7 .heritage-mark span:first-child { width: 16px; height: 2px; background: #1B2D8B; }
-  .preview-7 .heritage-mark span:last-child { width: 16px; height: 2px; background: #C4243B; }
-
-  .btn-main-7 { background: rgba(27,45,139,0.08); color: #1B2D8B; border: 1px solid rgba(27,45,139,0.2); }
-  .btn-main-7:hover { background: rgba(27,45,139,0.15); }
 
   /* Button styles */
   .btn-main {
@@ -212,14 +193,16 @@
   .btn-main .arrow { font-size: 16px; }
 
   .btn-main-1 { background: rgba(212,175,106,0.12); color: #D4AF6A; border: 1px solid rgba(212,175,106,0.2); }
+  .btn-main-8 { background: rgba(42,30,150,0.15); color: #C9A96E; border: 1px solid rgba(42,30,150,0.35); }
+  .btn-main-9 { background: linear-gradient(135deg, rgba(80,64,200,0.12), rgba(212,185,122,0.08)); color: #D4B97A; border: 1px solid rgba(123,104,232,0.3); }
+
+  /* Eliminated button styles */
   .btn-main-2 { background: rgba(227,20,69,0.1); color: #E31445; border: 1px solid rgba(227,20,69,0.2); }
   .btn-main-3 { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.15); }
   .btn-main-4 { background: linear-gradient(135deg, rgba(27,45,139,0.3), rgba(201,169,110,0.15)); color: #C9A96E; border: 1px solid rgba(201,169,110,0.25); }
-  .btn-main-4:hover { background: linear-gradient(135deg, rgba(27,45,139,0.5), rgba(201,169,110,0.25)); }
   .btn-main-5 { background: rgba(184,160,136,0.1); color: #B8A088; border: 1px solid rgba(184,160,136,0.25); }
-  .btn-main-5:hover { background: rgba(184,160,136,0.2); }
   .btn-main-6 { background: linear-gradient(135deg, rgba(27,45,139,0.3), rgba(227,20,69,0.15)); color: #E31445; border: 1px solid rgba(227,20,69,0.25); }
-  .btn-main-6:hover { background: linear-gradient(135deg, rgba(27,45,139,0.5), rgba(227,20,69,0.25)); }
+  .btn-main-7 { background: rgba(27,45,139,0.08); color: #1B2D8B; border: 1px solid rgba(27,45,139,0.2); }
 
   .btn-ci {
     display: flex;
@@ -262,14 +245,26 @@
     flex-grow: 1;
     margin-bottom: 24px;
   }
-
-  /* Actions */
   .card-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: auto;
   }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .badge-finalist { background: rgba(201,169,110,0.15); color: #C9A96E; border: 1px solid rgba(201,169,110,0.3); }
+  .badge-new { background: rgba(42,30,150,0.2); color: #A090FF; border: 1px solid rgba(100,80,220,0.3); }
 
   /* Footer */
   footer {
@@ -294,6 +289,137 @@
 
 <!-- ===== 入選風格 ===== -->
 <div class="grid grid-main">
+
+  <!-- Style 1 — 首選 -->
+  <div class="card">
+    <div class="preview preview-1">
+      <div class="preview-inner">
+        <img src="assets/logo-standard.png" alt="璽" style="height:72px; filter:drop-shadow(0 0 20px rgba(212,175,106,0.4));">
+        <div class="preview-tag">Dark Indigo &amp; Gold</div>
+      </div>
+    </div>
+    <div class="badge badge-finalist">★ 首選</div>
+    <div class="card-num">Style 01</div>
+    <div class="card-title">靛藍金韻</div>
+    <p class="card-desc">以深邃暗色為底，靛藍與金色交織，呈現高端精英的顧問質感。沉穩大氣，適合強調品牌厚度與專業信賴感。</p>
+    <div class="card-actions">
+      <a href="style1/index.html" class="btn-main btn-main-1">
+        <span>進入風格一</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style1/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
+    </div>
+  </div>
+
+  <!-- Style 8 -->
+  <div class="card">
+    <div class="preview preview-8">
+      <div class="preview-inner">
+        <img src="assets/logo-standard.png" alt="璽" style="height:72px; filter:drop-shadow(0 0 24px rgba(42,30,150,0.6)) drop-shadow(0 0 12px rgba(201,169,110,0.3));">
+        <div class="preview-tag">Indigo-Purple · Deep</div>
+      </div>
+    </div>
+    <div class="badge badge-new">NEW</div>
+    <div class="card-num">Style 08</div>
+    <div class="card-title">湛藍金玉·深邃</div>
+    <p class="card-desc">以藍紫深邃色調取代純藍，搭配品牌金色，呈現有別於政治感藍色的「湛藍金玉」質感。沉穩而神秘，兼具尊榮與現代感。</p>
+    <div class="card-actions">
+      <a href="style8/index.html" class="btn-main btn-main-8">
+        <span>進入風格八</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style8/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
+    </div>
+  </div>
+
+  <!-- Style 9 -->
+  <div class="card">
+    <div class="preview preview-9">
+      <div class="preview-inner">
+        <img src="assets/logo-standard.png" alt="璽" style="height:72px; filter:drop-shadow(0 0 28px rgba(123,104,232,0.55)) drop-shadow(0 0 14px rgba(212,185,122,0.25));">
+        <div class="preview-tag">Amethyst Heritage Luxury</div>
+      </div>
+    </div>
+    <div class="badge badge-new">NEW</div>
+    <div class="card-num">Style 09</div>
+    <div class="card-title">湛藍金玉·典藏</div>
+    <p class="card-desc">以紫羅蘭紫晶詮釋「湛藍金玉」的深度，藍金漸層交織，呈現寶石般的典藏奢華。是風格八的更富麗版本，神秘感更強烈。</p>
+    <div class="card-actions">
+      <a href="style9/index.html" class="btn-main btn-main-9">
+        <span>進入風格九</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style9/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== 文案確認 ===== -->
+<div class="section-header">
+  <h2 style="color:#fff; font-weight:400;">文案確認</h2>
+  <p style="color:rgba(255,255,255,0.45);">需客戶確認的網站文案內容，確認後將套入正式設計</p>
+</div>
+
+<div class="grid" style="grid-template-columns:1fr; max-width:460px; padding-bottom:48px;">
+  <div class="card" style="opacity:1; border-right:none;">
+    <div class="preview" style="background:linear-gradient(135deg, #0C1024 0%, #1B2D8B 50%, #0e1226 100%);">
+      <div class="preview-inner" style="gap:6px;">
+        <span style="font-size:36px; color:#c9a96e;">&#9998;</span>
+        <div class="preview-tag" style="color:#c9a96e;">Copy Review</div>
+      </div>
+    </div>
+    <div class="card-num">COPY 01</div>
+    <div class="card-title">企業文化</div>
+    <p class="card-desc">「關於我們」頁面的企業文化區塊。涵蓋服務理念、三大服務文化、專業深度、團隊文化。文案來源：EP214 Podcast 訪談。</p>
+    <div class="card-actions">
+      <a href="copy-review-culture.html" class="btn-main btn-main-4">
+        <span>進入文案確認</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 淘汰風格 ===== -->
+<div class="section-header">
+  <h2>淘汰風格</h2>
+  <p>已排除或不符合本次預期的設計方向</p>
+</div>
+
+<div class="grid grid-elim">
+
+  <!-- Style 2 -->
+  <div class="card">
+    <div class="preview preview-2">
+      <div class="preview-inner">
+        <img src="assets/logo-standard.png" alt="璽" style="height:80px;">
+        <div class="preview-tag">Editorial Light</div>
+      </div>
+    </div>
+    <div class="card-num">Style 02</div>
+    <div class="card-title">留白書卷</div>
+    <p class="card-desc">溫暖紙白底色搭配靛藍與緋紅，呈現雜誌式的編輯美學。清雅知性，適合強調專業內涵與品牌溫度。</p>
+    <div class="card-actions">
+      <a href="style2/index.html" class="btn-main btn-main-2">
+        <span>進入風格二</span>
+        <span class="arrow">→</span>
+      </a>
+      <a href="style2/ci.html" class="btn-ci">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
+        查看 CI 規範
+      </a>
+    </div>
+  </div>
 
   <!-- Style 3 -->
   <div class="card">
@@ -392,11 +518,11 @@
     <div class="preview preview-7">
       <div class="preview-inner">
         <img src="assets/logo-standard.png" alt="璽" style="height:72px;">
-        <div class="heritage-mark"><span></span><span></span></div>
+        <div style="display:flex; gap:0; margin-top:8px;"><span style="width:16px;height:2px;background:#1B2D8B;display:block;"></span><span style="width:16px;height:2px;background:#C4243B;display:block;"></span></div>
         <div class="preview-tag">Heritage Elegance</div>
       </div>
     </div>
-    <div class="card-num">Style 07 — NEW</div>
+    <div class="card-num">Style 07</div>
     <div class="card-title">璽韻風華</div>
     <p class="card-desc">融合品牌雙主色靛藍與緋紅，注入企業文化的人文溫度與低調奢華的克制美學。雙色交織，傳承與熱忱並存。</p>
     <div class="card-actions">
@@ -405,91 +531,6 @@
         <span class="arrow">→</span>
       </a>
       <a href="style7/ci.html" class="btn-ci">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
-        查看 CI 規範
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<!-- ===== 文案確認 ===== -->
-<div class="section-header">
-  <h2 style="color:#fff; font-weight:400;">文案確認</h2>
-  <p style="color:rgba(255,255,255,0.45);">需客戶確認的網站文案內容，確認後將套入正式設計</p>
-</div>
-
-<div class="grid grid-elim" style="padding-bottom:48px;">
-
-  <!-- Copy: Culture -->
-  <div class="card" style="opacity:1;">
-    <div class="preview" style="background:linear-gradient(135deg, #0C1024 0%, #1B2D8B 50%, #0e1226 100%);">
-      <div class="preview-inner" style="gap:6px;">
-        <span style="font-size:36px; color:#c9a96e;">&#9998;</span>
-        <div class="preview-tag" style="color:#c9a96e;">Copy Review</div>
-      </div>
-    </div>
-    <div class="card-num">COPY 01</div>
-    <div class="card-title">企業文化</div>
-    <p class="card-desc">「關於我們」頁面的企業文化區塊。涵蓋服務理念、三大服務文化、專業深度、團隊文化。文案來源：EP214 Podcast 訪談。</p>
-    <div class="card-actions">
-      <a href="copy-review-culture.html" class="btn-main btn-main-4">
-        <span>進入文案確認</span>
-        <span class="arrow">→</span>
-      </a>
-    </div>
-  </div>
-
-</div>
-
-<!-- ===== 淘汰風格 ===== -->
-<div class="section-header">
-  <h2>淘汰風格</h2>
-  <p>已排除或不符合本次預期的設計方向</p>
-</div>
-
-<div class="grid grid-elim">
-
-  <!-- Style 1 -->
-  <div class="card">
-    <div class="preview preview-1">
-      <div class="preview-inner">
-        <img src="assets/logo-standard.png" alt="璽" style="height:72px; filter:drop-shadow(0 0 20px rgba(212,175,106,0.4));">
-        <div class="preview-tag">Dark Indigo &amp; Gold</div>
-      </div>
-    </div>
-    <div class="card-num">Style 01</div>
-    <div class="card-title">靛藍金韻</div>
-    <p class="card-desc">以深邃暗色為底，靛藍與金色交織，呈現高端精英的顧問質感。沉穩大氣，適合強調品牌厚度與專業信賴感。</p>
-    <div class="card-actions">
-      <a href="style1/index.html" class="btn-main btn-main-1">
-        <span>進入風格一</span>
-        <span class="arrow">→</span>
-      </a>
-      <a href="style1/ci.html" class="btn-ci">
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
-        查看 CI 規範
-      </a>
-    </div>
-  </div>
-
-  <!-- Style 2 -->
-  <div class="card">
-    <div class="preview preview-2">
-      <div class="preview-inner">
-        <img src="assets/logo-standard.png" alt="璽" style="height:80px;">
-        <div class="preview-tag">Editorial Light</div>
-      </div>
-    </div>
-    <div class="card-num">Style 02</div>
-    <div class="card-title">留白書卷</div>
-    <p class="card-desc">溫暖紙白底色搭配靛藍與緋紅，呈現雜誌式的編輯美學。清雅知性，適合強調專業內涵與品牌溫度。</p>
-    <div class="card-actions">
-      <a href="style2/index.html" class="btn-main btn-main-2">
-        <span>進入風格二</span>
-        <span class="arrow">→</span>
-      </a>
-      <a href="style2/ci.html" class="btn-ci">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="1.5"/><path d="M5 6h6M5 9h4"/></svg>
         查看 CI 規範
       </a>

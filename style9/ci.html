@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DASI CI — Style 9: 湛藍金玉·典藏</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #0A0920;
+      --surface:   #120F2A;
+      --card:      #1C1840;
+      --purple:    #5040C8;
+      --violet:    #7B68E8;
+      --gold:      #D4B97A;
+      --text:      #F0EDFF;
+      --muted:     #B0A8D8;
+      --dim:       #6A6090;
+      --serif:     'Cormorant Garamond','Noto Serif TC',serif;
+      --sans:      'Inter','Noto Sans TC',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.8;}
+    .page-wrap{display:flex;min-height:100vh;}
+    .sidebar{width:220px;flex-shrink:0;position:fixed;top:0;left:0;height:100vh;background:rgba(10,9,32,0.98);border-right:1px solid rgba(212,185,122,0.10);overflow-y:auto;z-index:100;padding:32px 0;}
+    .sidebar-brand{padding:0 24px 24px;border-bottom:1px solid rgba(123,104,232,0.15);margin-bottom:20px;}
+    .sidebar-brand .name{font-family:var(--serif);font-size:13px;letter-spacing:0.12em;color:var(--gold);}
+    .sidebar-brand .sub{font-size:11px;color:var(--dim);margin-top:4px;}
+    .toc-label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);padding:0 24px;margin-bottom:8px;display:block;}
+    .toc-nav a{display:block;padding:8px 24px;font-size:12px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;transition:all 0.2s;}
+    .toc-nav a:hover{color:var(--gold);border-left-color:var(--violet);background:rgba(123,104,232,0.05);}
+    .main-content{margin-left:220px;flex:1;}
+    .ci-header{background:linear-gradient(135deg,#0A0920 0%,#1C1840 40%,#2A1E68 80%,#5040C8 100%);padding:80px 72px 96px;border-bottom:2px solid var(--gold);position:relative;overflow:hidden;}
+    .ci-header::before{content:'';position:absolute;top:-20%;right:0;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(123,104,232,0.12) 0%,transparent 70%);pointer-events:none;}
+    .ci-header::after{content:'';position:absolute;bottom:-10%;left:10%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(212,185,122,0.06) 0%,transparent 70%);pointer-events:none;}
+    .style-tag{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block;}
+    .ci-header h1{font-family:var(--serif);font-size:56px;font-weight:300;line-height:1.15;letter-spacing:0.02em;color:var(--text);margin-bottom:8px;}
+    .ci-header h1 span{color:var(--gold);}
+    .ci-header .subtitle{font-family:var(--serif);font-size:22px;color:var(--muted);margin-bottom:32px;}
+    .ci-header .desc{font-size:15px;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:48px;}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;}
+    .chip{width:48px;height:48px;border:1px solid rgba(255,255,255,0.08);}
+    .ci-section{padding:80px 72px;border-bottom:1px solid rgba(123,104,232,0.08);max-width:1200px;}
+    .ci-section:last-child{border-bottom:none;}
+    .overline{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);display:block;margin-bottom:16px;}
+    .violet-rule{width:60px;height:2px;background:linear-gradient(to right,var(--purple),var(--gold));margin-bottom:16px;}
+    .section-h{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--text);margin-bottom:8px;}
+    .section-sub{font-family:var(--serif);font-size:17px;color:var(--dim);margin-bottom:48px;}
+
+    .swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:24px;}
+    .swatch-box{height:100px;border:1px solid rgba(255,255,255,0.06);margin-bottom:12px;}
+    .swatch-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
+    .swatch-hex{font-size:12px;font-family:monospace;color:var(--muted);}
+    .swatch-use{font-size:11px;color:var(--dim);line-height:1.4;}
+
+    .type-row{padding:28px 0;border-bottom:1px solid rgba(123,104,232,0.08);display:grid;grid-template-columns:100px 1fr;gap:32px;align-items:start;}
+    .type-row:last-child{border-bottom:none;}
+    .type-meta{font-size:11px;color:var(--dim);line-height:1.6;padding-top:8px;}
+    .type-meta strong{display:block;color:var(--muted);font-size:12px;margin-bottom:4px;}
+
+    .btn-row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin-bottom:32px;}
+    .btn{display:inline-flex;align-items:center;height:48px;padding:0 32px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;transition:all 0.25s;}
+    .btn-primary{background:linear-gradient(135deg,var(--purple),var(--violet));color:#fff;}
+    .btn-primary:hover{filter:brightness(1.15);}
+    .btn-outline{background:transparent;color:var(--gold);border:1px solid rgba(212,185,122,0.35);}
+    .btn-outline:hover{background:rgba(212,185,122,0.08);}
+    .btn-ghost{background:rgba(123,104,232,0.06);color:var(--muted);border:1px solid rgba(123,104,232,0.15);}
+
+    .usage-note{font-size:13px;color:var(--dim);line-height:1.7;padding:20px 24px;background:rgba(80,64,200,0.06);border-left:2px solid var(--violet);}
+
+    table{width:100%;border-collapse:collapse;font-size:13px;}
+    thead tr{border-bottom:2px solid rgba(212,185,122,0.2);}
+    th{text-align:left;padding:12px 16px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+    td{padding:12px 16px;border-bottom:1px solid rgba(123,104,232,0.08);color:var(--muted);}
+    td:first-child{color:var(--text);font-weight:500;}
+
+    .diamond{display:inline-block;width:6px;height:6px;background:var(--gold);transform:rotate(45deg);margin:0 8px;}
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="name">DASI CI Guide</div>
+      <div class="sub">Style 09 — 湛藍金玉·典藏</div>
+    </div>
+    <span class="toc-label">目錄</span>
+    <nav class="toc-nav">
+      <a href="#overview">概覽</a>
+      <a href="#colors">色彩系統</a>
+      <a href="#typography">字型規範</a>
+      <a href="#buttons">按鈕元件</a>
+      <a href="#layout">版面原則</a>
+      <a href="#usage">使用規範</a>
+    </nav>
+    <div style="padding:24px;margin-top:auto;">
+      <a href="index.html" style="font-size:12px;color:var(--dim);text-decoration:none;">← 返回首頁</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="ci-header" id="overview">
+      <span class="style-tag">Style 09 — CI Design Specification</span>
+      <h1>湛藍金玉<span>·典藏</span></h1>
+      <div class="subtitle">Amethyst Heritage Luxury</div>
+      <p class="desc">以紫羅蘭紫晶色調詮釋「湛藍金玉」的深度，搭配大璽品牌金色，呈現寶石般的典藏質感。紫藍雙色交織，兼具神秘感與企業尊榮，是風格八的更奢華版本。</p>
+      <div class="chips">
+        <div class="chip" style="background:#0A0920;"></div>
+        <div class="chip" style="background:#1C1840;"></div>
+        <div class="chip" style="background:#5040C8;"></div>
+        <div class="chip" style="background:#7B68E8;"></div>
+        <div class="chip" style="background:#D4B97A;"></div>
+        <div class="chip" style="background:#F0EDFF;border:1px solid rgba(123,104,232,0.2);"></div>
+      </div>
+    </div>
+
+    <section class="ci-section" id="colors">
+      <span class="overline">01 — Colour System</span>
+      <div class="violet-rule"></div>
+      <h2 class="section-h">色彩系統</h2>
+      <div class="section-sub">湛藍金玉·典藏 Colour Palette</div>
+      <div class="swatch-grid">
+        <div>
+          <div class="swatch-box" style="background:#0A0920;"></div>
+          <div class="swatch-name">紫夜底色</div>
+          <div class="swatch-hex">#0A0920</div>
+          <div class="swatch-use">主背景、英雄區底色</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#120F2A;"></div>
+          <div class="swatch-name">段落底色</div>
+          <div class="swatch-hex">#120F2A</div>
+          <div class="swatch-use">內頁 section 背景</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#1C1840;"></div>
+          <div class="swatch-name">卡片底色</div>
+          <div class="swatch-hex">#1C1840</div>
+          <div class="swatch-use">服務卡片、容器</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#241F50;"></div>
+          <div class="swatch-name">卡片懸停</div>
+          <div class="swatch-hex">#241F50</div>
+          <div class="swatch-use">卡片 hover 狀態</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#5040C8;"></div>
+          <div class="swatch-name">紫晶（深）</div>
+          <div class="swatch-hex">#5040C8</div>
+          <div class="swatch-use">主色，漸層起點</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#7B68E8;"></div>
+          <div class="swatch-name">紫羅蘭（亮）</div>
+          <div class="swatch-hex">#7B68E8</div>
+          <div class="swatch-use">漸層終點、圖示點綴</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#D4B97A;"></div>
+          <div class="swatch-name">暖金</div>
+          <div class="swatch-hex">#D4B97A</div>
+          <div class="swatch-use">裝飾金色、次要按鈕邊框</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#F0EDFF;border:1px solid rgba(123,104,232,0.15);"></div>
+          <div class="swatch-name">主要文字</div>
+          <div class="swatch-hex">#F0EDFF</div>
+          <div class="swatch-use">標題、重要文字</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#B0A8D8;border:1px solid rgba(123,104,232,0.10);"></div>
+          <div class="swatch-name">次要文字</div>
+          <div class="swatch-hex">#B0A8D8</div>
+          <div class="swatch-use">說明文字、副標題</div>
+        </div>
+      </div>
+      <div style="margin-top:32px;padding:24px;background:rgba(80,64,200,0.06);border-left:2px solid var(--violet);">
+        <div style="font-size:13px;color:var(--dim);line-height:1.7;">
+          <strong style="color:var(--muted);display:block;margin-bottom:8px;">漸層應用</strong>
+          主要按鈕使用 <code style="background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:3px;">linear-gradient(135deg, #5040C8, #7B68E8)</code> 紫晶漸層。
+          分隔線、裝飾線使用 <code style="background:rgba(255,255,255,0.05);padding:2px 6px;border-radius:3px;">linear-gradient(to right, #5040C8, #D4B97A)</code> 藍金漸層。
+        </div>
+      </div>
+    </section>
+
+    <section class="ci-section" id="typography">
+      <span class="overline">02 — Typography</span>
+      <div class="violet-rule"></div>
+      <h2 class="section-h">字型系統</h2>
+      <div class="section-sub">Type Scale</div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H1 / 頁面主標</strong>56px · 300 · 1.15</div>
+        <div style="font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:56px;font-weight:300;line-height:1.15;color:var(--text);">財稅・策略・專案</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H2 / 段落標題</strong>40px · 400 · 1.25</div>
+        <div style="font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:40px;font-weight:400;color:var(--text);">專業服務範疇</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H3 / 卡片標題</strong>28px · 700 · 1.35</div>
+        <div style="font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:28px;font-weight:700;color:var(--text);">IPO 輔導（上市上櫃）</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Body / 正文</strong>15–16px · 400 · 1.75</div>
+        <div style="font-size:15px;color:var(--muted);line-height:1.75;">提供企業上市櫃前的全面規劃，從財務體質調整、內控制度建立到資本市場策略，為您的卓越發展奠定穩固基礎。</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Overline / 標籤</strong>11–13px · 600 · 大寫</div>
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);">DASI International</div>
+      </div>
+    </section>
+
+    <section class="ci-section" id="buttons">
+      <span class="overline">03 — Components</span>
+      <div class="violet-rule"></div>
+      <h2 class="section-h">按鈕元件</h2>
+      <div class="section-sub">Button System</div>
+      <div class="btn-row">
+        <div>
+          <button class="btn btn-primary">預約諮詢</button>
+          <div style="margin-top:8px;font-size:11px;color:var(--dim);">Primary — 紫晶漸層</div>
+        </div>
+        <div>
+          <button class="btn btn-outline">瞭解更多</button>
+          <div style="margin-top:8px;font-size:11px;color:var(--dim);">Outline — 暖金邊框</div>
+        </div>
+        <div>
+          <button class="btn btn-ghost">查看詳情</button>
+          <div style="margin-top:8px;font-size:11px;color:var(--dim);">Ghost — 紫藍淡底</div>
+        </div>
+      </div>
+      <div class="usage-note">風格九的按鈕採用紫晶漸層（#5040C8 → #7B68E8），與風格八的純藍紫色形成區隔，強調更豐富的色彩層次與寶石般的光感。次要按鈕使用暖金邊框，呼應整體奢華定調。</div>
+    </section>
+
+    <section class="ci-section" id="layout">
+      <span class="overline">04 — Layout</span>
+      <div class="violet-rule"></div>
+      <h2 class="section-h">版面原則</h2>
+      <div class="section-sub">Layout Principles</div>
+      <table>
+        <thead>
+          <tr><th>元素</th><th>規範</th><th>備註</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>導覽列高度</td><td>80px</td><td>Fixed 定位，毛玻璃效果</td></tr>
+          <tr><td>英雄區高度</td><td>100vh</td><td>全螢幕，雙色光暈裝飾</td></tr>
+          <tr><td>段落 padding</td><td>96px 上下 / 32px 左右</td><td>奢華留白設計</td></tr>
+          <tr><td>最大寬度</td><td>1280px</td><td>內容區居中</td></tr>
+          <tr><td>分隔線</td><td>藍金漸層線</td><td>替代純金色單色線</td></tr>
+          <tr><td>裝飾菱形</td><td>6×6px 金色旋轉</td><td>章節分隔裝飾元素</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="ci-section" id="usage">
+      <span class="overline">05 — Usage Rules</span>
+      <div class="violet-rule"></div>
+      <h2 class="section-h">使用規範</h2>
+      <div class="section-sub">Do &amp; Don't</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="padding:32px;background:rgba(80,64,200,0.06);border-top:2px solid var(--violet);">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:0.05em;">✓ 應遵守</div>
+          <ul style="font-size:13px;color:var(--muted);line-height:2;list-style:none;">
+            <li>· 主要色以紫晶漸層（#5040C8→#7B68E8）呈現</li>
+            <li>· 裝飾線使用藍金漸層，增加層次感</li>
+            <li>· Logo 可搭配紫藍光暈效果</li>
+            <li>· 背景使用深紫系（非純黑）</li>
+            <li>· 可使用菱形（◆）作為章節裝飾元素</li>
+          </ul>
+        </div>
+        <div style="padding:32px;background:rgba(212,185,122,0.04);border-top:2px solid rgba(212,185,122,0.2);">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:0.05em;">✗ 禁止使用</div>
+          <ul style="font-size:13px;color:var(--muted);line-height:2;list-style:none;">
+            <li>· 不使用純藍色或緋紅色</li>
+            <li>· 不使用亮色或白色背景</li>
+            <li>· 主按鈕不使用純色，需使用漸層</li>
+            <li>· 不使用圓角（保持直角語言）</li>
+            <li>· 圖示顏色不超過兩種（金色 + 紫色）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>

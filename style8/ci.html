@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DASI CI — Style 8: 湛藍金玉·深邃</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #080716;
+      --surface:   #0F0D22;
+      --card:      #131230;
+      --purple:    #2A1E96;
+      --purple-lt: #3D2EC4;
+      --gold:      #C9A96E;
+      --text:      #E8E4FF;
+      --muted:     #A8A0C4;
+      --dim:       #60588A;
+      --serif:     'Cormorant Garamond','Noto Serif TC',serif;
+      --sans:      'Inter','Noto Sans TC',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.8;}
+    .page-wrap{display:flex;min-height:100vh;}
+    .sidebar{width:220px;flex-shrink:0;position:fixed;top:0;left:0;height:100vh;background:rgba(8,7,22,0.98);border-right:1px solid rgba(201,169,110,0.12);overflow-y:auto;z-index:100;padding:32px 0;}
+    .sidebar-brand{padding:0 24px 24px;border-bottom:1px solid rgba(201,169,110,0.12);margin-bottom:20px;}
+    .sidebar-brand .name{font-family:var(--serif);font-size:13px;letter-spacing:0.12em;color:var(--gold);}
+    .sidebar-brand .sub{font-size:11px;color:var(--dim);margin-top:4px;}
+    .toc-label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--dim);padding:0 24px;margin-bottom:8px;display:block;}
+    .toc-nav a{display:block;padding:8px 24px;font-size:12px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;transition:all 0.2s;}
+    .toc-nav a:hover{color:var(--gold);border-left-color:var(--gold);background:rgba(201,169,110,0.05);}
+    .main-content{margin-left:220px;flex:1;}
+    .ci-header{background:linear-gradient(135deg,#080716 0%,#131230 50%,#2A1E96 100%);padding:80px 72px 96px;border-bottom:2px solid var(--gold);position:relative;overflow:hidden;}
+    .ci-header::before{content:'';position:absolute;top:-30%;right:-5%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(42,30,150,0.15) 0%,transparent 70%);pointer-events:none;}
+    .style-tag{font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:block;}
+    .ci-header h1{font-family:var(--serif);font-size:56px;font-weight:300;line-height:1.15;letter-spacing:0.02em;color:var(--text);margin-bottom:8px;}
+    .ci-header h1 span{color:var(--gold);}
+    .ci-header .subtitle{font-family:var(--serif);font-size:22px;color:var(--muted);margin-bottom:32px;}
+    .ci-header .desc{font-size:15px;color:var(--muted);max-width:520px;line-height:1.8;margin-bottom:48px;}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;}
+    .chip{width:48px;height:48px;border:1px solid rgba(255,255,255,0.08);}
+    .ci-section{padding:80px 72px;border-bottom:1px solid rgba(201,169,110,0.08);max-width:1200px;}
+    .ci-section:last-child{border-bottom:none;}
+    .overline{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);display:block;margin-bottom:16px;}
+    .gold-rule{width:60px;height:2px;background:var(--gold);margin-bottom:16px;}
+    .section-h{font-family:var(--serif);font-size:40px;font-weight:400;color:var(--text);margin-bottom:8px;}
+    .section-sub{font-family:var(--serif);font-size:17px;color:var(--dim);margin-bottom:48px;}
+
+    .swatch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:24px;}
+    .swatch-box{height:100px;border:1px solid rgba(255,255,255,0.06);margin-bottom:12px;}
+    .swatch-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px;}
+    .swatch-hex{font-size:12px;font-family:monospace;color:var(--muted);}
+    .swatch-use{font-size:11px;color:var(--dim);line-height:1.4;}
+
+    .type-row{padding:28px 0;border-bottom:1px solid rgba(201,169,110,0.08);display:grid;grid-template-columns:100px 1fr;gap:32px;align-items:start;}
+    .type-row:last-child{border-bottom:none;}
+    .type-meta{font-size:11px;color:var(--dim);line-height:1.6;padding-top:8px;}
+    .type-meta strong{display:block;color:var(--muted);font-size:12px;margin-bottom:4px;}
+
+    .btn-row{display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin-bottom:32px;}
+    .btn{display:inline-flex;align-items:center;height:48px;padding:0 32px;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;border:none;text-decoration:none;transition:all 0.25s;}
+    .btn-primary{background:var(--purple);color:#fff;}
+    .btn-primary:hover{background:var(--purple-lt);}
+    .btn-outline{background:transparent;color:var(--gold);border:1px solid rgba(201,169,110,0.35);}
+    .btn-outline:hover{background:rgba(201,169,110,0.08);}
+    .btn-ghost{background:rgba(201,169,110,0.06);color:var(--muted);border:1px solid rgba(201,169,110,0.12);}
+
+    .usage-note{font-size:13px;color:var(--dim);line-height:1.7;padding:20px 24px;background:rgba(42,30,150,0.08);border-left:2px solid var(--purple);}
+
+    .comp-card{background:var(--card);border:1px solid rgba(201,169,110,0.08);padding:40px;margin-bottom:20px;}
+
+    table{width:100%;border-collapse:collapse;font-size:13px;}
+    thead tr{border-bottom:2px solid rgba(201,169,110,0.2);}
+    th{text-align:left;padding:12px 16px;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:600;}
+    td{padding:12px 16px;border-bottom:1px solid rgba(201,169,110,0.06);color:var(--muted);}
+    td:first-child{color:var(--text);font-weight:500;}
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="name">DASI CI Guide</div>
+      <div class="sub">Style 08 — 湛藍金玉·深邃</div>
+    </div>
+    <span class="toc-label">目錄</span>
+    <nav class="toc-nav">
+      <a href="#overview">概覽</a>
+      <a href="#colors">色彩系統</a>
+      <a href="#typography">字型規範</a>
+      <a href="#buttons">按鈕元件</a>
+      <a href="#layout">版面原則</a>
+      <a href="#usage">使用規範</a>
+    </nav>
+    <div style="padding:24px;margin-top:auto;">
+      <a href="index.html" style="font-size:12px;color:var(--dim);text-decoration:none;display:flex;align-items:center;gap:6px;">← 返回首頁</a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main class="main-content">
+    <!-- Header -->
+    <div class="ci-header">
+      <span class="style-tag">Style 08 — CI Design Specification</span>
+      <h1>湛藍金玉<span>·深邃</span></h1>
+      <div class="subtitle">Indigo-Purple Deep Luxury</div>
+      <p class="desc">以深邃藍紫為底色，融合大璽品牌金色，塑造有別於傳統藍色的「湛藍金玉」質感。去除政治感的純藍偏紅，改以藍紫深邃色調詮釋企業的沉穩與尊榮。</p>
+      <div class="chips">
+        <div class="chip" style="background:#080716;" title="#080716"></div>
+        <div class="chip" style="background:#131230;" title="#131230"></div>
+        <div class="chip" style="background:#2A1E96;" title="#2A1E96"></div>
+        <div class="chip" style="background:#3D2EC4;" title="#3D2EC4"></div>
+        <div class="chip" style="background:#C9A96E;" title="#C9A96E"></div>
+        <div class="chip" style="background:#E8E4FF;" title="#E8E4FF"></div>
+      </div>
+    </div>
+
+    <!-- Colors -->
+    <section class="ci-section" id="colors">
+      <span class="overline">01 — Colour System</span>
+      <div class="gold-rule"></div>
+      <h2 class="section-h">色彩系統</h2>
+      <div class="section-sub">湛藍金玉·深邃 Colour Palette</div>
+      <div class="swatch-grid">
+        <div>
+          <div class="swatch-box" style="background:#080716;"></div>
+          <div class="swatch-name">深邃底色</div>
+          <div class="swatch-hex">#080716</div>
+          <div class="swatch-use">主背景、英雄區背景</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#0F0D22;"></div>
+          <div class="swatch-name">內容底色</div>
+          <div class="swatch-hex">#0F0D22</div>
+          <div class="swatch-use">內頁 section 背景</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#131230;"></div>
+          <div class="swatch-name">卡片底色</div>
+          <div class="swatch-hex">#131230</div>
+          <div class="swatch-use">服務卡片、容器</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#1A1740;"></div>
+          <div class="swatch-name">卡片懸停</div>
+          <div class="swatch-hex">#1A1740</div>
+          <div class="swatch-use">卡片 hover 狀態</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#2A1E96;"></div>
+          <div class="swatch-name">品牌藍紫（主）</div>
+          <div class="swatch-hex">#2A1E96</div>
+          <div class="swatch-use">主要按鈕、Footer 背景</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#3D2EC4;"></div>
+          <div class="swatch-name">品牌藍紫（亮）</div>
+          <div class="swatch-hex">#3D2EC4</div>
+          <div class="swatch-use">按鈕 hover 狀態</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#C9A96E;"></div>
+          <div class="swatch-name">璽金</div>
+          <div class="swatch-hex">#C9A96E</div>
+          <div class="swatch-use">裝飾金線、圖示、強調文字</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#E8E4FF;border:1px solid rgba(201,169,110,0.15);"></div>
+          <div class="swatch-name">主要文字</div>
+          <div class="swatch-hex">#E8E4FF</div>
+          <div class="swatch-use">標題、正文主要文字</div>
+        </div>
+        <div>
+          <div class="swatch-box" style="background:#A8A0C4;border:1px solid rgba(201,169,110,0.10);"></div>
+          <div class="swatch-name">次要文字</div>
+          <div class="swatch-hex">#A8A0C4</div>
+          <div class="swatch-use">說明文字、副標題</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typography -->
+    <section class="ci-section" id="typography">
+      <span class="overline">02 — Typography</span>
+      <div class="gold-rule"></div>
+      <h2 class="section-h">字型系統</h2>
+      <div class="section-sub">Type Scale</div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H1 / 頁面主標</strong>56px · 300 · 1.15</div>
+        <div style="font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:56px;font-weight:300;line-height:1.15;color:var(--text);">財稅・策略・專案</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H2 / 段落標題</strong>40px · 400 · 1.25</div>
+        <div style="font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:40px;font-weight:400;color:var(--text);">專業服務範疇</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>H3 / 卡片標題</strong>28px · 700 · 1.35</div>
+        <div style="font-family:'Cormorant Garamond','Noto Serif TC',serif;font-size:28px;font-weight:700;color:var(--text);">IPO 輔導（上市上櫃）</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Body / 正文</strong>15–16px · 400 · 1.75</div>
+        <div style="font-family:'Inter','Noto Sans TC',sans-serif;font-size:15px;color:var(--muted);line-height:1.75;">提供企業上市櫃前的全面規劃，從財務體質調整、內控制度建立到資本市場策略，為您的卓越發展奠定穩固基礎。</div>
+      </div>
+      <div class="type-row">
+        <div class="type-meta"><strong>Overline / 標籤</strong>11–12px · 600 · 大寫</div>
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);">Core Competencies</div>
+      </div>
+      <div style="margin-top:32px;padding:24px;background:rgba(42,30,150,0.06);border-left:2px solid var(--purple);">
+        <div style="font-size:13px;font-weight:600;color:var(--muted);margin-bottom:8px;">字型配置說明</div>
+        <div style="font-size:13px;color:var(--dim);line-height:1.7;">
+          · 標題字族：Cormorant Garamond（英）＋ Noto Serif TC（中）<br>
+          · 正文字族：Inter（英）＋ Noto Sans TC（中）<br>
+          · 中英混排時，中文以 Noto Serif TC / Noto Sans TC 渲染，保持閱讀一致性
+        </div>
+      </div>
+    </section>
+
+    <!-- Buttons -->
+    <section class="ci-section" id="buttons">
+      <span class="overline">03 — Components</span>
+      <div class="gold-rule"></div>
+      <h2 class="section-h">按鈕元件</h2>
+      <div class="section-sub">Button System</div>
+      <div class="btn-row">
+        <div>
+          <button class="btn btn-primary">預約諮詢</button>
+          <div style="margin-top:8px;font-size:11px;color:var(--dim);">Primary CTA — #2A1E96</div>
+        </div>
+        <div>
+          <button class="btn btn-outline">瞭解更多</button>
+          <div style="margin-top:8px;font-size:11px;color:var(--dim);">Outline — Gold Border</div>
+        </div>
+        <div>
+          <button class="btn btn-ghost">查看詳情</button>
+          <div style="margin-top:8px;font-size:11px;color:var(--dim);">Ghost — Subtle</div>
+        </div>
+      </div>
+      <div class="usage-note">按鈕一律使用直角（border-radius: 0）以維持品牌的銳利感。主要行動按鈕使用品牌藍紫色，次要按鈕使用金色邊框，強調克制而不失精緻的質感。</div>
+    </section>
+
+    <!-- Layout -->
+    <section class="ci-section" id="layout">
+      <span class="overline">04 — Layout</span>
+      <div class="gold-rule"></div>
+      <h2 class="section-h">版面原則</h2>
+      <div class="section-sub">Layout Principles</div>
+      <table>
+        <thead>
+          <tr>
+            <th>元素</th>
+            <th>規範</th>
+            <th>備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>導覽列高度</td><td>80px</td><td>Fixed 定位，毛玻璃效果</td></tr>
+          <tr><td>英雄區高度</td><td>100vh</td><td>全螢幕高度</td></tr>
+          <tr><td>段落 padding</td><td>96px 上下 / 32px 左右</td><td>大螢幕可增至 64px</td></tr>
+          <tr><td>最大寬度</td><td>1280px</td><td>內容區居中對齊</td></tr>
+          <tr><td>卡片間距</td><td>6px（gap）</td><td>視覺融為一體感</td></tr>
+          <tr><td>Bento 格線</td><td>12欄 grid</td><td>大卡 8欄 / 小卡 4欄</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Usage -->
+    <section class="ci-section" id="usage">
+      <span class="overline">05 — Usage Rules</span>
+      <div class="gold-rule"></div>
+      <h2 class="section-h">使用規範</h2>
+      <div class="section-sub">Do &amp; Don't</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div style="padding:32px;background:rgba(42,30,150,0.06);border-top:2px solid var(--purple);">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:0.05em;">✓ 應遵守</div>
+          <ul style="font-size:13px;color:var(--muted);line-height:2;list-style:none;">
+            <li>· 以藍紫色（#2A1E96）為主要品牌色</li>
+            <li>· 金色僅用於裝飾線、圖示、強調文字</li>
+            <li>· Logo 置放時保持足夠空白</li>
+            <li>· 深色背景下文字對比度須達 AA 標準</li>
+            <li>· 標題使用 Cormorant Garamond 襯線字</li>
+          </ul>
+        </div>
+        <div style="padding:32px;background:rgba(201,169,110,0.04);border-top:2px solid rgba(201,169,110,0.25);">
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:0.05em;">✗ 禁止使用</div>
+          <ul style="font-size:13px;color:var(--muted);line-height:2;list-style:none;">
+            <li>· 不使用純藍（#1B2D8B 原品牌藍）作為主色</li>
+            <li>· 不使用緋紅色（#E31445）</li>
+            <li>· 不使用亮色背景或白色背景</li>
+            <li>· 不使用圓角（保持直角設計語言）</li>
+            <li>· 不使用超過 2 種以上強調色</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+</body>
+</html>
